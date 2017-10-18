@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,6 @@ import edu.ldcollege.util.RestStatus;
  *
  */
 @RestController
-@RequestMapping("/authorization")
 public class AuthorizationController {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -36,11 +36,11 @@ public class AuthorizationController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping()
-	@ResponseBody
+	@RequestMapping(value = "/auth/login",method = RequestMethod.POST)
+	@ResponseBody()
 	public RestResult authorization(String username,String password) {
 		if (logger.isInfoEnabled()) {
-			logger.info("GET /v1/authorization [username={},password={}]",username,password);
+			logger.info("POST /login [username={},password={}]",username,password);
 		}
 		Map<String, String> token = new HashMap<>();
 		String result = authorizationService.authorization(username, password);
@@ -48,11 +48,11 @@ public class AuthorizationController {
 		return new RestResult(RestStatus.SUCCEED, token);
 	}
 	
-	@PutMapping()
+	@RequestMapping(value = "/auth/register",method = RequestMethod.POST)
 	@ResponseBody
 	public RestResult register(String username,String password) {
 		if (logger.isInfoEnabled()) {
-			logger.info("PUT /v1/authorization 注册 [username={},password={}]",username,password);
+			logger.info("POST /signup 注册 [username={},password={}]",username,password);
 		}
 		authorizationService.authorization(username, password);
 		return new RestResult(RestStatus.SUCCEED, null);

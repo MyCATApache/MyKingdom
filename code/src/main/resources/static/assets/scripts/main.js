@@ -2,7 +2,7 @@
 // http
 (function(global,$){
 	function request(url,payload){
-        var tk = global.sessionStorage.getItem("tk");
+        var token = global.sessionStorage.getItem("token");
 		return $.ajax({
             url:url,
             method:payload.method,
@@ -10,8 +10,8 @@
             dataType:payload.dataType || 'json',
             beforeSend: function(jqxhr){
                 var headers = jqxhr.getAllResponseHeaders();
-                if(tk){
-                    jqxhr.setRequestHeader("tk",tk);
+                if(token){
+                    jqxhr.setRequestHeader("token",token);
                 }
                 // open loading
             },
@@ -20,7 +20,15 @@
                 // close loading
             },
             success: function(data, status,jqxhr){
-                // 
+                if(data && data.status){
+                    if(data.status == 200){
+                        payload.callback(data);
+                    }else if(data.status ==401 || data.status == 403){
+                        document.location.href="/login.html";
+                    } else {
+                        // show data.message
+                    }
+                }
             },
             // "timeout", "error", "abort", and "parsererror,404,500...
             error: function(jqxhr, status){

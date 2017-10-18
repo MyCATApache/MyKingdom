@@ -21,43 +21,4 @@ public class portalCtrl {
 		}
 	}
 	
-	@RequestMapping(value = "/api/getMyClasses", method = RequestMethod.GET)
-	public String getMyClasses(String userId) {
-		logger.info("getMyClasses " + userId);
-		try {
-			return "Success";
-		} catch (Exception e) {
-			return "失败:" + e;
-		}
-	}
-	
-	@RequestMapping(value = "/api/login", method = RequestMethod.POST)
-	public String login(String userId,String password) {
-		logger.info("login " + userId);
-		try {
-			return "Success";
-		} catch (Exception e) {
-			return "失败:" + e;
-		}
-	}
-	
-	@RequestMapping(value = "/api/submitHomework", method = RequestMethod.POST)
-	public String SubmitHomework(Object obj) {
-		logger.info("submitHomework ");
-		try {
-			return "Success";
-		} catch (Exception e) {
-			return "失败:" + e;
-		}
-	}
-	
-	@RequestMapping(value = "/api/markHomework", method = RequestMethod.POST)
-	public String gradeHomework(String userId) {
-		logger.info("markHomework " + userId);
-		try {
-			return "Success";
-		} catch (Exception e) {
-			return "失败:" + e;
-		}
-	}
 }

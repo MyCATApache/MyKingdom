@@ -19,7 +19,7 @@ import edu.ldcollege.bean.LdClassSummary;
 public class AdminController {
 	Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-	@RequestMapping(value = "/admin/api/assignclass", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/assignclass", method = RequestMethod.POST)
 	public String assginClasst(AssignClsBean assginClsBean) {
 		logger.info("assgin students " + assginClsBean);
 		try {
@@ -30,7 +30,7 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping("/admin/api/ldclassmap")
+	@RequestMapping("/admin/ldclassmap")
 	public List<KeyValueBean<Integer, String>> getLdClassMap() {
 		List<KeyValueBean<Integer, String>> arrays = IntStream.range(1, 20)
 				.mapToObj(i -> new KeyValueBean<Integer, String>(i, "Class " + i))
@@ -38,7 +38,7 @@ public class AdminController {
 		return arrays;
 	}
 
-	@RequestMapping("/admin/api/ldclasslist")
+	@RequestMapping("/admin/ldclasslist")
 	public List<LdClassSummary> getLdClassSummary() {
 		List<LdClassSummary> arrays = IntStream.range(1, 20).mapToObj(i -> {
 			LdClassSummary sumr = new LdClassSummary();

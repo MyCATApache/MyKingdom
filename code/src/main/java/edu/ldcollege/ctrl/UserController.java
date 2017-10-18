@@ -34,7 +34,7 @@ public class UserController {
 	@ResponseBody
 	public RestResult userInfo(@RequestHeader("token")String token) {
 		if (logger.isInfoEnabled()) {
-			logger.info("GET /v1/user/info 获取用户信息  [token={}]",token);
+			logger.info("GET /user/info 获取用户信息  [token={}]",token);
 		}
 		String username = JwtUtils.verifyJWT(token);
 		TBUser tbUser = userService.getUserInfo(username);
