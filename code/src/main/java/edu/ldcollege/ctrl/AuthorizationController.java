@@ -25,7 +25,7 @@ import edu.ldcollege.util.RestStatus;
  *
  */
 @RestController
-@RequestMapping("/v1/authorization")
+@RequestMapping("/authorization")
 public class AuthorizationController {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());

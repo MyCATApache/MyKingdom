@@ -21,7 +21,7 @@ import edu.ldcollege.util.RestStatus;
  * @author Raindrops on 20171019
  *
  */
-@RequestMapping("/v1/user")
+@RequestMapping("/user")
 @RestController
 public class UserController {
 
