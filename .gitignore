@@ -1,0 +1,29 @@
+
+
+### system #########
+.DS_Store
+
+
+### project ########
+target/
+bin/
+.log
+.project
+.settings
+
+
+
+### ide ############
+.idea
+.vscode
+
+### cache ##########
+.sass-cache/
+.tmp/
+.Cache
+**/dist/
+**/node_modules/
+
+
+### other ##########
+
