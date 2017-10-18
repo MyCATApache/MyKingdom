@@ -45,4 +45,14 @@ public class UserService {
 		return sqlSession.selectOne("leader.mapping.TBUserMapper.selectByPrimaryKey", userID);
 	}
 
+	/**
+	 * 获取用户信息
+	 * @author Raindrops on 20171019
+	 * @param username
+	 * @return
+	 */
+	public TBUser getUserInfo(String username) {
+		return userMapper.selectByPrimaryKey(username);
+	}
+	
 }

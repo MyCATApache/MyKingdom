@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,12 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 import edu.ldcollege.bean.*;
+import edu.ldcollege.exception.RestRespErrorException;
+import edu.ldcollege.util.RestResult;
+import edu.ldcollege.util.RestStatus;
 
-@Controller
+@RestController
 public class HellowCtrl {
 	// ResourceHttpRequestHandler ss;
 	@RequestMapping("/hello")
@@ -33,6 +38,16 @@ public class HellowCtrl {
 		return "greeting";
 	}
 
+	@GetMapping("/helloworld")
+	public RestResult sayHello() {
+		return new RestResult(RestStatus.SUCCEED, "hello");
+	}
+	
+	@GetMapping("/exception")
+	public RestResult makeError() {
+		throw new RestRespErrorException(RestStatus.ERROR_SERVER);
+	}
+	
 	@RequestMapping(value = "/departments", produces = MediaType.TEXT_HTML_VALUE)
 	@ResponseBody
 	public String findDepatment(@RequestParam("departmentId") String departmentId) {
