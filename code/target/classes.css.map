@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "classes/static/assets/styles/classes.css",
+	"sources": [
+		"../src/main/resources/static/assets/styles/classes.scss",
+		"../src/main/resources/static/assets/styles/classes.scss/JSASS_CUSTOM.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

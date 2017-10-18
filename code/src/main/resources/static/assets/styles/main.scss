@@ -39,114 +39,46 @@ html,body{
 		width:100%;
 	}
 }
+// 自定义导航
+.nav-link{
+	position: relative;
+	em{
+		display: inline-block;
+		background: url("../images/icon-point.png") center top no-repeat;
+		width: 22px;
+		height:22px;
+		position: absolute;
+		bottom:-25px;
+		left:50%;
+		margin-left:-11px;
+		opacity: 0;
+	}
+}
+.nav .nav-link.active, .nav .nav-item.show .nav-link{
+	border-bottom: 2px solid $second-color;
+	em{
+		opacity: 1;
+	}
+}
 
+
+//
 .Page-body{
 }
 .section-head{
 	padding-bottom: 10px;
 }
-.flex-imagebox-item{
-	background:url("../images/image.png") center center no-repeat #676767;
-	background-position: center;
-	min-height:120px;
+.section-title{
+	font-size:1.325rem;
 }
-// <576
-@include media-breakpoint-up(xs) {
-	.flex-imagebox-item{
-		width:100%;
-		height:auto;
-	}
-}
-// 576~767
-@include media-breakpoint-up(sm) {
-	.flex-imagebox-item{
-		width:50%;
-	}
-}
-// 768~991
-@include media-breakpoint-up(md) {
-	.flex-imagebox-item{
-	}
-}
-// 992~1119
-@include media-breakpoint-up(lg) {
-	.flex-imagebox-item{
-		&:nth-child(1),
-		&:nth-child(2),
-		&:nth-child(3),
-		&:nth-child(4){
-			width:50%;
-			height:256px;
-		}
-		&:nth-child(5),
-		&:nth-child(6),
-		&:nth-child(7),
-		&:nth-child(8){
-			width:25%;
-			height:350px;
-		}
-		&:nth-child(9),
-		&:nth-child(10),
-		&:nth-child(11),
-		&:nth-child(12){
-			width:25%;
-			height:235px;
-		}
-		&:nth-child(13),
-		&:nth-child(14),
-		&:nth-child(15),
-		&:nth-child(16){
-			width:50%;
-			height:256px;
-		}
-	}
-}
-// >1200
-@include media-breakpoint-up(xl) {
-	.flex-imagebox-item{
-		&:nth-child(1),
-		&:nth-child(2),
-		&:nth-child(3),
-		&:nth-child(4){
-			width:50%;
-			height:256px;
-		}
-		&:nth-child(5),
-		&:nth-child(6),
-		&:nth-child(7),
-		&:nth-child(8){
-			width:25%;
-			height:350px;
-		}
-		&:nth-child(9),
-		&:nth-child(10),
-		&:nth-child(11),
-		&:nth-child(12){
-			width:25%;
-			height:235px;
-		}
-		&:nth-child(13),
-		&:nth-child(14),
-		&:nth-child(15),
-		&:nth-child(16){
-			width:50%;
-			height:256px;
-		}
-	}
-}
-@media (min-width: 970px) {
+
+
+.Page-contact{
+	padding:50px 0;
+	background-color:$second-color;
 	.container{
-		width:940px;
+		color:#fff;
 	}
-}
-
-
-.section-banner{
-
-}
-
-.Page-link{
-
 }
 .Page-foot{
 
@@ -162,13 +94,18 @@ html,body{
 
 
 // 首页样式
-
-
-
+@import "index.scss";
 
 // 班级样式
-
-
-
+@import "classes.scss";
 
 // 作业样式
+
+
+
+
+@media (min-width: 970px) {
+	.container{
+		width:940px;
+	}
+}

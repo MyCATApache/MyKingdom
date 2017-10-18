@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "classes/static/assets/styles/index.css",
+	"sources": [
+		"../src/main/resources/static/assets/styles/index.scss",
+		"../src/main/resources/static/assets/styles/index.scss/JSASS_CUSTOM.scss"
+	],
+	"names": [],
+	"mappings": ""
+}
