@@ -1,6 +1,5 @@
 package edu.ldcollege.ctrl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -11,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ldcollege.bean.*;
+import edu.ldcollege.bean.AssignClsBean;
+import edu.ldcollege.bean.KeyValueBean;
+import edu.ldcollege.bean.LdClassSummary;
 
 @RestController
 

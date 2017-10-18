@@ -77,4 +77,13 @@ public interface TBUserMapper {
 	@Update({ "update users", "set password = #{password,jdbcType=VARCHAR},", "enabled = #{enabled,jdbcType=BIT}",
 			"where username = #{username,jdbcType=VARCHAR}" })
 	int updateByPrimaryKey(TBUser record);
+	
+	/**
+	 * 用户登录接口
+	 */
+	@Select({ "select", "username, password, enabled", "from users", "where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}" })
+	@Results({ @Result(column = "username", property = "username", jdbcType = JdbcType.VARCHAR, id = true),
+		@Result(column = "username", property = "password", jdbcType = JdbcType.VARCHAR),
+		@Result(column = "enabled", property = "enabled", jdbcType = JdbcType.BIT) })
+	TBUser authorization(@Param("username")String username,@Param("password")String password);
 }
