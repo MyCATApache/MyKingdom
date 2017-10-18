@@ -5,50 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>edu.ldcollege-我的班级</title>
+    <title>edu.ldcollege-登录</title>
 
     <!-- plugin stylesheet -->
 
     <!-- customer stylesheet -->
     <link href="assets/styles/main.css" rel="stylesheet">
 </head>
-<body>
+<body class="signin">
     <div class="Page">
-
         <!-- logo和导航 -->
     	<div class="Page-nav">
     		<div class="container d-flex flex-row justify-content-between align-items-center">
-    			<h1 class="brand"><img src="assets/images/kingdom_13.png" alt="myKingdom" /></h1>
-    			<nav class="navbox ml-auto">
-					<ul class="nav float-right">
-						<li class="nav-item">
-							<a class="nav-link" href="/">首页 <span class="sr-only">(current)</span><em></em></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="classes.html">班级管理<em></em></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="my-classes.html">我的班级<em></em></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="aboutus.html">关于我们<em></em></a>
-						</li>
-					</ul>
-				</nav>
+    			<h1 class="brand"><a href="/"><img src="assets/images/kingdom_13.png" alt="myKingdom" /></a></h1>
     		</div>
     	</div>
 
-    	<div class="Page-body">
-    		<!-- 我是主角 -->
+    	<div class="Page-body mt-5">
     		<div class="container">
     			<div class="section-head">
-    				<h2 class="text-center section-title">我的班级 /</h2>
+    				<h2 class="text-center section-title">登录 /</h2>
     				<div class="text-center section-subtitle"></div>
     			</div>
-    			<div class="section-body">
-    				<div class="d-flex flex-wrap">
-    					
-    				</div>
+    			<div class="section-body d-flex justify-content-center pt-2 pb-5">
+    				<div class="auth-signin mt-2 mb-5 p-4 rounded">
+						<form class="auth-signin-form" id="auth-signin-form">
+							<div class="form-group row">
+								<label for="user_email" class="col-sm-3 col-form-label">邮箱 <i class="fa fa-asterisk text-danger"></i></label>
+                                <div class="col-sm-9">
+    								<input class="form-control" id="user_email" type="email" value="" name="user[email]">
+                                </div>
+							</div>
+							<div class="form-group row">
+								<label for="user_password" class="col-sm-3 col-form-label">密码 <i class="fa fa-asterisk text-danger"></i></label>
+                                <div class="col-sm-9">
+    								<input class="form-control" id="user_password" type="password" name="user[password]">
+                                </div>
+							</div>
+							<div class="form-group row">
+								<label for="user_remember_me" class="offset-sm-3 col-sm-9 col-form-label">
+    								<input type="checkbox" name="user[remember_me]" id="user_remember_me" value="1"> 记住我
+    							</label>
+							</div>
+							<div class="form-group row">
+    							<div class="col-sm-12">
+    								<button name="button" type="submit" class="btn btn-danger btn-block">登录</button>
+								</div>
+							</div>
+						</form>
+						<div class="auth_links row">
+							<div class="col-sm-12 text-center d-flex justify-content-between">
+								<a>注册</a>
+								<a>忘记密码?</a>
+							</div>
+						</div>
+					</div>
     			</div>
     		</div>
 
@@ -93,6 +104,6 @@
     <script src="assets/scripts/main.js"></script>
 
     <!-- customer script -->
-    <script src="assets/scripts/index.js"></script>
+    <script src="assets/scripts/login.js"></script>
 </body>
 </html>

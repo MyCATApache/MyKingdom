@@ -27,3 +27,22 @@ bin/
 
 ### other ##########
 
+.classpath
+.project
+**/.settings/
+*.tmp
+**/target/
+*.log
+**/bin/
+/log/
+**/build/
+**/.gradle/
+**/classes
+__pycache__
+*.pyc
+*.swp
+.idea
+*.iml
+*.DS_Store
+*.ipr
+*.iws

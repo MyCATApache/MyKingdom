@@ -10,7 +10,7 @@
     <!-- plugin stylesheet -->
 
     <!-- customer stylesheet -->
-    <link href="assets/styles/main.css" rel="stylesheet">
+    <link href="../assets/styles/main.css" rel="stylesheet">
 </head>
 <body>
     <div class="Page">
@@ -18,7 +18,7 @@
         <!-- logo和导航 -->
     	<div class="Page-nav">
     		<div class="container d-flex flex-row justify-content-between align-items-center">
-    			<h1 class="brand"><img src="assets/images/kingdom_13.png" alt="myKingdom" /></h1>
+    			<h1 class="brand"><img src="../assets/images/kingdom_13.png" alt="myKingdom" /></h1>
     			<nav class="navbox ml-auto">
 					<ul class="nav float-right">
 						<li class="nav-item">
@@ -28,10 +28,22 @@
 							<a class="nav-link active" href="classes.html">班级管理<em></em></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="my-classes.html">我的班级<em></em></a>
+							<a class="nav-link" href="../my/classes.html">我的班级<em></em></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="aboutus.html">关于我们<em></em></a>
+							<a class="nav-link" href="../aboutus.html">关于我们<em></em></a>
+						</li>
+						<li class="nav-item dropdown member align-self-center">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-user-circle-o"></i> 思密达
+							</a>
+							<div class="dropdown-menu">
+						      <a class="dropdown-item" href="javascript:void(0);">关于我</a>
+						      <a class="dropdown-item" href="javascript:void(0);">我的班级</a>
+						      <a class="dropdown-item" href="javascript:void(0);">我的积分</a>
+						      <div class="dropdown-divider"></div>
+						      <a class="dropdown-item" href="javascript:void(0);">我的任务</a>
+						    </div>
 						</li>
 					</ul>
 				</nav>
@@ -40,14 +52,14 @@
 
     	<div class="Page-body">
     		<!-- 我是主角 -->
-    		<div class="container">
+    		<div class="container mt-4 mb-4">
     			<div class="section-head">
-    				<h2 class="text-center section-title">我的班级 /</h2>
+    				<h2 class="text-center section-title">班级管理 /</h2>
     				<div class="text-center section-subtitle"></div>
     			</div>
     			<div class="section-body">
     				<div class="d-flex flex-wrap">
-    					<table data-toggle="table" data-url="/admin/api/ldclasslist">
+    					<table data-toggle="table" data-url="../admin/ldclasslist">
 						    <thead>
 						        <tr>
 						            <th data-field="classId">ID</th>
@@ -84,7 +96,7 @@
     			</div>
     			<div class="section-body">
     				<div class="media">
-					  <img class="d-flex align-self-center rounded-circle mr-3" src="assets/images/img-cat.png" alt="foot">
+					  <img class="d-flex align-self-center rounded-circle mr-3" src="../assets/images/img-cat.png" alt="foot">
 					  <div class="media-body">
 					    <h5 class="mt-0">报名群：332702697 </h5>
 					    <p>既然选择了IT路，就只能狂奔，任何年度都是新技术挣钱多，但新旧技术有传承，所持续提升自己就无法跟上新技术，年老色衰最后只能为五斗米折腰。</p>
@@ -99,14 +111,16 @@
 
     <!-- script start from here --- -->
     <!-- core vendor script -->
-    <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../assets/vendor/tether/dist/js/tether.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- other plugin if needed -->
 
     <!-- common script -->
-    <script src="assets/scripts/main.js"></script>
+    <script src="../assets/scripts/main.js"></script>
 
     <!-- customer script -->
-    <script src="assets/scripts/index.js"></script>
+    <script src="classes.js"></script>
 </body>
 </html>
