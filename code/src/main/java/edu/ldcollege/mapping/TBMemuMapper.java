@@ -4,6 +4,7 @@ import java.util.List;
 import edu.ldcollege.domain.TBMemu;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -90,4 +91,26 @@ public interface TBMemuMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(TBMemu record);
+    
+    
+    /**
+     * 查询用户面板
+     * @param username 用户名
+     * @return
+     */
+    @Select({
+    	"select",
+    	"m.*",
+    	"from t_user2menu as um inner join t_menu as m on um.id = m.menuId",
+    	"where um.userName = #{username,jdbcType=VARCHAR}"
+    })
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+        @Result(column="menuName", property="menuname", jdbcType=JdbcType.VARCHAR),
+        @Result(column="hint", property="hint", jdbcType=JdbcType.VARCHAR),
+        @Result(column="order", property="order", jdbcType=JdbcType.TINYINT)
+    })
+    List<TBMemu> selectUserMenus(@Param("username") String username);
+    
+    
 }

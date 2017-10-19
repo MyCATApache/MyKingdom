@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.ldcollege.exception.NullParamException;
 import edu.ldcollege.exception.RestRespErrorException;
 import edu.ldcollege.util.RestResult;
 import edu.ldcollege.util.RestStatus;
@@ -29,7 +30,7 @@ public class GlobalExceptionHandler {
 	 * @param ex
 	 * @return
 	 */
-	@ExceptionHandler(RestRespErrorException.class)
+	@ExceptionHandler({RestRespErrorException.class,NullParamException.class})
 	@ResponseBody
 	public RestResult handleRestRespErrorException(HttpServletRequest request, Exception ex) {
 		RestRespErrorException exception = null;
@@ -37,6 +38,7 @@ public class GlobalExceptionHandler {
 			exception = (RestRespErrorException) ex;
 		}
 		if (logger.isInfoEnabled()) {
+			ex.printStackTrace();
 			logger.info("do handleRestRespErrorException ==> [code={},error={}]",exception.getStatus(),exception.getMsg());
 		}
 		if (exception == null) {
@@ -55,7 +57,10 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
 	public RestResult handleException(HttpServletRequest request, Exception ex) {
-		logger.error("do handleException ==> [error={}]",ex.getMessage());
+		if (logger.isInfoEnabled()) {
+			ex.printStackTrace();
+			logger.error("do handleException ==> [error={}]",ex.getMessage());
+		}
 		return new RestResult(RestStatus.ERROR_SERVER, null);
 	}
 	

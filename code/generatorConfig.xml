@@ -2,7 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
 	<classPathEntry
-		location="/Users/xqy/.m2/repository/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar" />
+		location="C:/Users/38368/.m2/repository/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar" />
 
 	<context id="context1" targetRuntime="MyBatis3Simple">
 		<commentGenerator>
@@ -23,10 +23,13 @@
 		</javaModelGenerator>
 		<javaClientGenerator targetPackage="edu.ldcollege.mapping"
 			targetProject="MAVEN" type="ANNOTATEDMAPPER">
-		</javaClientGenerator>
-		<table tableName="users" domainObjectName="TBUser" />
+		</javaClientGenerator> 
+		<!-- <table tableName="users" domainObjectName="TBUser" />
 		<table tableName="authorities" domainObjectName="TBAuthority" />
 		<table tableName="T_MENU" domainObjectName="TBMemu" />
-		<table tableName="T_USER2MENU" domainObjectName="TBUser2Memu" />
+		<table tableName="T_USER2MENU" domainObjectName="TBUser2Memu" /> -->
+		<!-- <table tableName="ldclass" domainObjectName="TBLdClass"/> -->
+		<!-- <table tableName="tbl_class_user" domainObjectName="TBClassUser"/> -->
+		<!-- <table tableName="tbl_course" domainObjectName="TBCourse"/> -->
 	</context>
 </generatorConfiguration>
