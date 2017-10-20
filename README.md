@@ -6,3 +6,8 @@ My Kingdom是Leader us领导的IT人的王国，打造百万IT人专属的知识
 报名的同学请准备两三页ppt，写上个人简介，专业技能，可以担任的角色和时间安排，并保证项目启动后不失联，积极配合组织行动，直到项目上线，志愿者可以发邮件申请参与(1005766359@qq.com)
 
 My Kindow最终会诞生第一批创始之王。。。一起参与的人投票，贡献最大的N个人。。。在My Kindow的创世纪里 永久登记，并且不会后面降级。。。
+
+
+<pre>
+mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
+</pre>
