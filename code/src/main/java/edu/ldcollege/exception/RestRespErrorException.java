@@ -15,6 +15,10 @@ public class RestRespErrorException extends RuntimeException{
 	
 	protected RestStatus status;
 
+	public RestRespErrorException() {
+		
+	}
+	
 	public RestRespErrorException(RestStatus status) {
 		this.status = status;
 	}

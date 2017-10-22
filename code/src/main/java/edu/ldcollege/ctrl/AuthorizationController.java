@@ -45,7 +45,7 @@ public class AuthorizationController {
 		Map<String, String> token = new HashMap<>();
 		String result = authorizationService.authorization(username, password);
 		token.put("token", result);
-		return new RestResult(RestStatus.SUCCEED, token);
+		return RestResult.success( token);
 	}
 	
 	@RequestMapping(value = "/auth/register",method = RequestMethod.POST)
@@ -55,7 +55,7 @@ public class AuthorizationController {
 			logger.info("POST /signup 注册 [username={},password={}]",username,password);
 		}
 		authorizationService.authorization(username, password);
-		return new RestResult(RestStatus.SUCCEED, null);
+		return RestResult.success( null);
 	}
 	
 }

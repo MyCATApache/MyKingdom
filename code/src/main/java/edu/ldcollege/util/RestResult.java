@@ -30,6 +30,10 @@ public class RestResult {
 		this.message = status.getMessage();
 	}
 
+	public static RestResult success(Object data) {
+		return new RestResult(RestStatus.SUCCEED,data);
+	}
+	
 	public int getStatus() {
 		return status;
 	}
