@@ -15,7 +15,6 @@ import edu.ldcollege.bean.KeyValueBean;
 import edu.ldcollege.bean.LdClassSummary;
 
 @RestController
-
 public class AdminController {
 	Logger logger = LoggerFactory.getLogger(AdminController.class);
 
