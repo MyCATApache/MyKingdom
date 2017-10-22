@@ -1,0 +1,188 @@
+.packet-top-wrapper {
+    background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
+    .packet-banner {
+        width: 250px;
+    }
+    .packet-img-wrapper{
+        height: 500px;
+    }
+    .banner-slogan-img{
+        margin: 0 auto;
+    }
+    .banner-slogan{
+        margin-top: .5rem;
+        color: #daddef;
+    }
+}
+
+.packet-navbar{
+    padding:  .4rem 0;
+    position: relative;
+    box-shadow:0 2px 1px #e8ebee;
+    .brand{
+        position: absolute;
+        top:-100px;
+        width: 170px;
+        height: 170px;
+        padding: 15px;
+        border: 1px solid #8f9aa1;
+        border-radius: 180px;
+        background: #fff;
+    }
+    .navbar-content{
+        width: 50%;
+        margin: 0 auto;
+        ul{
+            margin: 0;
+            li {
+                width: 4rem;
+                text-align: center;
+                a{
+                    font-size: .9rem;
+                    color: #8f9aa1;
+                }
+                em{
+                    line-height: 1rem;
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+.packet-page {
+    .Page-body {
+        margin-top: 10px;
+        .packet-title{
+            width: 60px;
+        }
+        .card-body{
+            padding-top: 0;
+            .card-title {
+                margin: 0;
+                a {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: #333;
+                }
+                img{
+                    padding-left: 2px;
+                }
+                span{
+                    color: #8590a6;
+                }
+                em{
+                    margin-right: 1rem;
+                    color: #8590a6;
+                }
+            }
+            .title-avatar{
+                padding-top: 1rem;
+            }
+            .packet-type{
+                margin-left: 2px;
+                padding: 0 4px;
+                border: 1px solid #f46e1a;
+                color: #f46e1a;
+                font-size: .7rem;
+            }
+            h5{
+                a{
+                    color: #181e1c;
+                    font-size: 1.1rem;
+                    padding: 5px 0;
+                }
+            }
+            .card-text{
+                color: #8590a6;
+                font-size: .8rem;
+            }
+            .card-text-nav {
+                em{
+                    color: #8590a6;
+                    padding-right: 4px;
+                    font-size: .7rem;
+                    a{
+                        padding-left: 3px;
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .report-content{
+            padding-top: 20px;
+            .report-title {
+                border-bottom: 1px solid #e5e9ef;
+                padding-bottom: 5px;
+                img{
+                    width: 14px;
+                    height: 14px;
+                }
+                p{
+                    color: #1b1233;
+                    font-weight: 800;
+                    margin: 0;
+                    line-height: 20px;
+                }
+            }
+            .report-body{
+                font-size: 10px;
+                p{
+                    padding: 5px 0;
+                    margin: 0;
+                    a{
+                        color: #1b1e21;
+                    }
+                }
+            }
+        }
+        .packet-activity{
+            padding: 0;
+            .breadcrumb {
+                li {
+                    padding: 0 5px;
+                    a{
+                        color:#8f9aa1;
+                    }
+                }
+                .card-body{
+                    padding: 0;
+                }
+            }
+            .back-to{
+                margin: 3rem 0;
+            }
+        }
+        .rank{
+            .rank-push-wapper{
+                .rank-push{
+                    .title{
+                        border-bottom: 1px solid #e5e9ef;
+                        padding-bottom: 5px;
+                        a{
+                            font-size: .8rem;
+                            padding-left: .5rem;
+                        }
+                    }
+                    .text-center{
+                        p{
+                            font-size: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .container-fluid {
+        width: 70%;
+    }
+}
+
+.hot {
+    color: #f46e1a;
+}
+.img-mini{
+    width: 18px;
+    height: 18px;
+}
