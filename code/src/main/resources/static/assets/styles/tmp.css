@@ -1,0 +1,172 @@
+.packet-top-wrapper {
+    background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
+}
+
+.packet-top-wrapper .packet-img-wrapper{
+    height: 500px;
+}
+.packet-top-wrapper .banner-slogan-img{
+    margin: 0 auto;
+}
+.packet-top-wrapper .banner-slogan{
+    margin-top: .5rem;
+    color: #daddef;
+}
+.packet-navbar{
+    padding:  .4rem 0;
+    position: relative;
+    box-shadow:0 2px 1px #e8ebee;
+}
+.packet-navbar .brand{
+    position: absolute;
+    top:-100px;
+    width: 170px;
+    height: 170px;
+    padding: 15px;
+    border: 1px solid #8f9aa1;
+    border-radius: 180px;
+    background: #fff;
+}
+.packet-navbar .navbar-content{
+    width: 50%;
+    margin: 0 auto;
+}
+.packet-navbar .navbar-content ul{
+    margin: 0;
+}
+.packet-navbar .navbar-content ul>li {
+    width: 4rem;
+    text-align: center;
+}
+.packet-navbar .navbar-content ul>li a{
+    font-size: .9rem;
+    color: #8f9aa1;
+}
+.packet-navbar .navbar-content ul>li em{
+    line-height: 1rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+.packet-page .Page-body {
+    margin-top: 10px;
+}
+.packet-page .Page-body .packet-title{
+    width: 60px;
+}
+.packet-page .container-fluid {
+    width: 70%;
+}
+.hot {
+    color: #f46e1a;
+}
+.img-mini{
+    width: 18px;
+    height: 18px;
+}
+.packet-page .Page-body .card-body{
+    padding-top: 0;
+
+}
+.packet-page .Page-body .report-content{
+    padding-top: 20px;
+}
+.packet-page .Page-body .report-content .report-title {
+    border-bottom: 1px solid #e5e9ef;
+    padding-bottom: 5px;
+}
+
+.packet-page .Page-body .report-content .report-title img{
+    width: 14px;
+    height: 14px;
+}
+
+.packet-page .Page-body .report-content .report-title p{
+    color: #1b1233;
+    font-weight: 800;
+    margin: 0;
+    line-height: 20px;
+}
+.packet-page .Page-body .report-content .report-body{
+    font-size: 10px;
+}
+.packet-page .Page-body .report-content .report-body p{
+    padding: 5px 0;
+    margin: 0;
+}
+.packet-page .Page-body .report-content .report-body p>a{
+    color: #1b1e21;
+}
+.packet-page .Page-body .packet-activity{
+    padding: 0;
+}
+
+.packet-page .Page-body .packet-activity .breadcrumb li{
+    padding:0 5px;
+}
+.packet-page .Page-body .packet-activity .breadcrumb li a{
+    color:#8f9aa1;
+}
+.packet-page .Page-body .packet-activity .breadcrumb .card-body{
+    padding: 0;
+}
+.packet-page .Page-body .packet-activity .card-body .card-title a{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+.packet-page .Page-body .packet-activity .card-body .title-avatar{
+    padding-top: 1rem;
+}
+.packet-page .Page-body .packet-activity .card-body .packet-type{
+    margin-left: 2px;
+    padding: 0 4px;
+    border: 1px solid #f46e1a;
+    color: #f46e1a;
+    font-size: .7rem;
+}
+.packet-page .Page-body .packet-activity .card-body .card-title{
+    margin: 0;
+}
+.packet-page .Page-body .packet-activity .card-body .card-title img{
+    padding-left: 2px;
+}
+.packet-page .Page-body .packet-activity .card-body .card-title span{
+    color: #8590a6;
+}
+.packet-page .Page-body .packet-activity .card-body .card-title em{
+    margin-right: 1rem;
+    color: #8590a6;
+}
+.packet-page .Page-body .packet-activity .card-body h5 a{
+    color: #181e1c;
+    font-size: 1.1rem;
+    padding: 5px 0;
+}
+.packet-page .Page-body .packet-activity .card-body .card-text{
+    color: #8590a6;
+    font-size: .8rem;
+}
+
+.packet-page .Page-body .packet-activity .card-body .card-text-nav em{
+    color: #8590a6;
+    padding-right: 4px;
+    font-size: .7rem;
+}
+.packet-page .Page-body .packet-activity .card-body .card-text-nav em a{
+    padding-left: 3px;
+    color: #333;
+}
+.packet-page .Page-body .packet-activity .back-to{
+    margin: 3rem 0;
+}
+.packet-page .Page-body .rank .rank-push-wapper .rank-push .title{
+    border-bottom: 1px solid #e5e9ef;
+    padding-bottom: 5px;
+}
+.packet-page .Page-body .rank .rank-push-wapper .rank-push .title a{
+    font-size: .8rem;
+    padding-left: .5rem;
+}
+.packet-page .Page-body .rank .rank-push-wapper .rank-push .text-center p{
+    font-size: .5rem;
+}

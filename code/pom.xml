@@ -85,7 +85,7 @@
                 <artifactId>libsass-maven-plugin</artifactId>
                 <version>0.2.8-libsass_3.4.4</version>
                 <executions>
-                    <execution> 
+                    <execution>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>compile</goal>
@@ -98,7 +98,7 @@
                     <!--<includePath>${basedir}/src/main/resources/lib/bootstrap/scss/</includePath>-->
                 </configuration>
             </plugin>
-            <plugin>
+            <plugin> 
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.5</version>
