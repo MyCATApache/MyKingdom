@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.mykingdom</groupId>
+	<artifactId>mykingdom</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>1.4.6.RELEASE</version>
+	    <relativePath/> <!-- lookup parent from repository -->
+  	</parent>
+	<modules>
+		<module>mykingdom-core</module><!-- 核心 -->
+		<module>mykingdom-common</module><!-- 公共 -->
+		<module>mykingdom-test</module><!-- 测试 -->
+		<module>mykingdom-crontab</module><!-- 定时任务 -->
+		<module>mykingdom-security-service</module><!-- 授权模块 -->
+		<module>mykingdom-exchange-service</module><!-- IT社圈模块 -->
+		<module>mykingdom-crowd-service</module><!-- 众包模块 -->
+		<module>mykingdom-admin-service</module><!-- 管理模块 -->
+		<module>mykingdom-educate-service</module><!-- 培训模块 -->
+		<module>mykingdom-security-api</module><!-- 授权模块 -->
+		<module>mykingdom-exchange-api</module><!-- IT社圈模块 -->
+		<module>mykingdom-crowd-api</module><!-- 众包模块 -->
+		<module>mykingdom-admin-api</module><!-- 管理模块 -->
+		<module>mykingdom-educate-api</module><!-- 培训模块 -->
+		<module>mykingdom-api</module><!-- 由于不使用微服务架构 暂时通用启动入口 -->
+	</modules>
+	<properties>
+		<mykingdom.version>0.0.1-SNAPSHOT</mykingdom.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-core</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-common</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-test</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-crontab</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-security-service</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-exchange-service</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-crowd-service</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-admin-service</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-educate-service</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-security-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-exchange-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-crowd-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-admin-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-educate-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mykingdom</groupId>
+    			<artifactId>mykingdom-api</artifactId>
+    			<version>${mykingdom.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>
