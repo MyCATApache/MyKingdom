@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: mykingdom-imking
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    druid:
+      initial-size: 10
+      max-active: 20
+      min-idle: 10
+      max-wait: 10
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
+server:
+  port: 8080
+  context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+logging:
+  config: classpath:log4j2.xml
+
+mybatis:
+  configuration:
+    cache-enabled: false
+    aggressive-lazy-loading: false
+    use-generated-keys: false
+    auto-mapping-behavior: partial
+    default-executor-type: reuse
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: null
+    local-cache-scope: statement
+#  type-handlers-package:
