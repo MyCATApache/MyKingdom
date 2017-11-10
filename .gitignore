@@ -1,5 +1,4 @@
 
-
 ### system #########
 .DS_Store
 
@@ -10,6 +9,7 @@ bin/
 .log
 .project
 .settings
+.classpath
 
 
 
@@ -26,12 +26,10 @@ bin/
 
 
 ### other ##########
-
-.classpath
-.project
-**/.settings/
-*.tmp
+**/.classpath
+**/.project
 **/target/
+**/bin/
 *.log
 **/bin/
 /log/
@@ -46,3 +44,19 @@ __pycache__
 *.DS_Store
 *.ipr
 *.iws
+
+.*/
+*.ipr
+*.iws
+*.iml
+*.db
+*.log
+.settings
+.classpath
+.project
+.springBeans
+.idea
+target/
+log/
+logs/
+.DS_Store
