@@ -1,0 +1,15 @@
+.*/
+*.ipr
+*.iws
+*.iml
+*.db
+*.log
+.settings
+.classpath
+.project
+.springBeans
+.idea
+target/
+log/
+logs/
+.DS_Store
