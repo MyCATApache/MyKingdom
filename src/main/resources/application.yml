@@ -2,7 +2,7 @@ spring:
   application:
     name: mykingdom-imking
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://116.196.121.21:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
@@ -12,7 +12,7 @@ spring:
       min-idle: 10
       max-wait: 10
   redis:
-    host: 127.0.0.1
+    host: 116.196.121.21
     port: 6379
     password:
 
