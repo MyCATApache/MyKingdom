@@ -2,17 +2,21 @@ spring:
   application:
     name: mykingdom-imking
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://192.168.0.118:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
+    username: imking
+    password: 46OMuh4j
     druid:
       initial-size: 10
       max-active: 20
       min-idle: 10
       max-wait: 10
+    schema: classpath:create-db.sql
+    data: classpath:demo-data.sql
+    initialize: true
+    continue-on-error: true
   redis:
-    host: 127.0.0.1
+    host: 192.168.0.3
     port: 6379
     password:
 
