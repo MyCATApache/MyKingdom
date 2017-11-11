@@ -12,8 +12,8 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  */
 @SpringBootApplication
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 5 * 60)
-public class MyKingdonApp {
+public class MyKingdomApp {
     public static void main(String[] args) {
-        SpringApplication.run(MyKingdonApp.class, args);
+        SpringApplication.run(MyKingdomApp.class, args);
     }
 }
