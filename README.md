@@ -7,7 +7,6 @@ My Kingdom是Leader us领导的IT人的王国，打造百万IT人专属的知识
 
 My Kindow最终会诞生第一批创始之王。。。一起参与的人投票，贡献最大的N个人。。。在My Kindow的创世纪里 永久登记，并且不会后面降级。。。
 
-
-<pre>
-mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
-</pre>
+##【开发者公约】
+###1. 代码规范
+请使用 doc/templates 目录下提供的格式化文件，说明文档请参见 doc/templates/README.md
