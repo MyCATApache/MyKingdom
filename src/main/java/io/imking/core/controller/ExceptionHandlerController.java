@@ -24,8 +24,7 @@ public class ExceptionHandlerController {
     @ExceptionHandler(Exception.class)
     public Result<String> defaultExceptionHandler(HttpServletRequest request, Exception e)
             throws Exception {
-        LOGGER.error("[GlobalExceptionHandler] [error to handle uri: {}", request.getRequestURI(),
-                e);
-        return new Result(ResultEnum.SERVER_ERROR, e.getMessage());
+        LOGGER.error("[GlobalExceptionHandler] [error to handle uri: {}", request.getRequestURI(),e);
+        return new Result<>(ResultEnum.SERVER_ERROR, e.getMessage());
     }
 }
