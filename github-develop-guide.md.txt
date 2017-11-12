@@ -1,10 +1,16 @@
 # Ä¿Â¼
-- 
+* [Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ](#Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ)
+* [¶þ£º°²×°¿Í»§¶Ë¹¤¾ß](#¶þ£º°²×°¿Í»§¶Ë¹¤¾ß)
+* [Èý£º¼ì³öÏîÄ¿](#Èý£º¼ì³öÏîÄ¿)
+* [ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì](#ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì)
+* [Îå£ºÌá½»´úÂëµ½×Ô¼ºµÄFork](#Îå£ºÌá½»´úÂëµ½×Ô¼ºµÄFork)
+* [Áù£º¹Ù·½MergeÇëÇó](#Áù£º¹Ù·½MergeÇëÇó)
+* [Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë](#Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë)
 
 
 
 
-# Ò»£ºforkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ
+# Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ
 
 #### 1. µã»÷forkµ½×Ô¼ºµÄÕËºÅÏÂ
 ![ImageLoadFailed](./res/1.png)
@@ -50,20 +56,18 @@
 
 ![ImageLoadFailed](./res/8.png)
 ![ImageLoadFailed](./res/9.png)
-
-#### 9. Ð§¹ûÈçÏÂ£º
-
 ![ImageLoadFailed](./res/10.png)
 
 
-#### 10. Èç¹û¸Õ¸ÕÉèÖÃ²»Ð¡ÐÄÑ¡ÔñÁË¡°·ñ¡±£¬Ò²¿ÉÒÔÊÖ¶¯À­È¡£¬²Ù×÷£º
+#### 9. Èç¹û¸Õ¸ÕÉèÖÃ²»Ð¡ÐÄÑ¡ÔñÁË¡°·ñ¡±£¬Ò²¿ÉÒÔÊÖ¶¯À­È¡£¬²Ù×÷£º
 
+![ImageLoadFailed](./res/21.png)
 ![ImageLoadFailed](./res/11.png)
-![ImageLoadFailed](./res/8.png)
+![ImageLoadFailed](./res/9.png)
 ![ImageLoadFailed](./res/10.png)
 
 
-# ËÄ£ºÌá½»ºÏ²¢´úÂëÁ÷³Ì
+# ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì
 
 Èç¹ûÎÒÃÇ±¾µØÓÐ´úÂë¸Ä±ä£¬±ÈÈçÐÂÔöÎÄ¼þ»ò´úÂë£¬Á÷³ÌÈçÏÂ£º
 
@@ -87,43 +91,25 @@ Commit£¨±¾µØÌá½»£©-> push£¨Ìá½»µ½×Ô¼ºForkµÄµØÖ·£©-> ·¢Æðpull request(¿ÉÒÔ¹¤¾ßÀï»
 ÊäÈë×Ô¼ºµÄÓÃ»§ÃûÃÜÂëÌá½»
 ![ImageLoadFailed](./res/17.png)
 ![ImageLoadFailed](./res/18.png)
+![ImageLoadFailed](./res/19.png)
 
 ×¢Òâµ½£¬Ä¿±êµØÖ·RemoetÎªOriginµØÖ·£¬¼´ÎÒÃÇ×Ô¼ºForkµÄµØÖ·¡£
 
 
 #### 3. Push³É¹¦ÒÔºó£¬ÏÔÊ¾ÈçÏÂÄÚÈÝ£¬¿ÉÒÔ¼ÌÐø·¢Æðpull reqestÇëÇó£¬½«±ä¸üÌá½»µ½¹Ù·½Ô´µØÖ·(upstream)£¬ÇëÇóºÏ²¢ÄãµÄ±ä¸ü£º
 
-![ImageLoadFailed](./res/18.png)
-
-Ò»°ãÊÇÔÚgithubÍøÕ¾ÉÏ·¢Æðpull requestµÄ£¬ÓÃ×Ô¼ºµÄÕËºÅµÇÂ¼github£¬²é¿´ÏîÄ¿±ä¶¯Çé¿ö£¬¿ÉÒÔ¿´µ½×Ô¼ºÕËºÅµÄ´úÂë·ÖÖ§±È¹Ù·½Ô´¶àÒ»¸öCommit¡£µã»÷Pull requestÇëÇó¹Ù·½ºÏ²¢ÄãµÄCommit¡£
-![ImageLoadFailed](./res/19.png)
 ![ImageLoadFailed](./res/20.png)
-·¢ÆðPull RequestµÄ¹ý³ÌÖÐ£¬¿ÉÒÔ¿´µ½ÄãÌá½»µÄÎÄ¼þÊýÁ¿£¬¾ßÌåÎÄ¼þ£¬ÒÔ¼°Ìá½»Ê±ºòµÄ×¢ÊÍÄÚÈÝ£¬ÓÐÖúÓÚ¹Ù·½À´È·¶¨ÄãµÄÌá½»ÊÇ·ñÄÜ±»½ÓÄÉ¡£
 
-# Îå£º¹Ù·½MergeÇëÇó
+# Áù£º¹Ù·½MergeÇëÇó
 
-#### 1. ËùÓÐµÄPull request»áÔÚ¹Ù·½ÏîÄ¿ÐÅÏ¢Àï¿´µ½
+ËùÓÐµÄPull request»áÔÚ¹Ù·½ÏîÄ¿ÐÅÏ¢Àï¿´µ½£¬Èç¹ûÃ»ÓÐ³åÍ»£¬Ôò¹Ù·½»áÑ¡ÔñºÏ²¢¡£
+¹Ù·½Ò²¿ÉÄÜ»á¾Ü¾ø£¬¾Ü¾øµÄ»°£¬×éºÃÌá¹©ÏêÏ¸µÄ¾Ü¾øÀíÓÉ£¬¹©ÇëÇóÕß²Î¿¼ºÍ¸Ä½ø£¬ÖØÐÂ·¢ÆðPull¡£
+Èç¹ûÎÞ·¨×Ô¶¯ºÏ²¢£¬Ôò±íÃ÷³åÍ»ÁË£¬ÐèÒª·¢ÆðÕßÍ¬²½Ò»´Î¹ÙÍø×îÐÂ´úÂë²¢ÇÒMergeÒÔºóÔÙÌá½»¡£
 
-![ImageLoadFailed](./res/21.png)
-#### 2. Èç¹ûÃ»ÓÐ³åÍ»£¬Ôò¹Ù·½»áÑ¡ÔñºÏ²¢.
+# Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë
 
-![ImageLoadFailed](./res/22.png)
-#### 3. Ò²¿ÉÄÜ»á¾Ü¾ø£¬¾Ü¾øµÄ»°£¬×éºÃÌá¹©ÏêÏ¸µÄ¾Ü¾øÀíÓÉ£¬¹©ÇëÇóÕß²Î¿¼ºÍ¸Ä½ø£¬ÖØÐÂ·¢ÆðPull¡£
-#### 4. Èç¹ûÎÞ·¨×Ô¶¯ºÏ²¢£¬Ôò±íÃ÷³åÍ»ÁË£¬ÐèÒª·¢ÆðÕßÍ¬²½Ò»´Î¹ÙÍø×îÐÂ´úÂë²¢ÇÒMergeÒÔºóÔÙÌá½»¡£
+¿ÉÒÔÓÃÀ­È¡£¨pull£©»òÕß»ñÈ¡£¨fetch£©Á½ÖÖ·½Ê½´Ó¹ÙÍøÔ´£¨upstream£©Í¬²½´úÂë£¬»ñÈ¡£¨fetch£©ÊÇÖ´ÐÐÁËÀ­È¡£¨pull£©+ ºÏ²¢£¨merge£©µÄ²Ù×÷£¬¼´À­È¡£¨pull£©ÏÂÀ´Óë±¾µØµÄ²Ö¿â½øÐÐºÏ²¢£¨merge£©²Ù×÷£¬½¨Òé°Ù¶È¸üÏêÏ¸µÄËµÃ÷¡£
 
-# Áù£º´Ó¹ÙÍøÔ´Í¬²½´úÂë
-
-¿ÉÒÔÓÃpull»òÕßfetchÁ½ÖÖ·½Ê½´Ó¹ÙÍøÔ´£¨upstream£©Í¬²½´úÂë£¬fetchÊÇÖ´ÐÐÁËpull +mergeµÄ²Ù×÷£¬¼´pullÏÂÀ´Óë±¾µØµÄ²Ö¿â½øÐÐmerge²Ù×÷£¬½¨Òé°Ù¶È¸üÏêÏ¸µÄËµÃ÷¡£
-
-#### 1. ÔÚ×Ô¼ºforkµÄÏîÄ¿ÏÂ£¬¿ÉÒÔ¿´µ½µ±Ç°°æ±¾Óë¹ÙÍøÔ´µÄ²î¾à£¬ÈçÏÂÍ¼ËùÊ¾£º
-
-![ImageLoadFailed](./res/23.png)
-#### 2. ´Ë´Î£¬ÊÇ¿ÉÒÔ´Ó¹Ù·½Ô´fetch/pull×îÐÂ´úÂëµÄ£¬ÈçÏÂÍ¼ËùÊ¾£¬RemoteÑ¡Ôñupstream£¨¹Ù·½Ô´£©£º
-
-![ImageLoadFailed](./res/24.png)
-![ImageLoadFailed](./res/25.png)
-#### 3. ¿ÉÒÔµã»÷Pulled DiffÀ´²é¿´¾ßÌåµÄ±ä»¯ÐÅÏ¢£º
-
-![ImageLoadFailed](./res/26.png)
+![ImageLoadFailed](./res/11.png)
 
   
