@@ -1,23 +1,23 @@
 # Ä¿Â¼
-* [Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ](#Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ)
-* [¶þ£º°²×°¿Í»§¶Ë¹¤¾ß](#¶þ£º°²×°¿Í»§¶Ë¹¤¾ß)
-* [Èý£º¼ì³öÏîÄ¿](#Èý£º¼ì³öÏîÄ¿)
-* [ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì](#ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì)
-* [Îå£ºÌá½»´úÂëµ½×Ô¼ºµÄFork](#Îå£ºÌá½»´úÂëµ½×Ô¼ºµÄFork)
-* [Áù£º¹Ù·½MergeÇëÇó](#Áù£º¹Ù·½MergeÇëÇó)
-* [Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë](#Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë)
+* [Ò»¡¢ForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ](#Ò»¡¢ForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ)
+* [¶þ¡¢°²×°¿Í»§¶Ë¹¤¾ß](#¶þ¡¢°²×°¿Í»§¶Ë¹¤¾ß)
+* [Èý¡¢¼ì³öÏîÄ¿](#Èý£º¼ì³öÏîÄ¿)
+* [ËÄ¡¢Ìá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì](#ËÄ¡¢Ìá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì)
+* [Îå¡¢Ìá½»´úÂëµ½×Ô¼ºµÄFork](#Îå¡¢Ìá½»´úÂëµ½×Ô¼ºµÄFork)
+* [Áù¡¢¹Ù·½MergeÇëÇó](#Áù¡¢¹Ù·½MergeÇëÇó)
+* [Æß¡¢´Ó¹ÙÍøÔ´Í¬²½´úÂë](#Æß¡¢´Ó¹ÙÍøÔ´Í¬²½´úÂë)
 
 
 
 
-# Ò»£ºForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ
+# Ò»¡¢ForkÏîÄ¿µ½×Ô¼ºµÄgithubÕËºÅ
 
 #### 1. µã»÷forkµ½×Ô¼ºµÄÕËºÅÏÂ
 ![ImageLoadFailed](./res/1.png)
 
 #### 2. ²é¿´×Ô¼ºforkÏîÄ¿µØÖ·£¬¼ÙÈçÄãµÄÓÃ»§Ãûmy£¬ÔòÏîÄ¿µØÖ·£º[https://github.com/my/MyKingdom](https://github.com/my/MyKingdom)
 
-# ¶þ£º°²×°¿Í»§¶Ë¹¤¾ß
+# ¶þ¡¢°²×°¿Í»§¶Ë¹¤¾ß
 
 °´Ë³Ðò°²×°
 
@@ -25,7 +25,7 @@
 - TotoiseGit
 - TortoiseGit-LanguagePack-CN£¨ÖÐÎÄÓïÑÔ°ü£¬¿ÉÑ¡Ôñ°²×°£©
 
-# Èý£º¼ì³öÏîÄ¿
+# Èý¡¢¼ì³öÏîÄ¿
 #### 1. ÎÄ¼þÓÒ¼ü²Ëµ¥£ºGit ¿ËÂ¡£¨Git Clone£©
 
 ![ImageLoadFailed](./res/3.png)
@@ -67,14 +67,14 @@
 ![ImageLoadFailed](./res/10.png)
 
 
-# ËÄ£ºÌá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì
+# ËÄ¡¢Ìá½»´úÂë¼°ºÏ²¢´úÂëÁ÷³Ì
 
 Èç¹ûÎÒÃÇ±¾µØÓÐ´úÂë¸Ä±ä£¬±ÈÈçÐÂÔöÎÄ¼þ»ò´úÂë£¬Á÷³ÌÈçÏÂ£º
 
 Commit£¨±¾µØÌá½»£©-> push£¨Ìá½»µ½×Ô¼ºForkµÄµØÖ·£©-> ·¢Æðpull request(¿ÉÒÔ¹¤¾ßÀï»òÕßgihub×Ô¼ºµÄÏîÄ¿Ö÷Ò³Àï) -> ¹Ù·½ÉóºËÎÒÃÇµÄÌá½» -> ÖØÐÂ´Ó¹Ù·½À­È¡×îÐÂ´úÂë
 
 
-# Îå£ºÌá½»´úÂëµ½×Ô¼ºµÄFork
+# Îå¡¢Ìá½»´úÂëµ½×Ô¼ºµÄFork
 
 #### 1. ±ÈÈçÎÒÃÇÐÂÔöÁËÒ»¸öÎÄ¼þ£¬ÓÒ¼üTotoiseGit ¨C¡·Ìí¼Ó£¨Add£©£¬Ìí¼Óµ½°æ±¾¿ØÖÆÎÄ¼þÁÐ±íÖÐ£¬È»ºóÌá½»£¨Commit£©µ½±¾µØ¿âÀï¡£
 
@@ -100,13 +100,13 @@ Commit£¨±¾µØÌá½»£©-> push£¨Ìá½»µ½×Ô¼ºForkµÄµØÖ·£©-> ·¢Æðpull request(¿ÉÒÔ¹¤¾ßÀï»
 
 ![ImageLoadFailed](./res/20.png)
 
-# Áù£º¹Ù·½MergeÇëÇó
+# Áù¡¢¹Ù·½MergeÇëÇó
 
 ËùÓÐµÄPull request»áÔÚ¹Ù·½ÏîÄ¿ÐÅÏ¢Àï¿´µ½£¬Èç¹ûÃ»ÓÐ³åÍ»£¬Ôò¹Ù·½»áÑ¡ÔñºÏ²¢¡£
 ¹Ù·½Ò²¿ÉÄÜ»á¾Ü¾ø£¬¾Ü¾øµÄ»°£¬×éºÃÌá¹©ÏêÏ¸µÄ¾Ü¾øÀíÓÉ£¬¹©ÇëÇóÕß²Î¿¼ºÍ¸Ä½ø£¬ÖØÐÂ·¢ÆðPull¡£
 Èç¹ûÎÞ·¨×Ô¶¯ºÏ²¢£¬Ôò±íÃ÷³åÍ»ÁË£¬ÐèÒª·¢ÆðÕßÍ¬²½Ò»´Î¹ÙÍø×îÐÂ´úÂë²¢ÇÒMergeÒÔºóÔÙÌá½»¡£
 
-# Æß£º´Ó¹ÙÍøÔ´Í¬²½´úÂë
+# Æß¡¢´Ó¹ÙÍøÔ´Í¬²½´úÂë
 
 ¿ÉÒÔÓÃÀ­È¡£¨pull£©»òÕß»ñÈ¡£¨fetch£©Á½ÖÖ·½Ê½´Ó¹ÙÍøÔ´£¨upstream£©Í¬²½´úÂë£¬»ñÈ¡£¨fetch£©ÊÇÖ´ÐÐÁËÀ­È¡£¨pull£©+ ºÏ²¢£¨merge£©µÄ²Ù×÷£¬¼´À­È¡£¨pull£©ÏÂÀ´Óë±¾µØµÄ²Ö¿â½øÐÐºÏ²¢£¨merge£©²Ù×÷£¬½¨Òé°Ù¶È¸üÏêÏ¸µÄËµÃ÷¡£
 
