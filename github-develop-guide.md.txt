@@ -78,16 +78,19 @@ Commit£¨±¾µØÌá½»£©-> push£¨Ìá½»µ½×Ô¼ºForkµÄµØÖ·£©-> ·¢Æğpull request(¿ÉÒÔ¹¤¾ßÀï»
 ![ImageLoadFailed](./res/13.png)
 ![ImageLoadFailed](./res/14.png)
 ![ImageLoadFailed](./res/15.png)
+![ImageLoadFailed](./res/16.png)
 
 
 
 #### 2.CommitÍê³ÉÒÔºó¿ÉÒÔ¼ÌĞøPush£¬»òÕßÒÔºóPush£¬Ö»ÓĞPushµ½×Ô¼ºForkµØÖ·ÒÔºó£¬²ÅÊÇÌá½»µ½githubÀïÁË£¬·ñÔòÖ»ÊÇ±¾µØ±£´æÁË¡£
 
 ÊäÈë×Ô¼ºµÄÓÃ»§ÃûÃÜÂëÌá½»
-![ImageLoadFailed](./res/16.png)
 ![ImageLoadFailed](./res/17.png)
+![ImageLoadFailed](./res/18.png)
 
 ×¢Òâµ½£¬Ä¿±êµØÖ·RemoetÎªOriginµØÖ·£¬¼´ÎÒÃÇ×Ô¼ºForkµÄµØÖ·¡£
+
+
 #### 3. Push³É¹¦ÒÔºó£¬ÏÔÊ¾ÈçÏÂÄÚÈİ£¬¿ÉÒÔ¼ÌĞø·¢Æğpull reqestÇëÇó£¬½«±ä¸üÌá½»µ½¹Ù·½Ô´µØÖ·(upstream)£¬ÇëÇóºÏ²¢ÄãµÄ±ä¸ü£º
 
 ![ImageLoadFailed](./res/18.png)
