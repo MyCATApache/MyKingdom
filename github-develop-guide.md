@@ -97,7 +97,7 @@ Commit£¨±¾µØÌá½»£©-> push£¨Ìá½»µ½×Ô¼ºForkµÄµØÖ·£©-> ·¢Æðpull request(¿ÉÒÔ¹¤¾ßÀï»
 # Áù¡¢¹Ù·½MergeÇëÇó
 
 ËùÓÐµÄPull request»áÔÚ¹Ù·½ÏîÄ¿ÐÅÏ¢Àï¿´µ½£¬Èç¹ûÃ»ÓÐ³åÍ»£¬Ôò¹Ù·½»áÑ¡ÔñºÏ²¢¡£
-¹Ù·½Ò²¿ÉÄÜ»á¾Ü¾ø£¬¾Ü¾øµÄ»°£¬×éºÃÌá¹©ÏêÏ¸µÄ¾Ü¾øÀíÓÉ£¬¹©ÇëÇóÕß²Î¿¼ºÍ¸Ä½ø£¬ÖØÐÂ·¢ÆðPull¡£
+¹Ù·½Ò²¿ÉÄÜ»á¾Ü¾ø£¬¾Ü¾øµÄ»°£¬×îºÃÌá¹©ÏêÏ¸µÄ¾Ü¾øÀíÓÉ£¬¹©ÇëÇóÕß²Î¿¼ºÍ¸Ä½ø£¬ÖØÐÂ·¢ÆðPull¡£
 Èç¹ûÎÞ·¨×Ô¶¯ºÏ²¢£¬Ôò±íÃ÷³åÍ»ÁË£¬ÐèÒª·¢ÆðÕßÍ¬²½Ò»´Î¹ÙÍø×îÐÂ´úÂë²¢ÇÒMergeÒÔºóÔÙÌá½»¡£
 
 # Æß¡¢´Ó¹ÙÍøÔ´Í¬²½´úÂë
