@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mykingdom</groupId>
 	<artifactId>imking</artifactId>
-	<packaging>pom</packaging>
 	<version>1.0.0</version>
 
 	<parent>
@@ -44,7 +43,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-
+<!-- 
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session</artifactId>
@@ -53,7 +52,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
-
+ -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -80,6 +79,10 @@
 			<artifactId>joda-time</artifactId>
 			<version>${joda.version}</version>
 		</dependency>
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-security</artifactId>
+			</dependency>
 
 	</dependencies>
 
