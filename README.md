@@ -6,10 +6,36 @@ My Kingdom是Leader us领导的IT人的王国，打造百万IT人专属的知识
 
 My Kindow最终会诞生第一批创始之王。。。一起参与的人投票，贡献最大的N个人。。。在My Kindow的创世纪里 永久登记，并且不会后面降级。。。
 
-##【开发者公约】
-###1. 代码规范
-请使用 doc/templates 目录下提供的格式化文件，说明文档请参见 doc/templates/README.md
+## 开发指南目录
+* [准备工作](#准备工作)
+* [快速入门](#快速入门)
+* [开发规范](#开发规范)
+* [技术分享](#技术分享)
 
-##【使用说明】
-###编译生成镜像
+## 准备工作
+###1、学习Git使用
+Windows用户必须熟悉TortoiseGit的基本用法，包括[如何安装](#http://blog.csdn.net/renfufei/article/details/41647937)，[常用基本操作](#http://blog.csdn.net/qx1995318/article/details/52006561)，至少对相关的概念有所认知。我们针对本项目制定了简要的操作指南，具体流程参见[Github操作规范文档](#/doc/develop-guide/github-develop-guide.md)
+
+###2、学习java开发
+我们使用的是java spring-boot技术开发，如不熟悉，可自行百度。我们也提供了相关的课程，有需要的可以联系QQ：1005766359
+
+###3、了解docker，K8S相关知识
+这个属于中级要求，初学者可不必具有该能力，对技术提升有追求可自行学习，当然，官方这方面也是有对应的技能培训，开发者可自愿选择，不作要求。
+
+## 快速入门
+
+###1、github上获取项目
+具体流程参见[Github操作规范文档](#/doc/develop-guide/github-develop-guide.md)
+
+###2、编译生成镜像
 mvn clean install docker:build
+
+## 开发规范
+###1、代码规范
+请使用 doc/templates 目录下提供的格式化文件，详情参见[说明文档](#/doc/templates/README.md)
+
+###2、文档规范
+所有文档需放到/doc目录下；每个专题文档需独立文件夹；文档的图片等媒体文件，需放在名为“images”的目录下；文档的编码格式为UTF-8
+
+## 技术分享
+有不定期的高端技术分享，分享者都是来自各大名企的CTO、架构师、技术经理等。
