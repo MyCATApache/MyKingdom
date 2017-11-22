@@ -6,7 +6,7 @@
 ### t_users：用户表
 字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
-userCode|用户Id|bigint|14||N|
+userCode|用户Id|bigint|14|N|
 account|用户名|varchar|32|Y|NULL|
 qq|QQ号|varchar|15|Y|NULL|
 email|邮箱|varchar|32|Y|NULL|
