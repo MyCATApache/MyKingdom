@@ -2,9 +2,18 @@
 # 数据库设计文档
 
 ### 1.1 用户表设计文档
-```sql
+
+### t_users  用户账号表
+字段名 | 数据类型 | 数据长度 | 说明 | 允许空 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+userCode|bigint|14|用户标识|N|
+account|varchar|32|用户标识|Y|
+
+
+```
+
 CREATE TABLE `t_users` (
-  `userCode` bigint(14) NOT NULL COMMENT '用户code',
+  `userCode` bigint(14) NOT NULL COMMENT 'userCode',
   `account` varchar(32) DEFAULT NULL COMMENT '用户名',
   `qq` varchar(15) DEFAULT NULL COMMENT 'QQ号',
   `email` varchar(32) DEFAULT NULL COMMENT '邮箱',
