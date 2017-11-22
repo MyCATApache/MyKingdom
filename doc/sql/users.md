@@ -15,7 +15,7 @@ dream|王的梦想|varchar|256|Y|NULL|
 point|积分|int|11|Y|NULL|
 creditPoint|信誉平均分|int|11|Y|NULL|
 balance|干粮余额|bigint|12|Y|NULL|
-createTime|创建日期|timestamp||Y|NULL|
+createTime|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 
 
 
