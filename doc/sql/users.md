@@ -1,15 +1,21 @@
 
 # 数据库设计文档
 
-### 1.1 用户表设计文档
+//### 1.1 用户表设计文档
 
-### t_users  用户账号表
-字段名 | 数据类型 | 数据长度 | 说明 | 允许空 | 备注
-------------- | ------------- | ------------- | ------------- | ------------- | -------------
-userCode|bigint|14|用户标识|N|
-account|varchar|32|用户标识|Y|
-
-
+### t_users：用户表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
+userCode|用户Id|bigint|14||N|
+account|用户名|varchar|32|Y|NULL|
+qq|QQ号|varchar|15|Y|NULL|
+email|邮箱|varchar|32|Y|NULL|
+website|博客地址|varchar|64|Y|NULL|
+dream|王的梦想|varchar|256|Y|NULL|
+point|积分|int|11|Y|NULL|
+creditPoint|信誉平均分|int|11|Y|NULL|
+balance|干粮余额|bigint|12|Y|NULL|
+createTime|创建日期|timestamp||Y|NULL|
 ```
 
 CREATE TABLE `t_users` (
@@ -22,12 +28,12 @@ CREATE TABLE `t_users` (
   `point` int(11) DEFAULT NULL COMMENT '积分',
   `creditPoint` int(11) DEFAULT NULL COMMENT '信誉平均分',
   `balance` bigint(12) DEFAULT NULL COMMENT '干粮余额',
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期' , 
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建日期' ,
   PRIMARY KEY (`userCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表' ;
 
 ```
-### 1.2 等级表 
+### 1.2 等级表
 ```sql
 CREATE TABLE `t_grade` (
   `id` int(20) NOT NULL COMMENT 'id',
