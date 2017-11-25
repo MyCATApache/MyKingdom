@@ -59,7 +59,7 @@ role_id|角色id|bigint|32|Y|NULL|
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
-task_id|用户id|bigint|20|Y|NULL|
+task_id|任务id|bigint|20|Y|NULL|
 price|报价|bigint|20|Y|NULL|
 duration|周期|tinyint|4|Y|NULL|
 contact|QQ or email or 电话|varchar|32|Y|NULL|
@@ -120,8 +120,8 @@ create_time|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 verify_time|创建日期|timestamp||Y|NULL|
 remark|描述|varchar|80|Y|NULL|
 manager_id|经办人|bigint|20|Y|NULL|
-status|状态 0、未审核 1、审核状态 2、审核未通过|tinyint|2|Y|NULL|
-task_id|BIGINT|20|Y|NULL|
+status|状态：0未审核 1审核状态 2审核未通过|tinyint|2|Y|NULL|
+task_id|任务id|BIGINT|20|Y|NULL|
 
 ### 1.12 t_user_point_detail：会员积分明细表
 字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
