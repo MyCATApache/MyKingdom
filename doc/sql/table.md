@@ -90,6 +90,8 @@ remark|描述|varchar|120|Y|NULL|
 create_time|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 
 ### 1.9 t_user_favor：用户收藏表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
 favor_id|收藏对象Id|bigint|20|Y|NULL|
@@ -98,12 +100,16 @@ favor_type|收藏|TINYINT|2|Y|NULL|
 create_time|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 
 ### 1.10 t_user_dream_history：历史梦想表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
 dream|历史梦想|varchar|200|Y|NULL|
 create_time|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 
 ### 1.11 t_user_account_detail：会员帐户记录明细表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
 amount|交易金额|bigint|20|Y|NULL|
@@ -118,6 +124,8 @@ status|状态 0、未审核 1、审核状态 2、审核未通过|tinyint|2|Y|NUL
 task_id|BIGINT|20|Y|NULL|
 
 ### 1.12 t_user_point_detail：会员积分明细表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
 amount|积分|bigint|11|Y|NULL|
@@ -126,6 +134,8 @@ remark|描述|varchar|80|Y|NULL|
 create_time|获得积分时间|timestamp||N|CURRENT_TIMESTAMP|
 
 ### 1.13 t_message：用户消息表
+字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
+------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 id|技能id|bigint|20|N|
 user_id|用户id|bigint|20|Y|NULL|
 message|消息内容|varchar|500|Y|NULL|
