@@ -96,7 +96,7 @@ remark|描述|varchar|120|Y|NULL|
 create_time|创建日期|timestamp||N|CURRENT_TIMESTAMP|
 
 ### 1.9 t_user_favor：用户收藏表
-- [x] 可以搜藏博客，赏金任务，众包/开源项目等 如果是记录起标题内容到title字段
+- [x] 可以收藏博客，赏金任务，众包/开源项目等 如果是记录标题内容到title字段
 - [x] 希望可以做到可以收藏一个地址,用户自己输入网址标题和网址url
 
 字段名 | 字段描述 | 字段类型 | 长度 | 允许空 | 缺省值 | 备注
