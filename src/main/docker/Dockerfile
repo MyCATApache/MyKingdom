@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8
+FROM openjdk:8-jdk-alpine
 MAINTAINER gaozhiwen <gaulzhw@gmail.com>
 
 EXPOSE 8080
