@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.imking</groupId>
   <artifactId>imking</artifactId>
-  <version>1.0</version>
+  <version>imking.1.0</version>
   <packaging>pom</packaging>
   
   	
@@ -15,6 +15,7 @@
 		<druid.version>1.1.5</druid.version>
 		<lombok.version>1.16.16</lombok.version>
 		<joda.version>2.9.9</joda.version>
+		<imking.version>imking.1.0</imking.version>
 	</properties>
   
   	<parent>
@@ -86,6 +87,7 @@
 	
   	<modules>
   		<module>imking-web</module>
+  		<module>innovate</module>
   	</modules>
   	
 </project>

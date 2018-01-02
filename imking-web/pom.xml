@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>io.imking</groupId>
 		<artifactId>imking</artifactId>
-		<version>1.0</version>
+		<version>imking.1.0</version>
 	</parent>
 	<artifactId>imking-web</artifactId>
 	
@@ -14,6 +14,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>io.imking</groupId>
+			<artifactId>imking-innovate</artifactId>
+			<version>${imking.version}</version>
+		</dependency>
+		
 	</dependencies>
 	
 	<build>
