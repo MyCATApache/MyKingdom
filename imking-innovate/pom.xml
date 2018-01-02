@@ -6,4 +6,10 @@
     <version>imking.1.0</version>
   </parent>
   <artifactId>imking-innovate</artifactId>
+  
+  <dependencies>
+  
+  		
+  		 
+  </dependencies>
 </project>

@@ -2,7 +2,7 @@ spring:
   application:
     name: mykingdom-imking
   datasource:
-    url: jdbc:mysql://192.168.0.118:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://122.112.238.95:3389/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: imking
     password: 46OMuh4j
@@ -15,10 +15,10 @@ spring:
     data: classpath:demo-data.sql
     initialize: true
     continue-on-error: true
-  redis:
-    host: 192.168.0.3
-    port: 6379
-    password:
+#  redis:
+#    host: 192.168.0.3
+#    port: 6379
+#    password:
 
 server:
   port: 8080
@@ -26,8 +26,8 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
-logging:
-  config: classpath:log4j2.xml
+#logging:
+#  config: classpath:log4j2.xml
 
 mybatis:
   configuration:
