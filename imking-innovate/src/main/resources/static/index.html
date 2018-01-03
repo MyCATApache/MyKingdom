@@ -1,38 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>这是重创首页</title>
-	<meta http-equiv=Content-Type content="text/html;charset=utf-8">  
-	<link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
-	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {width:100%; height: 100%;} 
+  .carousel-indicators li{cursor:pointer;}
+  </style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li class="active"></li>
-						<li></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="item active">
-							<img class="slide-image" src="http://placehold.it/800x300"/>
-						</div>
-						<div class="item">
-							<img class="slide-image" src="http://placehold.it/800x300"/>
-						</div>
-					</div>
-					<a class="left carousel-control" href="javascript:$('.carousel').carousel('prev')">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-					</a>
-					<a class="right carousel-control" href="javascript:$('.carousel').carousel('next')">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-					</a>
-				</div>
-			</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-list">
+				<li class="nav-header">
+					列表标题
+				</li>
+				<li class="active">
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">库</a>
+				</li>
+				<li>
+					<a href="#">应用</a>
+				</li>
+				<li class="nav-header">
+					功能列表
+				</li>
+				<li>
+					<a href="#">资料</a>
+				</li>
+				<li>
+					<a href="#">设置</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+			</ul>
 		</div>
 	</div>
+</div>
+
+<div class="container">
+		<div class="row">
+			<div id="demo" class="carousel slide col-md-4" data-ride="carousel">
+			  <ul class="carousel-indicators">
+			    <li data-target="#demo" data-slide-to="0" class="active"></li>
+			    <li data-target="#demo" data-slide-to="1"></li>
+			    <li data-target="#demo" data-slide-to="2"></li>
+			  </ul>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="http://placehold.it/200x200">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="http://placehold.it/200x200">
+			    </div> 
+			    <div class="carousel-item">
+			      <img src="http://placehold.it/200x200">
+			    </div>
+			  </div>
+			 
+			  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+			    <span class="carousel-control-prev-icon"></span>
+			  </a>
+			  <a class="carousel-control-next" href="#demo" data-slide="next">
+			    <span class="carousel-control-next-icon"></span>
+			  </a>
+			</div>
+</div>
+</div>
 </body>
 </html>
