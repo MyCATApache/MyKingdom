@@ -49,9 +49,7 @@ table {
 .mk-header .container{
     background: #fff;
 }
-.mk-index-banner{
-    margin-top: 2.5rem;
-}
+ 
 .mk-index-banner .carousel-item{
     height: 400px;
 }
@@ -78,7 +76,6 @@ table {
     height: inherit;
 }
 .notice-div{
-    width: 1.5rem;
     height: 1.5rem;
 }
 .mk-alert{
