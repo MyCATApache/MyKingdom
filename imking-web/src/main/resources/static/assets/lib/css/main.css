@@ -51,7 +51,7 @@ table {
 }
  
 .mk-index-banner .carousel-item{
-    height: 400px;
+    height: 350px;
 }
 @media screen and (max-width: 768px){
     .mk-index-banner .carousel-item{
