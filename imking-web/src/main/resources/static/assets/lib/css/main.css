@@ -95,7 +95,7 @@ table {
     display: block;
     background-size: cover;
     background-repeat: no-repeat;
-    background-img: url("../img/alert.png");
+    background-image: url("../img/alert.png");
     width: 1.7rem;
     height: 1.7rem;
 }
@@ -153,9 +153,9 @@ table {
 
 .mk-card .event-img{
     background: #e6e6e6;
-    background-img: url("../img/icon.png");
+    background-image: url("../img/icon.png");
     background-position: center;
-    background-size: cover;
+    background-size: cover; 
 }
 
 .mk-footer {
