@@ -87,7 +87,6 @@
 	
   	<modules>
   		<module>imking-web</module>
-  		<module>imking-innovate</module>
   	</modules>
   	
 </project>

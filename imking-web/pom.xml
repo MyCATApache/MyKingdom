@@ -15,12 +15,6 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>io.imking</groupId>
-			<artifactId>imking-innovate</artifactId>
-			<version>${imking.version}</version>
-		</dependency>
-		
 	</dependencies>
 	
 	<build>
