@@ -30,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
 		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
 		.anyRequest().permitAll();
-		formLogin.loginPage("/login.html").loginProcessingUrl("/login.html").successForwardUrl("/admin/loginSuccess").permitAll();
+		
+		formLogin.loginPage("/login.html").loginProcessingUrl("/login.html").successForwardUrl("/admin/loginSuccess").permitAll()
+		.failureUrl("/admin/loginFailure");
 		CookieCsrfTokenRepository withHttpOnlyFalse = CookieCsrfTokenRepository.withHttpOnlyFalse();
 		withHttpOnlyFalse.setCookieName(SELF_CSRF_COOKIE_NAME);
 		withHttpOnlyFalse.setHeaderName(SELF_CSRF_COOKIE_NAME);

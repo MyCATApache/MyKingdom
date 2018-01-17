@@ -23,9 +23,15 @@ public class LoginController {
     }
     
     @RequestMapping("/loginSuccess")
-	public Result<Authentication> loginSuccess(){
+	public Result<String> loginSuccess(){
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication() ;
 		 
-		 return new Result<>(ResultEnum.SUCCESS , authentication) ;
+		 return new Result<>(ResultEnum.SUCCESS , authentication.getName()) ;
+	}
+    
+    @RequestMapping("/loginFailure")
+	public Result<String> loginFailure(){
+		 
+		 return new Result<>(ResultEnum.SERVER_ERROR , "账号或密码错误" ) ;
 	}
 }
