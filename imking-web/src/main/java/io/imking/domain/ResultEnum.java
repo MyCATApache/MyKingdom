@@ -1,4 +1,4 @@
-package io.imking.core.domain;
+package io.imking.domain;
 
 /**
  * Desc:

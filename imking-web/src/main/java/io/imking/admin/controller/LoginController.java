@@ -5,8 +5,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.imking.core.domain.Result;
-import io.imking.core.domain.ResultEnum;
+import io.imking.domain.Result;
+import io.imking.domain.ResultEnum;
 
 /**
  * Desc: 登陆相关的入口
