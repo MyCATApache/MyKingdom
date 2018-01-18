@@ -4,14 +4,16 @@
         var url = options.url;
         var data = options.data;
         var type = options.type || 'get';
-        var token = sessionStorage.getItem('token') || '';
+        var dataType = options.dataType || 'json';
+        var token = getCookie('_token') || '' ; 
         var contentType = options.contentType || 'application/x-www-form-urlencoded';
         return $.ajax({
             url: url,
             data: data,
             type: type,
+            dataType:dataType,
             headers: {
-                token: token
+            	_token: token
             },
             contentType: contentType,
             success: function (data) {
@@ -45,3 +47,16 @@
         $('#adminController').text("收起");
     });
 })(jQuery,window);
+
+
+function getCookie(cookieName) {
+    var strCookie = document.cookie;
+    var arrCookie = strCookie.split("; ");
+    for(var i = 0; i < arrCookie.length; i++){
+        var arr = arrCookie[i].split("=");
+        if(cookieName == arr[0]){
+            return arr[1];
+        }
+    }
+    return "";
+}
