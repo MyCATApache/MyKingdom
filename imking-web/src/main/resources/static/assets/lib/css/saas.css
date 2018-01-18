@@ -1,142 +1,32 @@
-* {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+*{padding:0;margin:0;list-style:none}
+.wf{width:100%;height:auto;overflow:hidden}
+.header{width:100%;height:100px;overflow:hidden}
+.header .title{height:60px;margin-top:60px}
+.header .logo{margin-top:-50px}
+.menus>li{float:left;width:120px;height:40px;line-height:20px;text-align:center;cursor:pointer}
+.menu-line{height:5px;width:30px!important;background:#FFDF51;line-height:0}
+.menus>li span{display:inline-block;width:100%;font-size:16px;font-weight:700;color:#c9c9c9}
+.menus>li span.menu-line{display:none}
+.menus>li a:hover span{color:#4f4f4f}
+.menus>li a:hover span.menu-line{display:inline-block}
+@media (min-width:1920px){.container{max-width:1200px}
 }
-
-.wf {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
+.brief-title{font-weight:700;font-size:26px;margin-top:-50px}
+.theme-title{color:#fff;font-size:50px;margin-top:160px}
+.mobile-nav{display:none;position:absolute;right:20px}
+@media (max-width:768px){.header{height:60px}
+.header .title{margin-top:10px}
+.header .logo{margin-top:-10px}
+.header .logo img{height:50px}
+.brief-title{margin-top:0}
+.theme-title{font-size:40px}
+.menus{display:none}
+.mobile-nav{display:block}
 }
-
-.header {
-	width: 100%;
-	height: 100px;
-	overflow: hidden;
-}
-
-.header .title {
-	height: 60px;
-	margin-top: 60px;
-}
-
-.header .logo {
-	margin-top: -50px;
-}
-
-.menus>li {
-	float: left;
-	width: 120px;
-	height: 40px;
-	line-height: 20px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.menu-line {
-	height: 5px;
-	width: 30px !important;
-	background: #FFDF51;
-	line-height: 0;
-}
-
-.menus>li span {
-	display: inline-block;
-	width: 100%;
-	font-size: 16px;
-	font-weight: bold;
-	color: #c9c9c9;
-}
-
-.menus>li span.menu-line {
-	display: none;
-}
-
-.menus>li a:hover span {
-	color: #4f4f4f;
-}
-
-.menus>li a:hover span.menu-line {
-	display: inline-block;
-}
-
-@media ( min-width : 1920px) {
-	.container {
-		max-width: 1200px;
-	}
-}
-
-.brief-title {
-	font-weight: bold;
-	font-size: 26px;
-	margin-top: -50px;
-}
-
-.theme-title {
-	color: #fff;
-	font-size: 50px;
-	margin-top: 160px;
-}
-
-.mobile-nav {
-	display: none;
-	position: absolute;
-	right: 20px;
-}
-
-@media ( max-width : 768px) {
-	.header {
-		height: 60px;
-	}
-	.header .title {
-		margin-top: 10px;
-	}
-	.header .logo {
-		margin-top: -10px;
-	}
-	.header .logo img {
-		height: 50px;
-	}
-	.brief-title {
-		margin-top: 0px;
-	}
-	.theme-title {
-		font-size: 40px;
-	}
-	.menus {
-		display: none;
-	}
-	.mobile-nav {
-		display: block;
-	}
-}
-
-.left {
-	float: left;
-}
-
-.formbox {
-	padding: 30px;
-	overflow: hidden;
-}
-
-.formbox .form {
-	width: 100%;
-	height: 600px;
-	background: #fff;
-	display: inline-block;
-	margin-top: 160px;
-	box-shadow: 0px 10px 5px #dedede;
-	border-radius: 5px;
-}
-
-.form .inner {
-	padding: 60px 30px;
-	overflow: hidden;
-}
-
-.form .inner .mtitle {
-	font-weight: bold;
-	font-size: 24px;
-}
+.left{float:left}
+.formbox{padding:30px;overflow:hidden}
+.formbox .form{width:100%;height:620px;background:#fff;display:inline-block;margin-top:20px;box-shadow:0 10px 5px #dedede;border-radius:5px}
+.form .inner{padding:30px 30px;overflow:hidden}
+.form .inner .mtitle{font-weight:700;font-size:24px}
+.form .inner ul li{float:left;width:170px}
+.form .inner ul label input{margin-right:6px} 
