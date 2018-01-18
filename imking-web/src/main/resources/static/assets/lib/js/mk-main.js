@@ -10,6 +10,7 @@
         return $.ajax({
             url: url,
             data: data,
+            traditional:true, 
             type: type,
             dataType:dataType,
             headers: {
