@@ -30,8 +30,9 @@
         }
     }
     window.$_ajax = $_ajax;
+    
+    $(".header").load("/common/header.html");
 })(window,jQuery);
-
 (function ($,global) {
     'use strict';
     console.log("a");
