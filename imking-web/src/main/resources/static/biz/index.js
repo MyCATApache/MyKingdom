@@ -1,5 +1,7 @@
+var custInfoId = null ;
+var isSubscribe = false ;
+var isConfirm = false ;
 $(function(){
-	
 	$_ajax.post({url:"/biz/loadAll" , callBack:function(json){
 		var data = json.data;
 		var html="";
@@ -31,12 +33,41 @@ $(function(){
 			alert("请输入您的邮箱账号");
 			return ;
 		}
+		if(isSubscribe){return false ;}
 		var bizid=[];
 		for(var x=0;x<bizboxs.length;x++){
 			bizid.push($(bizboxs[x]).val()) ;
 		}
+		isSubscribe=true;
 		$_ajax.post({url:"/biz/subscribe" ,data:{custName:name,phone:phone,bizid:bizid} , callBack:function(json){
-			alert(json.data);
+			//alert(json.data);
+			isSubscribe=false;
+			$("#phoneMsg").html("您用&nbsp;"+phone+"&nbsp;号码成功预约");
+			custInfoId = json.data ;
+			$("#subscribeDiv").hide();
+			$("#sureDiv").show();
 		}}) 
 	});
+	
+	$("#confirm").click(function(){
+		if(isConfirm){
+			return;
+		}
+		isConfirm=true;
+		var confirmbox = $(".confirmbox:checked");
+		if(!confirmbox.length){
+			alert("请选择您方便接听电话的时间");
+			return ;
+		}
+		var ccTime="";
+		for(var x=0;x<confirmbox.length;x++){
+			if(x>0){ccTime+=",";}
+			ccTime+=$(confirmbox[x]).val();
+		}
+		$_ajax.post( {url:"/biz/confirm" ,data:{cstId:custInfoId,ccTime:ccTime} , callBack:function(json){
+			$(".needhide").hide();
+			$("#phoneMsg").html("您用&nbsp;"+phone+"&nbsp;号码成功预约,方便接听电话时间：" + ccTime); 
+		}});
+	})
+	
 })

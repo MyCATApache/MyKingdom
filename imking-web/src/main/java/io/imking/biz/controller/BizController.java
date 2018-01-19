@@ -33,9 +33,24 @@ public class BizController {
 		Result<Object> result = new Result<>();
 		try {
 			businessService.insertCustInfo(custInfo, bizid);
-			result.ok("预约成功") ;
+			result.ok( custInfo.getId() ) ;
 		} catch (Exception e) {
 			result.error("预约失败");
+			logger.error("/biz/subscribe", e);
+		}
+		return result;
+	}
+	
+	@PostMapping("confirm")
+	public Result<Object> confirm(Long cstId,String ccTime) {
+		Result<Object> result = new Result<>();
+		try {
+			CustInfo custInfo = businessService.selectCustInfo( cstId ) ;
+			custInfo.setCcTime(ccTime);
+			businessService.updateCustInfo(custInfo) ;
+			result.ok("确认成功");
+		} catch (Exception e) {
+			result.error("确认失败");
 			logger.error("/biz/subscribe", e);
 		}
 		return result;

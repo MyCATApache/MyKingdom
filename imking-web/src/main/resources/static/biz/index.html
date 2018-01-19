@@ -19,7 +19,7 @@
 	   			</div>
 	   			<div class="col-xs-12 col-md-6 col-lg-6 text-center">
 	   				<div class="formbox">
-		   				<div class="form">
+		   				<div class="form" id="subscribeDiv">
 		   					<div class="text-left inner">
 		   						<p class="mtitle">选择您的服务</p>
 		   						<ul id="biz">
@@ -41,6 +41,25 @@
 		   							<button class="btn btn-default" id="subscribe" style="width: 100%;height: 50px;background: #333;color: #fff;cursor: pointer;font-weight: bold;">立即预约</button>
 		   						</div>
 		   					</div>
+		   				</div>
+		   				
+		   				<div class="form" id="sureDiv" style="display:none;">
+		   					<div class="text-left inner">
+		   						<p class="mtitle">选择您的服务</p>
+		   						<span id="phoneMsg">您用  号码成功预约</span>
+		   					    
+								<p class="stitle needhide" style="margin-top:30px;">选择您方便接听电话的时间</p>
+								<ul id="times" class="needhide">
+									<li  style="width:100%;"> <label><input class="confirmbox" value="上午" type="checkbox" />上午</label> </li>
+									<li  style="width:100%;"> <label><input class="confirmbox" value="中午" type="checkbox" />中午</label> </li>
+									<li  style="width:100%;"> <label><input class="confirmbox" value="下午" type="checkbox" />下午</label> </li>
+									<li  style="width:100%;"> <label><input class="confirmbox" value="晚上18:00-20:00" type="checkbox" />晚上18:00-20:00</label> </li>
+								</ul>
+								
+								<div class="wf needhide" style="margin-top:150px;">
+		   							<button class="btn btn-default" id="confirm" style="width: 100%;height: 50px;background: #333;color: #fff;cursor: pointer;font-weight: bold;">确定</button>
+		   						</div>
+							</div>
 		   				</div>
 	   				</div>
 	   			</div>

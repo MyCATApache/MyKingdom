@@ -1,5 +1,6 @@
 package io.imking.core.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,8 @@ public class BusinessService {
 	public boolean insertCustInfo(CustInfo custInfo, Long[] bizIds) {
 
 		custInfo.setId(SnowflakeWorkerHloder.nextId());
+		custInfo.setCreateTime(new Date());
+		
 		custInfoMapper.insert(custInfo);
 		for (Long bizId : bizIds) {
 			CustBusiness business = new CustBusiness();
@@ -42,7 +45,15 @@ public class BusinessService {
 		
 		return true;
 	}
-
+	
+	public CustInfo selectCustInfo(Long id){
+		return custInfoMapper.selectByPrimaryKey( id ) ;
+	}
+	
+	public int updateCustInfo(CustInfo custInfo){
+		return custInfoMapper.updateByPrimaryKey(custInfo) ;
+	}
+	
 	public int deleteByPrimaryKey(Long id) {
 		return businessMapper.deleteByPrimaryKey(id);
 	}
