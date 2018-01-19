@@ -1,14 +1,14 @@
 *{padding:0;margin:0;list-style:none}
 .wf{width:100%;height:auto;overflow:hidden}
-.header{width:100%;height:100px;overflow:hidden}
+.header{width:100%;height:80px;overflow:hidden}
 .header .title{height:60px;margin-top:60px}
-.header .logo{margin-top:-50px}
-.menus>li{float:left;width:120px;height:40px;line-height:20px;text-align:center;cursor:pointer}
-.menu-line{height:5px;width:30px!important;background:#FFDF51;line-height:0}
-.menus>li span{display:inline-block;width:100%;font-size:16px;font-weight:700;color:#c9c9c9}
+.menus>li{float:left;width:120px;text-align:center;cursor:pointer}
+.menus>li>a{border-bottom:5px solid #FFF}
+.menus{margin:0}
+.menus>li span{display:inline;font-size:16px;font-weight:700;color:#c9c9c9}
 .menus>li span.menu-line{display:none}
 .menus>li a:hover span{color:#4f4f4f}
-.menus>li a:hover span.menu-line{display:inline-block}
+.menus>li a:hover{border-bottom:5px solid #FFDF51}
 @media (min-width:1920px){.container{max-width:1200px}
 }
 .brief-title{font-weight:700;font-size:26px;margin-top:-50px}
@@ -30,3 +30,4 @@
 .form .inner .mtitle{font-weight:700;font-size:24px}
 .form .inner ul li{float:left;width:170px}
 .form .inner ul label input{margin-right:6px}
+.wf-bg{background:url(../img/bg.png) #f7f7f7 no-repeat;background-size:cover;position:absolute;height:60vh;width:100%}
