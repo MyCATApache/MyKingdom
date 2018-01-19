@@ -66,7 +66,7 @@ $(function(){
 		}
 		$_ajax.post( {url:"/biz/confirm" ,data:{cstId:custInfoId,ccTime:ccTime} , callBack:function(json){
 			$(".needhide").hide();
-			$("#phoneMsg").html("您用&nbsp;"+phone+"&nbsp;号码成功预约,方便接听电话时间：" + ccTime); 
+			$("#phoneMsg").html("您用&nbsp;" + $.trim($("input[name='phone']").val()) + "&nbsp;号码成功预约,方便接听电话时间：" + ccTime); 
 		}});
 	})
 	

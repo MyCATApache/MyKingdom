@@ -33,7 +33,7 @@ public class BizController {
 		Result<Object> result = new Result<>();
 		try {
 			businessService.insertCustInfo(custInfo, bizid);
-			result.ok( custInfo.getId() ) ;
+			result.ok( String.valueOf(custInfo.getId()) ) ;
 		} catch (Exception e) {
 			result.error("预约失败");
 			logger.error("/biz/subscribe", e);
@@ -42,10 +42,10 @@ public class BizController {
 	}
 	
 	@PostMapping("confirm")
-	public Result<Object> confirm(Long cstId,String ccTime) {
+	public Result<Object> confirm(String cstId,String ccTime) {
 		Result<Object> result = new Result<>();
 		try {
-			CustInfo custInfo = businessService.selectCustInfo( cstId ) ;
+			CustInfo custInfo = businessService.selectCustInfo( Long.valueOf(cstId) ) ;
 			custInfo.setCcTime(ccTime);
 			businessService.updateCustInfo(custInfo) ;
 			result.ok("确认成功");
