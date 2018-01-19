@@ -1,9 +1,9 @@
 *{padding:0;margin:0;list-style:none}
 .wf{width:100%;height:auto;overflow:hidden}
-.header{width:100%;height:80px;overflow:hidden}
+.header{width:100%;height:67px;overflow:hidden}
 .header .title{height:60px;margin-top:60px}
 .menus>li{float:left;width:120px;text-align:center;cursor:pointer}
-.menus>li>a{border-bottom:5px solid #FFF}
+.menus>li>a{font-size:24px;border-bottom:5px solid #FFF}
 .menus{margin:0}
 .menus>li span{display:inline;font-size:16px;font-weight:700;color:#c9c9c9}
 .menus>li span.menu-line{display:none}
