@@ -11,7 +11,7 @@
 -->
 <generatorConfiguration>
 	<classPathEntry
-		location="F:/JAVA/apache-maven/repo/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar" />
+		location="E:/JAVA/mvn/repo/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar" />
 	<context id="context1" targetRuntime="MyBatis3" >
 		<commentGenerator>
 			<property name="suppressAllComments" value="false" />
@@ -30,16 +30,9 @@
 		<javaClientGenerator targetPackage="io.imking.biz.mapping"
 			targetProject="MAVEN" type="ANNOTATEDMAPPER" />
 		
-		<table tableName="tc_business" domainObjectName="Business" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        
-        <table tableName="tc_cust_business" domainObjectName="CustBusiness" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        
         <table tableName="tc_cust_info" domainObjectName="CustInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
         
-        <table tableName="tc_cust_record" domainObjectName="CustRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
+       
 	</context>
 </generatorConfiguration>
