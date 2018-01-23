@@ -37,6 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		withHttpOnlyFalse.setCookieName(SELF_CSRF_COOKIE_NAME);
 		withHttpOnlyFalse.setHeaderName(SELF_CSRF_COOKIE_NAME);
 		http.csrf().csrfTokenRepository(withHttpOnlyFalse);
+		http.csrf().disable();
 		
 		http.headers().addHeaderWriter(new AccessControlHeaderWriter()); 
 	}
