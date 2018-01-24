@@ -2,7 +2,7 @@ var custInfoId = null ;
 var isSubscribe = false ;
 var isConfirm = false ;
 $(function(){
-	$_ajax.post({url:"/biz/loadAll" , callBack:function(json){
+	$_ajax.post({url:"/api/biz/loadAll" , callBack:function(json){
 		var data = json.data;
 		var html="";
 		for(var x=0;x<data.length;x++){
@@ -39,7 +39,7 @@ $(function(){
 			bizid.push($(bizboxs[x]).val()) ;
 		}
 		isSubscribe=true;
-		$_ajax.post({url:"/biz/subscribe" ,data:{custName:name,phone:phone,bizid:bizid} , callBack:function(json){
+		$_ajax.post({url:"/api/biz/subscribe" ,data:{custName:name,phone:phone,bizid:bizid} , callBack:function(json){
 			//alert(json.data);
 			isSubscribe=false;
 			$("#phoneMsg").html("您用&nbsp;"+phone+"&nbsp;号码成功预约");
@@ -64,7 +64,7 @@ $(function(){
 			if(x>0){ccTime+=",";}
 			ccTime+=$(confirmbox[x]).val();
 		}
-		$_ajax.post( {url:"/biz/confirm" ,data:{cstId:custInfoId,ccTime:ccTime} , callBack:function(json){
+		$_ajax.post( {url:"/api/biz/confirm" ,data:{cstId:custInfoId,ccTime:ccTime} , callBack:function(json){
 			$(".needhide").hide();
 			$("#phoneMsg").html("您用&nbsp;" + $.trim($("input[name='phone']").val()) + "&nbsp;号码成功预约,方便接听电话时间：" + ccTime); 
 		}});

@@ -13,7 +13,7 @@ import io.imking.core.services.BusinessService;
 import io.imking.domain.Result;
 
 @RestController
-@RequestMapping("/biz")
+@RequestMapping("/api/biz")
 public class BizController {
 
 	Logger logger = LoggerFactory.getLogger(BizController.class);
