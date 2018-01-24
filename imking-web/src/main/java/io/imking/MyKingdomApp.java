@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date: 09/11/2017
  * @author: gaul
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "io.imking")
 // @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 5 * 60)
-@MapperScan({"io.imking.biz.mapping"})
+@MapperScan({"io.imking.biz.mapping" , "io.imking.core.mapping"})
 @EnableTransactionManagement
 public class MyKingdomApp {
 	public static void main(String[] args) {
