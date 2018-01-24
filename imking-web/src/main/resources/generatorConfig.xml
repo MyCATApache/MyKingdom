@@ -25,12 +25,12 @@
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-		<javaModelGenerator targetPackage="io.imking.biz.domain"
+		<javaModelGenerator targetPackage="io.imking.core.domain"
 			targetProject="MAVEN" />
-		<javaClientGenerator targetPackage="io.imking.biz.mapping"
+		<javaClientGenerator targetPackage="io.imking.core.mapping"
 			targetProject="MAVEN" type="ANNOTATEDMAPPER" />
 		
-        <table tableName="tc_cust_info" domainObjectName="CustInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table tableName="t_attachment" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
         
        
