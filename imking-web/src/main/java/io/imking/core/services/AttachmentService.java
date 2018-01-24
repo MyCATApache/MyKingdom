@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,19 +50,20 @@ public class AttachmentService {
 		if (null == file) {
 			return null;
 		}
-		String fileName = file.getOriginalFilename();
-		String extension = FilenameUtils.getExtension(fileName);
+		String originalFilename = file.getOriginalFilename();
+		String extension = FilenameUtils.getExtension( originalFilename );
 		if (StringUtils.isEmpty(extension)) {
 			return null;
 		}
-		String headFileUrl = String.format("%s/%s", uploadPath,
-				DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM"));
+		String dateDir = DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM") ;
+		String headFileUrl = String.format("%s/%s", uploadPath,dateDir);
 		new File(headFileUrl).mkdirs();
 		InputStream in = null;
 		OutputStream out = null;
+		String fileName = SnowflakeWorkerHloder.nextId() + "." + extension;
 		try {
 			in = file.getInputStream();
-			out = new FileOutputStream(headFileUrl + "/" + SnowflakeWorkerHloder.nextId() + "." + extension);
+			out = new FileOutputStream(headFileUrl + "/" + fileName);
 			IOUtils.copy(file.getInputStream(), out);
 		} catch (Exception e) {
 			LOGGER.error("insertUploadFile error" , e );
@@ -69,8 +71,18 @@ public class AttachmentService {
 			IOUtils.closeQuietly(in);
 			IOUtils.closeQuietly(out);
 		}
-
-		return null;
+		Attachment attachment = new Attachment();
+		attachment.setCreateTime(new Date());
+		attachment.setFileName( originalFilename )  ;
+		String contentType = FILE_EXT_CONTENT_TYPE.get(extension.toLowerCase()) ; 
+		
+		attachment.setFileType(StringUtils.isEmpty(contentType) ? "image/png" : contentType); 
+		attachment.setPath( dateDir + "/" + fileName ); 
+		attachment.setSize( file.getSize() );
+		attachment.setId( SnowflakeWorkerHloder.nextId());
+		insert( attachment ) ;
+		
+		return attachment ;
 	}
 
 	public int deleteByPrimaryKey(Long id) {
