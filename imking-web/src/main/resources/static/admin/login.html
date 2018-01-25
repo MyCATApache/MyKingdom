@@ -80,7 +80,7 @@
 <script type="text/javascript">
 function loginCheck(){
 	var _token = getCookie("_token")
-	$.post("/login.html",{_csrf:_token,username:$("#username").val(),password:$("#password").val()},function(json){
+	$.post("/api/login.html",{_csrf:_token,username:$("#username").val(),password:$("#password").val()},function(json){
 		alert(json.data.name );
 	},"json")
 }
