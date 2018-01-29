@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -84,4 +85,7 @@ public interface BusinessMapper {
 			"state = #{state,jdbcType=TINYINT},", "create_time = #{createTime,jdbcType=TIMESTAMP}",
 			"where id = #{id,jdbcType=BIGINT}" })
 	int updateByPrimaryKey(Business record);
+	
+	@Select({ "select", "count(1)", "from tc_business where state=1 and business_name=#{businessName,jdbcType=VARCHAR}" })
+	int selectBusinessNameExists(@Param("businessName") String businessName);
 }

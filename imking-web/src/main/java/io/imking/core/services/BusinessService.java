@@ -33,7 +33,7 @@ public class BusinessService {
 
 		custInfo.setId(SnowflakeWorkerHloder.nextId());
 		custInfo.setCreateTime(new Date());
-		
+
 		custInfoMapper.insert(custInfo);
 		for (Long bizId : bizIds) {
 			CustBusiness business = new CustBusiness();
@@ -42,18 +42,22 @@ public class BusinessService {
 			business.setId(SnowflakeWorkerHloder.nextId());
 			custBusinessMapper.insert(business);
 		}
-		
+
 		return true;
 	}
 	
-	public CustInfo selectCustInfo(Long id){
-		return custInfoMapper.selectByPrimaryKey( id ) ;
+	public int selectBusinessNameExists(String businessName) {
+		return businessMapper.selectBusinessNameExists(businessName);
 	}
-	
-	public int updateCustInfo(CustInfo custInfo){
-		return custInfoMapper.updateByPrimaryKey(custInfo) ;
+
+	public CustInfo selectCustInfo(Long id) {
+		return custInfoMapper.selectByPrimaryKey(id);
 	}
-	
+
+	public int updateCustInfo(CustInfo custInfo) {
+		return custInfoMapper.updateByPrimaryKey(custInfo);
+	}
+
 	public int deleteByPrimaryKey(Long id) {
 		return businessMapper.deleteByPrimaryKey(id);
 	}

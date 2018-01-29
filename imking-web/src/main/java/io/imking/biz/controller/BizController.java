@@ -1,16 +1,23 @@
 package io.imking.biz.controller;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.imking.biz.domain.Business;
 import io.imking.biz.domain.CustInfo;
 import io.imking.core.services.BusinessService;
 import io.imking.domain.Result;
+import io.imking.domain.ResultEnum;
+import io.imking.domain.SnowflakeWorker.SnowflakeWorkerHloder;
 
 @RestController
 @RequestMapping("/api/biz")
@@ -27,6 +34,28 @@ public class BizController {
 		Result<Object> result = new Result<>();
 		return result.ok(businessService.selectAll());
 	}
+	
+
+	@PostMapping(value="/addBiz", produces="application/json; charset=UTF-8" )
+	@ResponseBody
+	public Result<Object> addBiz(@RequestBody Business business){
+		Result<Object> result = null ;
+		if(null == business || StringUtils.isBlank(business.getBusinessName()) ){
+			result = new Result<>(ResultEnum.SERVER_ERROR , "参数传递为空") ;
+			return result;
+		}
+		int businessNameExists = businessService.selectBusinessNameExists( business.getBusinessName() ) ;
+		if(businessNameExists > 0){
+			return new Result<>(ResultEnum.SERVER_ERROR , "该业务名已经存在"); 
+		}
+		business.setCreateTime(new Date());
+		business.setState((byte)1);
+		business.setId( SnowflakeWorkerHloder.nextId() );
+		businessService.insert(business) ; 
+		
+		return new Result<>(ResultEnum.SUCCESS , "保存成功" );
+	}
+
 
 	@PostMapping("subscribe")
 	public Result<Object> subscribe(Long[] bizid, CustInfo custInfo) {
