@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.imking.biz.domain.Business;
 import io.imking.biz.domain.CustInfo;
 import io.imking.core.services.BusinessService;
+import io.imking.domain.Constant;
 import io.imking.domain.Result;
 import io.imking.domain.ResultEnum;
 import io.imking.domain.SnowflakeWorker.SnowflakeWorkerHloder;
@@ -35,6 +36,20 @@ public class BizController {
 		return result.ok(businessService.selectAll());
 	}
 	
+	
+	@PostMapping(value="/disableBiz", produces="application/json; charset=UTF-8" )
+	@ResponseBody
+	public Result<Object> disableBiz(Long id){
+		Result<Object> result = null ;
+		if(id == null){
+			result = new Result<>(ResultEnum.SERVER_ERROR , "参数传递为空") ;
+			return result;
+		}
+		Business business = businessService.selectByPrimaryKey(id) ;
+		business.setState( Constant.ZORE );
+		businessService.updateByPrimaryKey( business ) ;
+		return new Result<>(ResultEnum.SUCCESS , "删除成功" );
+	}
 
 	@PostMapping(value="/addBiz", produces="application/json; charset=UTF-8" )
 	@ResponseBody
