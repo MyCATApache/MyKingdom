@@ -18,9 +18,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.imking.core.domain.User;
+import io.imking.domain.Result;
+import io.imking.domain.ResultEnum;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -66,10 +69,12 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 				.signWith(SignatureAlgorithm.HS512, "MyJwtSecret").compact();
 		response.addHeader("Authorization", token);
 		try {
+			Result<Object> result = new Result<Object>(ResultEnum.SUCCESS, auth.getName()) ;
 			
-			response.getWriter().write( token );
-		} catch (Exception e) {
+			response.getWriter().write(JSONUtils.toJSONString(result) );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 	}
 }
