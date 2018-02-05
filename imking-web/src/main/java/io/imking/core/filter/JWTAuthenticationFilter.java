@@ -32,7 +32,7 @@ public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
 		}
 
 		UsernamePasswordAuthenticationToken authentication = getAuthentication(request);
-
+		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		chain.doFilter(request, response);
 

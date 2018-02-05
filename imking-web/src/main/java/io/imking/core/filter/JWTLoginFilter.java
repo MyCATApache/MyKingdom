@@ -53,17 +53,18 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 		HttpServletRequest request = (HttpServletRequest) req; 
 		if(StringUtils.equalsIgnoreCase(request.getMethod(), "POST")){
 			super.doFilter(request, res, chain);
-			return;
+			return ;
 		}
 		chain.doFilter(request, res );
 	}
 	
-	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
+	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication auth) {
 		String token = Jwts.builder()
 				.setSubject(((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername())
 				.setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
 				.signWith(SignatureAlgorithm.HS512, "MyJwtSecret").compact();
-		res.addHeader("Authorization", token);
+		response.addHeader("Authorization", token);
+		
 	}
 }
