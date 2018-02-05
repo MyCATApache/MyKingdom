@@ -53,9 +53,9 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 		HttpServletRequest request = (HttpServletRequest) req; 
 		if(StringUtils.equalsIgnoreCase(request.getMethod(), "POST")){
 			super.doFilter(request, res, chain);
-		}else{
-			chain.doFilter(request, res );
+			return;
 		}
+		chain.doFilter(request, res );
 	}
 	
 	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,

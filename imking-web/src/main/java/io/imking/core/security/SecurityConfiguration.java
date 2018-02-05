@@ -62,6 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		JWTLoginFilter jwtLoginFilter = new JWTLoginFilter( authenticationManager );
 		jwtLoginFilter.setFilterProcessesUrl( "/admin/login.html" );
+		jwtLoginFilter.setContinueChainBeforeSuccessfulAuthentication(true); 
 		http.addFilter( jwtLoginFilter ) ;
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager) ) ; 
 		
