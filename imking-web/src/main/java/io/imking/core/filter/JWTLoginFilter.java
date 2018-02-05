@@ -65,6 +65,11 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 				.setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
 				.signWith(SignatureAlgorithm.HS512, "MyJwtSecret").compact();
 		response.addHeader("Authorization", token);
-		
+		try {
+			
+			response.getWriter().write( token );
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
