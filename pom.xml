@@ -29,6 +29,8 @@
 	</parent>
 	
 	<dependencies>
+	
+		
 		<dependency>
 		    <groupId>io.jsonwebtoken</groupId>
 		    <artifactId>jjwt</artifactId>

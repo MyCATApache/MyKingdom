@@ -19,6 +19,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.alibaba.druid.support.json.JSONUtils;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.core.json.JsonGeneratorImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.imking.core.domain.User;
@@ -70,10 +72,9 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 		response.addHeader("Authorization", token);
 		try {
 			Result<Object> result = new Result<Object>(ResultEnum.SUCCESS, auth.getName()) ;
-			
-			response.getWriter().write(JSONUtils.toJSONString(result) );
+			 ObjectMapper mapper = new ObjectMapper();
+			response.getWriter().write( mapper.writeValueAsString( result ) ); 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 	}
