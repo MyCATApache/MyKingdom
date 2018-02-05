@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -31,9 +32,13 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 		this.authenticationManager = authenticationManager;
 	}
 	
-	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) {
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			User user = new ObjectMapper().readValue(req.getHeader("Authorization"), User.class);
+			String authorization = request.getHeader("Authorization"); 
+			if(StringUtils.isBlank(authorization) ){
+				return super.attemptAuthentication(request, response)  ;  
+			}
+			User user = new ObjectMapper().readValue(authorization , User.class);
 			
 			return authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(user.getAccount(), "", Arrays.asList( new SimpleGrantedAuthority("admin") ) ));
@@ -45,7 +50,13 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		super.doFilter(req, res, chain);
+		
+		HttpServletRequest request = (HttpServletRequest) req; 
+		if(StringUtils.equalsIgnoreCase(request.getMethod(), "POST")){
+			super.doFilter(request, res, chain); ;
+		}else{
+			chain.doFilter(request, res);
+		}
 	}
 	
 	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
