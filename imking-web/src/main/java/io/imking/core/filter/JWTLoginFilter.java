@@ -26,10 +26,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 
-	private AuthenticationManager authenticationManager;
 
 	public JWTLoginFilter(AuthenticationManager authenticationManager) {
-		this.authenticationManager = authenticationManager;
+		super.setAuthenticationManager(authenticationManager); 
 	}
 	
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
@@ -40,7 +39,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 			}
 			User user = new ObjectMapper().readValue(authorization , User.class);
 			
-			return authenticationManager.authenticate(
+			return getAuthenticationManager().authenticate(
 					new UsernamePasswordAuthenticationToken(user.getAccount(), "", Arrays.asList( new SimpleGrantedAuthority("admin") ) ));
 		} catch (IOException e) {
 			throw new RuntimeException( e ); 
