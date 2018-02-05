@@ -59,7 +59,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf().csrfTokenRepository(withHttpOnlyFalse);
 		http.csrf().disable();
 		AuthenticationManager authenticationManager = authenticationManager(); 
-		http.addFilter(new JWTLoginFilter( authenticationManager )) ;
+		
+		JWTLoginFilter jwtLoginFilter = new JWTLoginFilter( authenticationManager );
+		jwtLoginFilter.setFilterProcessesUrl( "/admin/login.html" );
+		http.addFilter( jwtLoginFilter ) ;
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager) ) ; 
 		
 	}
