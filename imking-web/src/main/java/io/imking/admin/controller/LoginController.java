@@ -17,10 +17,7 @@ import io.imking.domain.ResultEnum;
 @RestController
 @RequestMapping("/admin")
 public class LoginController {
-	@RequestMapping("/login")
-    public String login() {
-        return "SUCCESS";
-    }
+	
     
     @RequestMapping("/loginSuccess")
 	public Result<String> loginSuccess(){

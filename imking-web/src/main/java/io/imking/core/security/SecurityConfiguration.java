@@ -41,7 +41,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		JdbcUserDetailsManager userMan = new JdbcUserDetailsManager();
 		userMan.setDataSource( dataSource ) ;
 		userMan.setRolePrefix("ROLE_");
-		userMan.setAuthoritiesByUsernameQuery("SELECT account as username,'admin' as authority FROM t_user where account = ?");
+		userMan.setUsersByUsernameQuery( "SELECT account as username,pwd as password,1 enabled FROM t_user where account = ?" ); 
+		userMan.setAuthoritiesByUsernameQuery("SELECT account AS username, t_role.role_code AS authority FROM t_user JOIN t_user_role ON t_user_role.user_id = t_user.id JOIN t_role ON t_role.id = t_user_role.role_id WHERE t_user.account = ?");
 		return userMan;
 	}
 
@@ -50,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
 		.anyRequest().permitAll();
 		
-		formLogin.loginPage("/api/login.html").loginProcessingUrl("/api/login.html").successForwardUrl("/admin/loginSuccess").permitAll()
+		formLogin.loginPage("/admin/login.html").permitAll().loginProcessingUrl("/admin/login.html").successForwardUrl("/admin/loginSuccess").permitAll()
 		.failureUrl("/admin/loginFailure");
 		CookieCsrfTokenRepository withHttpOnlyFalse = CookieCsrfTokenRepository.withHttpOnlyFalse();
 		withHttpOnlyFalse.setCookieName(SELF_CSRF_COOKIE_NAME);
