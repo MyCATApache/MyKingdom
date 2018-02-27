@@ -5,8 +5,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.imking.core.domain.Result;
-import io.imking.core.domain.ResultEnum;
+import io.imking.domain.Result;
+import io.imking.domain.ResultEnum;
 
 /**
  * Desc: 登陆相关的入口
@@ -17,15 +17,18 @@ import io.imking.core.domain.ResultEnum;
 @RestController
 @RequestMapping("/admin")
 public class LoginController {
-	@RequestMapping("/login")
-    public String login() {
-        return "SUCCESS";
-    }
+	
     
     @RequestMapping("/loginSuccess")
-	public Result<Authentication> loginSuccess(){
+	public Result<String> loginSuccess(){
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication() ;
 		 
-		 return new Result<>(ResultEnum.SUCCESS , authentication) ;
+		 return new Result<>(ResultEnum.SUCCESS , authentication.getName()) ;
+	}
+    
+    @RequestMapping("/loginFailure")
+	public Result<String> loginFailure(){
+		 
+		 return new Result<>(ResultEnum.SERVER_ERROR , "账号或密码错误" ) ;
 	}
 }
