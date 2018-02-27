@@ -15,12 +15,6 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>io.imking</groupId>
-			<artifactId>imking-innovate</artifactId>
-			<version>${imking.version}</version>
-		</dependency>
-		
 	</dependencies>
 	
 	<build>
@@ -30,6 +24,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <configuration>
+                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
+                </configuration>
+            </plugin>
+            
 		</plugins>
 	</build>
 </project>
