@@ -1,0 +1,2 @@
+INSERT INTO t_user(id,account,realname,nickname,qq,email,website,dream,points,credit_points,balance,create_time)
+VALUES(1,'hpgary' , '黄飞' , 'gary' , '834865081' , 'hpgary@qq.com' , '','我有一个梦想' , 0 , 0 , 0 , '2017-11-21 03:48:04') ; 

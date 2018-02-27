@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<title>登录页面</title>
+	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.2.1.min.js"></script>
+</head>
+<body onload='document.f.username.focus();'>
+	<h3>Login with Username and Password</h3>
+	<form name='f' action='/login.html' method='POST'>
+		<table>
+			<tr>
+				<td>User:</td>
+				<td><input type='text' id='username' name='username' value=''></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' id='password' name='password' /></td>
+			</tr>
+			<tr>
+				<td colspan='2'><input type="button"
+					value="Login" id="login_btn"/></td> 
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		$("#login_btn").click(function(){
+			var _token = getCookie("_token")
+			$.post("/login.html",{_csrf:_token,username:$("#username").val(),password:$("#password").val()},function(json){
+				alert(json.data.name ) 
+			},"json")
+		});
+		
+		function getCookie(cookieName) {
+		    var strCookie = document.cookie;
+		    var arrCookie = strCookie.split("; ");
+		    for(var i = 0; i < arrCookie.length; i++){
+		        var arr = arrCookie[i].split("=");
+		        if(cookieName == arr[0]){
+		            return arr[1];
+		        }
+		    }
+		    return "";
+		}
+	</script>
+</body>
+</html>
