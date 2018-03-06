@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration>
+	<classPathEntry
+			location="/Users/xqy/.m2/repository/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar" />
+
+	<context id="context1" targetRuntime="MyBatis3" >
+		<plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
+			<property name="builder" value="true"/>
+			<property name="allArgsConstructor" value="true"/>
+		</plugin>
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+			<property name="addRemarkComments" value="false" />
+			<property name="javaFileEncoding" value="UTF-8" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://122.112.238.95:3389/imking" userId="imking"
+			password="46OMuh4j">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="io.imking.auth.domain" targetProject="MAVEN" />
+		<!--<javaClientGenerator targetPackage="io.imking.auth.mapping" targetProject="MAVEN" type="ANNOTATEDMAPPER" />-->
+
+		<table schema="imking" tableName="t_user" domainObjectName="User"/>
+		<table schema="imking" tableName="t_role" domainObjectName="Role"/>
+
+        <!-- <table tableName="t_attachment" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+        
+       
+	</context>
+</generatorConfiguration>

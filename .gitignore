@@ -1,3 +1,50 @@
+
+### system #########
+.DS_Store
+
+
+### project ########
+target/
+bin/
+.log
+.project
+.settings
+.classpath
+
+
+
+### ide ############
+.idea
+.vscode
+
+### cache ##########
+.sass-cache/
+.tmp/
+.Cache
+**/dist/
+**/node_modules/
+
+
+### other ##########
+**/.classpath
+**/.project
+**/target/
+**/bin/
+*.log
+**/bin/
+/log/
+**/build/
+**/.gradle/
+**/classes
+__pycache__
+*.pyc
+*.swp
+.idea
+*.iml
+*.DS_Store
+*.ipr
+*.iws
+
 .*/
 *.ipr
 *.iws
