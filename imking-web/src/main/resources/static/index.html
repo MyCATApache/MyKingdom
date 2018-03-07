@@ -114,6 +114,7 @@
         <div class="imk-content d-flex flex-column">
             <header class="imk-header">
                 <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <div class="container">
                     <a class="navbar-brand" href="/">
                         <span><img src="/assets/images/imk-logo-gold@3x.png" /></span>
                     </a>
@@ -140,9 +141,9 @@
                             <span class="navbar-right-spacer">|</span>
                             <!-- 未登录显示，已登录隐藏 -->
                             <div class="btn-group btn-group-sm">
-                                <a class="btn" href="/signin.html"><i class="fa fa-hand-point-right"></i> 登录</a>
+                                <a class="btn btn-signin" href="/signin.html"><i class="fa fa-hand-point-right"></i> 登录</a>
                                 <em>|</em>
-                                <a class="btn" href="/signup.html">注册</a>
+                                <a class="btn btn-signup" href="/signup.html">注册</a>
                             </div>
                             <!-- 已登录显示，未登录隐藏 -->
                             <div class="navbar-signin">
@@ -249,6 +250,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </nav>
             </header>
             <!-- 框架内容结束 -->
@@ -258,77 +260,160 @@
             <!-- banner -->
             <section class="imk-index-s1">
                 <div class="container">
-
+                    <div class="row">
+                        <div class="imk-index-s1-img col-xs-12 col-md-2 d-none d-md-block"><img src="/assets/images/cat.png" /></div>
+                        <div class="imk-index-s1-text col-xs-12 col-md-6">
+                            <p>
+                                Iamking是Leader us领导的IT人的王国，打造百万IT人专属的知识付费人脉圈，开启自由职业者路线，通过参加原创技术贴、红包悬赏，赏金猎人，创业众包，在线课程，公益分享等活动，积累提升自己的王者口碑值...
+                            </p>
+                            <div>
+                                <button class="btn btn-secondary">登录/注册加入王的队列</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4"></div>
+                    </div>
                 </div>
             </section>
-            <!-- topic list -->
+
+            <!-- topic list，每个栏目最多放五个 -->
             <section class="imk-index-s2">
-                <div class="container d-flex flex-row">
-                    <div id="topic-carousel1" class="topic-carousel carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#topic-carousel1" data-slide-to="0" class="active"></li>
-                            <li data-target="#topic-carousel1" data-slide-to="1"></li>
-                            <li data-target="#topic-carousel1" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>1\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
-                            </div>
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>2\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
-                            </div>
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>3\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel1" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel1" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel1" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">Web</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title"><p>1\http2的多路复用 和http1.1中的keepalive有什么区别?</p></div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">24</i>
                             </div>
                         </div>
-                    </div>
-                    <div id="topic-carousel2" class="topic-carousel carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#topic-carousel2" data-slide-to="0" class="active"></li>
-                            <li data-target="#topic-carousel2" data-slide-to="1"></li>
-                            <li data-target="#topic-carousel2" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>1,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel2" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel2" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel2" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel2" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">Mycat</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title">1,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">99+</i>
                             </div>
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>2,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
-                            </div>
-                            <div class="carousel-item active">
-                                <h3>Web</h3>
-                                <div>3,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel3" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel3" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel3" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel3" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">DB</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title">1,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">39</i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container d-flex flex-row">
-                    <a class="topic-nav">
-                        <i class="fa"></i>
-                        <label>赏金任务</label>
+                <div class="container hr-space"><hr /></div>
+                <!-- 快速导航 -->
+                <div class="container d-flex flex-row justify-content-between topic-nav">
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-gift"></i>
+                        <label>king社区</label>
                     </a>
-                    <a class="topic-nav">
-                        <i class="fa"></i>
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-shipping-fast"></i>
                         <label>商务合作</label>
                     </a>
-                    <a class="topic-nav">
-                        <i class="fa"></i>
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-graduation-cap"></i>
                         <label>黄埔课堂</label>
                     </a>
-                    <a class="topic-nav">
-                        <i class="fa"></i>
+                    <a class="topic-nav-item">
+                        <!--<i class="fab fa-codepen"></i>-->
+                        <i class="fa fas fa-cubes"></i>
                         <label>开源项目</label>
                     </a>
                 </div>
             </section>
-            <!-- recommand -->
-            <section class="imk-index-s3">
 
+            <!-- 智能推荐 -->
+            <section class="imk-index-s3">
+                <div class="imk-titlebar">
+                    <div class="container">
+                        <h2 class="imk-title"><i class="far fa-images"></i> <strong>你也许感兴趣</strong></h2>
+                    </div>
+                </div>
+                <div class="imk-index-recommand">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa fas fa-cube"></i>-->
+                                        <h5 class="card-title">mycat</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa far fa-certificate"></i>-->
+                                        <h5 class="card-title">Java高端基础</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa fas fa-shipping-fast"></i>-->
+                                        <!--fas fa-shipping-fast-->
+                                        <h5 class="card-title">商务合作</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- 填充内容结束 -->
 
@@ -339,7 +424,7 @@
                 <div class="container">
                     <div class="imk-footer-nav d-flex flex-row">
                         <div><a href="aboutus.html">关于我们</a> | <a href="contact.html">联系我们</a></div>
-                        <label class="ml-auto">powered by 黄埔黑金团队</label>
+                        <label class="ml-auto"><i class="fas fa-heart"></i> powered by 黄埔黑金团队</label>
                     </div>
                     <p class="copyright">&copy; imking.io</p>
                 </div>

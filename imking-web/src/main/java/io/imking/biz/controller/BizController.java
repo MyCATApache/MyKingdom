@@ -32,7 +32,7 @@ public class BizController {
 	@PostMapping("/loadAll")
 	@ResponseBody
 	public Result<Object> loadAll() {
-		Result<Object> result = new Result<>();
+		Result<Object> result = new Result<>(ResultEnum.SUCCESS);
 		return result.ok(businessService.selectAll());
 	}
 	
@@ -74,7 +74,7 @@ public class BizController {
 
 	@PostMapping("subscribe")
 	public Result<Object> subscribe(Long[] bizid, CustInfo custInfo) {
-		Result<Object> result = new Result<>();
+		Result<Object> result = new Result<>(ResultEnum.SUCCESS);
 		try {
 			businessService.insertCustInfo(custInfo, bizid);
 			result.ok( String.valueOf(custInfo.getId()) ) ;
@@ -87,7 +87,7 @@ public class BizController {
 	
 	@PostMapping("confirm")
 	public Result<Object> confirm(String cstId,String ccTime) {
-		Result<Object> result = new Result<>();
+		Result<Object> result = new Result<>(ResultEnum.SUCCESS);
 		try {
 			CustInfo custInfo = businessService.selectCustInfo( Long.valueOf(cstId) ) ;
 			custInfo.setCcTime(ccTime);

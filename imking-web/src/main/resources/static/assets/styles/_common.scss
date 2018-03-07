@@ -18,6 +18,12 @@ html,body{
 }
 
 // 通用样式
+.btn-xs {
+  @include button-size(.1rem, .5rem, .75rem, 1.5, $btn-border-radius-sm);
+}
+.btn-m {
+  @include button-size(.1rem, .5rem, .875rem, 1.5, $btn-border-radius-sm);
+}
 .bg-main{
     background: $black-second;
 }
@@ -279,6 +285,14 @@ html,body{
 			.btn{
 				background-color: $theme-gold;
 			}
+			.btn-signin{
+				border-top-left-radius: .2rem;
+				border-bottom-left-radius: .2rem;
+			}
+			.btn-signup{
+				border-top-right-radius: .2rem;
+				border-bottom-right-radius: .2rem;
+			}
 			a,a:link{
 				color: $black;
 			}
@@ -405,17 +419,20 @@ html,body{
     // 页脚
     .imk-footer{
         background-color: $bg-primary;
-		padding-top: .5rem;
+		padding-top: 1rem;
 		padding-bottom: .5rem;
 		font-size: .875rem;
 		color: $gray-600;
-		border-top: 1px solid $br-third;
+		border-top: 1px solid $br-primary;
 		.imk-footer-nav{
 			// padding-top: 1rem;
 		}
 		.copyright{
 			font-size: .75rem;
 			color: $gray-500;
+		}
+		.fa-heart{
+			font-size: .75rem;
 		}
     }
 }
@@ -430,6 +447,11 @@ html,body{
 
 }
 @media (min-width: 768px) and (max-width: 992px){
+	.container{
+		width: 100%;
+		min-width: 772px;
+		max-width: 960px;
+	}
 	.imk-content{
 		.navbar-dark{
 			.navbar-nav{

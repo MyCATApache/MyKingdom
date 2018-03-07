@@ -24,6 +24,7 @@ $bg-body: #F8F8F9; // lightgray
 $bg-primary: #e9ecf0; // lightgray
 $bg-second: #feeebc; //yello
 $bg-third: #8c92a8; //gray
+$bg-fourth: #fffcf0; //white yello
 $br-primary: #E9ECF0;
 //
 $brand-header: $black-second;
@@ -190,9 +191,12 @@ $line-height-sm:              1.5;
 $border-width:                1px;
 $border-color:                $gray-300;
 
-$border-radius:               .25rem;
-$border-radius-lg:            .3rem;
-$border-radius-sm:            .2rem;
+$border-radius:               0rem;
+// $border-radius:               .25rem;
+$border-radius-lg:            0rem;
+// $border-radius-lg:            .3rem;
+$border-radius-sm:            0rem;
+// $border-radius-sm:            .2rem;
 
 $component-active-color:      $white;
 $component-active-bg:         $primary;

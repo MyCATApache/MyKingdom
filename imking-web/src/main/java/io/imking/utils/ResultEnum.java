@@ -7,7 +7,8 @@ package io.imking.utils;
  * @author: gaul
  */
 public enum ResultEnum {
-    SUCCESS(200, "success"), SERVER_ERROR(500, "server error");
+    SUCCESS(200, "success"),
+    SERVER_ERROR(500, "server error");
 
     private int code;
     private String desc;

@@ -5,12 +5,157 @@
 .imk-index-s1{
     background-color: $bg-second;
     .container{
-
+        padding: 3rem 1rem 4rem 1rem;
+        background: url("/assets/images/kingdom.png") right center no-repeat;
+        .imk-index-s1-img{
+            img{
+                width: 100%;
+            }
+        }
+        .imk-index-s1-text{
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 15px;
+            background-color: rgba(251,218,115,0.3);
+            border-radius: 3px;
+        }
     }
 }
 .imk-index-s2{
     background-color: $black-primary;
+    padding: 1rem 0;
+    .topic-carousel{
+        // margin-left: 15px;
+        // margin-right: 15px;
+        margin-top: 1rem;
+        .carousel-indicators{
+            bottom: 0;
+            li{
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: lighten($theme-yellow,10%);
+            }
+        }
+        .carousel-indicators .active{
+            background-color: $theme-yellow;
+        }
+        .topic-tab{
+            height: 2rem;
+            line-height: 2rem;
+            font-size: 1rem;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 3;
+        }
+        .carousel-inner{
+            height: 170px;
+            .carousel-item{
+                border-radius: 2px;
+                height: 100%;
+                background: $white;
+                .topic-title{
+                    padding: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    text-align: center;
+                    p{
+                        align-self: center;
+                    }
+
+                }
+            }
+        }
+        .topic-amount{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 2rem;
+            background-color: $theme-yellow;
+            color: $black;
+            font-size: .75rem;
+            padding: .5rem .5rem;
+            font-style: normal;
+        }
+    }
+    .hr-space{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: .5rem;
+        hr{
+            border-color: #4a4a4a;
+            border-style: dashed;
+        }
+    }
+
+    .topic-nav{
+        color: $white;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        .topic-nav-item{
+            width: 100px;
+            text-align: center;
+            .fa{
+                display: block;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background-color: $white;
+                color: $theme-yellow;
+                text-align: center;
+                line-height: 44px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 1.25rem;
+            }
+            label{
+                display: block;
+                font-size: .875rem;
+                margin-top: .75rem;
+            }
+        }
+    }
+
+}
+.imk-titlebar{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    .imk-title{
+        text-align: center;
+        font-size: 1.25rem;
+        display: inline-block;
+        border-bottom: 2px solid $black-primary;
+        padding: 0 .5rem .2rem;
+        margin-bottom: 0;
+    }
 }
 .imk-index-s3{
-
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.imk-index-recommand{
+    .card{
+        margin-bottom: 20px;
+        border: 2px solid $theme-yellow;
+        // border-radius: 3px;
+        .card-text{
+            color: $gray-700;
+            font-size: .875rem;
+        }
+    }
+    .fa{
+        display: block;
+        color: $theme-yellow;
+        width: 44px;
+        height: 44px;
+        margin-bottom: .5rem;
+        font-size: 2.5rem;
+    }
 }
