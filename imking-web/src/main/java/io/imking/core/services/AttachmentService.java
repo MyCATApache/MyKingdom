@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import io.imking.core.domain.Attachment;
 import io.imking.core.mapping.AttachmentMapper;
-import io.imking.domain.SnowflakeWorker.SnowflakeWorkerHloder;
+import io.imking.utils.SnowflakeWorker.SnowflakeWorkerHloder;
 
 @Service
 public class AttachmentService {

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.imking.domain.Result;
-import io.imking.domain.ResultEnum;
+import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
 
 import javax.servlet.http.HttpServletRequest;
 

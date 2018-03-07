@@ -264,9 +264,19 @@
   width:1220px;
   height:88px;
   background:inherit;
-  background-color:rgba(42, 40, 51, 1);
-  border:none;
+  background-color:rgba(255, 255, 255, 0);
+  box-sizing:border-box;
+  border-width:3px;
+  border-style:solid;
+  border-color:rgba(0, 0, 0, 1);
+  border-left:0px;
+  border-top:0px;
+  border-right:0px;
   border-radius:0px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:0px;
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
@@ -376,23 +386,23 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:102px;
-  height:56px;
+  width:122px;
+  height:67px;
 }
 #u779 {
   border-width:0px;
   position:absolute;
   left:111px;
-  top:21px;
-  width:102px;
-  height:56px;
+  top:9px;
+  width:122px;
+  height:67px;
 }
 #u780 {
   border-width:0px;
   position:absolute;
   left:2px;
-  top:20px;
-  width:98px;
+  top:26px;
+  width:118px;
   visibility:hidden;
   word-wrap:break-word;
 }

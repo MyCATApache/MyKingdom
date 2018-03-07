@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import io.imking.biz.domain.Business;
 import io.imking.biz.domain.CustInfo;
 import io.imking.core.services.BusinessService;
-import io.imking.domain.Constant;
-import io.imking.domain.Result;
-import io.imking.domain.ResultEnum;
-import io.imking.domain.SnowflakeWorker.SnowflakeWorkerHloder;
+import io.imking.utils.Constant;
+import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
+import io.imking.utils.SnowflakeWorker.SnowflakeWorkerHloder;
 
 @RestController
 @RequestMapping("/api/biz")
@@ -46,7 +46,7 @@ public class BizController {
 			return result;
 		}
 		Business business = businessService.selectByPrimaryKey(id) ;
-		business.setState( Constant.ZORE );
+		business.setState( Constant.ZERO );
 		businessService.updateByPrimaryKey( business ) ;
 		return new Result<>(ResultEnum.SUCCESS , "删除成功" );
 	}
