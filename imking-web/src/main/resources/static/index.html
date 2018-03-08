@@ -156,7 +156,7 @@
                                     </a>
                                     <div class="nav-dropdown d-none">
                                         <div class="nav-dropdown-box">
-                                            <i class="fa fa-caret-up"></i>
+                                            <i class="fa fa-caret-up nav-dropdown-arrow-up"></i>
                                             <ul class="nav nav-tabs" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="tab-notify" data-toggle="tab" href="#notify" role="tab" aria-controls="notify" aria-selected="true">通知</a>
@@ -168,7 +168,7 @@
                                                     <a class="nav-link" id="tab-message" data-toggle="tab" href="#message" role="tab" aria-controls="message" aria-selected="false">私信</a>
                                                 </li>
                                                 <li class="align-self-center ml-auto mr-2">
-                                                    <a>标记为已读</a>
+                                                    <a class="text-danger">标记为已读</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
@@ -191,6 +191,7 @@
                                                             <p>1分钟之前</p>
                                                         </li>
                                                     </ul>
+                                                    <div class="top-msglist-more"><a href="/my/message.html#notify" class="">查看更多>></a></div>
                                                 </div>
                                                 <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="tab-info">
                                                     <ul class="list-group top-msglist">
@@ -207,6 +208,7 @@
                                                             <p>1分钟之前</p>
                                                         </li>
                                                     </ul>
+                                                    <div class="top-msglist-more"><a href="/my/message.html#info" class="">查看更多>></a></div>
                                                 </div>
                                                 <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="tab-message">
                                                     <ul class="list-group top-msglist">
@@ -226,7 +228,35 @@
                                     </a>
                                     <div class="nav-dropdown d-none">
                                         <div class="nav-dropdown-box">
-                                            <i class="fa fa-caret-up"></i>
+                                            <i class="fa fa-caret-up nav-dropdown-arrow-up"></i>
+                                            <div class="navbar-my">
+                                                <a class="navbar-avatar" href="/">
+                                                    <span><img src="/assets/images/imk-logo-full.svg" /></span>
+                                                </a>
+                                                <div class="navbar-my-profile">
+                                                    <div class="name">A Little King</div>
+                                                    <div class="des">
+                                                        <p><label>等级：</label>
+                                                            <span>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>
+                                                        </p>
+                                                        <p><label>积分：</label><span>250000000</span></p>
+                                                        <p><label>标签：</label>
+                                                            <span class="text-info">万年小菜</span>
+                                                            <span class="text-danger">首席设计师</span>
+                                                            <span>跨界大神</span>
+                                                            <span>二百五</span>
+                                                            <span>强迫症</span>
+                                                        </p>
+                                                    </div>
+                                                    <!--<i class="my-nav-toggle fa fa-angle-down" data-toggle="collapse" data-target=".navbar-my-nav"></i>-->
+                                                </div>
+                                            </div>
                                             <ul class="list-group nav-signin-dropdown">
                                                 <li class="list-group-item">
                                                     <a href="/my/index.html">我的中心<i class="fa"></i></a>

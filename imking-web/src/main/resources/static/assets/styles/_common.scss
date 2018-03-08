@@ -19,10 +19,10 @@ html,body{
 
 // 通用样式
 .btn-xs {
-  @include button-size(.1rem, .5rem, .75rem, 1.5, $btn-border-radius-sm);
+	@include button-size(.1rem, .5rem, .75rem, 1.5, $btn-border-radius-sm);
 }
 .btn-m {
-  @include button-size(.1rem, .5rem, .875rem, 1.5, $btn-border-radius-sm);
+	@include button-size(.1rem, .5rem, .875rem, 1.5, $btn-border-radius-sm);
 }
 .bg-main{
     background: $black-second;
@@ -362,7 +362,7 @@ html,body{
 					background: #fff;
                     // 水平｜垂直｜模糊｜距离｜颜色｜(inset|initial|inherit)
 					box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-					.fa{
+					.nav-dropdown-arrow-up{
 						position: absolute;
 						top: -1rem;
 					    right: .65rem;
@@ -408,11 +408,56 @@ html,body{
 						margin-top: .3rem;
 					}
 				}
+				.top-msglist-more{
+					text-align: center;
+					a{
+						display: inline-block;
+						color: $theme-blue;
+						padding: 1rem;
+					}
+				}
 			}
 		}
 		.nav-signin.nav-signin-my{
 			.nav-dropdown{
-				width: 160px;
+				width: 220px;
+			}
+			.navbar-my{
+				display: flex;
+			    flex-direction: row;
+			    padding: .5rem 0;
+				.navbar-avatar{
+					padding: .5rem;
+					span{
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						text-align: center;
+						width: 58px;
+						height: 58px;
+						border-radius: 50%;
+						padding: 2px;
+						background: $bg-primary;
+					}
+				}
+				.navbar-my-profile{
+					padding: .5rem;
+				    position: relative;
+					.name{
+						font-size: 1rem;
+					}
+					.des{
+						margin-top: .4rem;
+						font-size: .75rem;
+						color: $gray-600;
+						p{
+							margin-bottom: .2rem;
+						}
+						.fa-star{
+							color: $black-primary;
+						}
+					}
+				}
 			}
 		}
     }
