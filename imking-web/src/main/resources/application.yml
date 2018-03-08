@@ -2,10 +2,10 @@ spring:
   application:
     name: mykingdom-imking
   datasource:
-    url: jdbc:mysql://localhost:3389/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://122.112.238.95:3389/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
-    username:
-    password:
+    username: imking
+    password: 46OMuh4j
     druid:
       initial-size: 10
       max-active: 20

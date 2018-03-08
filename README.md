@@ -93,7 +93,7 @@ mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
  * redis
  * docker
  * kubernetes
- * www.imking.io(jquery + bootstrap + scss)
+ * www.imking.io (jquery + bootstrap + scss)
  * admin.imking.io(angularjs & typescript + bootstrap + scss)
 
 

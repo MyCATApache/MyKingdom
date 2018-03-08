@@ -1,0 +1,480 @@
+/*
+ * 公共页头和页尾
+*/
+@import "variables.scss";
+// @import "../lib/bootstrap-4.0.0/scss/mixins/transition";
+
+// 自定义页面&字体设置
+// -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif
+html,body{
+	font-family:BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,"Microsoft YaHei",SimSun,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font-size:16px;
+	line-height: 1.15;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+// 通用样式
+.btn-xs {
+  @include button-size(.1rem, .5rem, .75rem, 1.5, $btn-border-radius-sm);
+}
+.btn-m {
+  @include button-size(.1rem, .5rem, .875rem, 1.5, $btn-border-radius-sm);
+}
+.bg-main{
+    background: $black-second;
+}
+.bg-main2{
+
+}
+
+.imk-root{
+    position: relative;
+}
+
+// 手机导航
+.imk-nav-mobile{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 16.25rem;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: -1000;
+    background: #171717;
+    // 手机导航顶部(logo+更多 ｜ 个人中心＋菜单)
+	.navbar-more{
+		border-bottom: 1px solid #333;
+        // 未登录情况
+		.navbar-more-brand{
+			.navbar-brand{
+				display: inline-block;
+				padding: .5rem;
+				margin-right: 0;
+				vertical-align: middle;
+				span{
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					text-align: center;
+					width: 58px;
+					height: 58px;
+					border-radius: 50%;
+					padding: 2px;
+					background: $white;
+				}
+				img{
+					align-self: center;
+					width: 100%;
+				}
+			}
+			strong{
+				display: inline-block;
+				color: $theme-gold;
+			}
+		}
+        // 已登录情况
+		.navbar-my{
+			display: flex;
+			flex-direction: row;
+			padding: .5rem 0;
+			.navbar-avatar{
+				padding: .5rem;
+				span{
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					text-align: center;
+					width: 58px;
+					height: 58px;
+					border-radius: 50%;
+					padding: 2px;
+					background: $white;
+				}
+			}
+			.navbar-my-profile{
+				padding: .5rem;
+				position: relative;
+				.name{
+					font-size: 1rem;
+					color: $theme-gold;
+				}
+				.des{
+					margin-top: .4rem;
+					font-size: .75rem;
+					color: rgba(255,255,255,.5);
+					p{
+					    margin-bottom: .2rem;
+					}
+				}
+				.my-nav-toggle{
+					position: absolute;
+					right: .5rem;
+					top: .5rem;
+					color: $theme-yellow;
+					padding: .75rem;
+					background: #222;
+					border-radius: 3px;
+				}
+			}
+		}
+		.navbar-my-nav{
+			.nav-item{
+				height: 4.5rem;
+				border-top: 1px solid #333;
+				display: flex;
+				a{
+					padding: 1.5rem;
+					width: 100%;
+					vertical-align: middle;
+					position: relative;
+					color: $theme-gold;
+					font-weight: 500;
+					.badge{
+						border-radius: 9px;
+						position: absolute;
+						right: 1.5rem;
+					}
+				}
+				border-top: 1px solid #333;
+			}
+			.nav-link{
+				font-weight: 500;
+				color: $theme-gold;
+			}
+			@include hover-focus {
+				color: $yellow-brand;
+			}
+		}
+	}
+    // 全局菜单
+	.navbar-nav{
+		.nav-item{
+			height: 4.5rem;
+	        a,a:link{
+	            color: $white;
+	        }
+	        a{
+	            padding-top: 1.5rem;
+	            padding-bottom: 1.5rem;
+	            padding-left: 1.5rem;
+				font-weight: 500;
+	        }
+			border-top: 1px solid #333;
+		}
+		.nav-link {
+			font-weight: 500;
+			color: $white;
+
+			@include hover-focus {
+				color: $yellow-brand;
+			}
+	    }
+		.show > .nav-link,
+		.active > .nav-link,
+		.nav-link.show,
+		.nav-link.active {
+			color: $yellow-brand;
+		}
+	}
+	.navbar-sign{
+		border-top: 1px solid #444;
+		a{
+			padding: 1.5rem;
+			// display: inline-block;
+			color: $white;
+			@include hover-focus {
+				color: $yellow-brand;
+			}
+			border-bottom: 1px solid #333;
+		}
+		.nav-signin{
+			color: $blue;
+		}
+		.nav-signup{
+			color: $cyan;
+		}
+	}
+}
+
+// 页面
+.imk-content{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    min-height: 100vh;
+    z-index: 0;
+    // @include transition(transform .3s ease,-webkit-transform .3s ease);
+    transition: transform .3s ease;
+    background: $white;
+	box-shadow: 0 0 3px $theme-blue, 0 0 3px $theme-blue;
+
+    // 页头
+    .imk-header{
+        height: 72px;
+        background: $brand-header;
+    }
+    .navbar{
+        padding-bottom: 0;
+		background: $brand-header;
+    }
+    .navbar-collapse{
+        align-self: flex-end;
+    }
+    // logo/品牌
+    .navbar-brand{
+        span{
+            display: inline-block;
+            width: 95.78px;
+        }
+		img{
+			height: 54px;
+		}
+    }
+    // 导航元素
+	.navbar-dark{
+		.navbar-nav{
+			align-self: flex-end;
+			margin-bottom: .45rem;
+		    .nav-item{
+		        line-height: 30px;
+		        background: $black;
+		        margin-left: .5rem;
+		        margin-right: .5rem;
+		        text-align: center;
+		        border-radius: 3px;
+		    }
+			.nav-link {
+				padding: 2px 1rem !important;
+				font-weight: 500;
+				color: $white;
+
+				@include hover-focus {
+					color: $theme-gold;
+				}
+		    }
+			.nav-link.active{
+				color: $theme-gold;
+			}
+			.show > .nav-link,
+		    .active > .nav-link,
+		    .nav-link.show,
+		    .nav-link.active {
+				color: $theme-gold;
+		    }
+		}
+	}
+
+    // 登录&注册
+    .navbar-sign{
+        font-size: .75rem;
+		padding-left: .5rem;
+		color: #aaa;
+		.navbar-right-spacer{
+			margin-right: 1rem;
+		    margin-bottom: .5rem;
+		    display: inline-block;
+		    line-height: 2rem;
+		}
+		.btn-group{
+			color: $black;
+			.btn{
+				background-color: $theme-gold;
+			}
+			.btn-signin{
+				border-top-left-radius: .2rem;
+				border-bottom-left-radius: .2rem;
+			}
+			.btn-signup{
+				border-top-right-radius: .2rem;
+				border-bottom-right-radius: .2rem;
+			}
+			a,a:link{
+				color: $black;
+			}
+			.fa{
+				width:14px;
+			}
+			em{
+				width: 2px;
+				background-color: $theme-gold;
+				line-height: 2rem;
+			}
+		}
+        // 已登录
+		.navbar-signin{
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		.nav-signin{
+			position: relative;
+			display: inline-block;
+			margin-left: 1rem;
+			.nav-sigin-holder{
+				display: block;
+				position: relative;
+				text-align: center;
+				height: 48px;
+				// background: $black;
+				cursor: pointer;
+				&:hover{
+					text-decoration: none;
+				}
+				.fa,.fas{
+					text-align: center;
+					color: #aaa;
+				    font-size: 1.125rem;
+				    padding: .2rem .75rem;
+				}
+				span{
+					display: block;
+					color: $white;
+					margin-top: .2rem;
+				}
+				em{
+					display: inline-block;
+					width: .3rem;
+					height: .3rem;
+					background: $theme-yellow;
+					position: absolute;
+					right: .5rem;
+				    top: .25rem;
+				    border-radius: .15rem;
+				}
+			}
+            // 下拉菜单
+			.nav-dropdown{
+				position: absolute;
+				right: 0;
+				width: 300px;
+				min-height: 100px;
+			    max-height: 400px;
+				z-index: 9999;
+				// margin-top: -1px;
+				.nav-dropdown-box{
+					position: relative;
+					width: 100%;
+					height: 100%;
+					background: #fff;
+                    // 水平｜垂直｜模糊｜距离｜颜色｜(inset|initial|inherit)
+					box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+					.fa{
+						position: absolute;
+						top: -1rem;
+					    right: .65rem;
+						font-size: 2rem;
+						color: $white;
+					}
+				}
+				.nav-tabs{
+					border-bottom: 3px solid $bg-primary;
+					.nav-item{
+						margin-bottom: -3px;
+					}
+					.nav-link{
+						border: none;
+						border-radius: 0;
+					}
+					.nav-link.active{
+						border-bottom: 3px solid $black;
+					}
+				}
+				.tab-content{
+				}
+				.top-msglist{
+					.list-group-item{
+						border: 1px solid $bg-primary;
+					}
+					.list-group-item:first-child{
+						border-top-left-radius: 0;
+						border-top-right-radius: 0;
+					}
+					.list-group-item:last-child{
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+					.top-msglist-title{
+						font-size: .75rem;
+						color: $black-primary;
+					}
+					p{
+						font-size: .75rem;
+						color: $gray-500;
+						margin-bottom: 0;
+						margin-top: .3rem;
+					}
+				}
+			}
+		}
+		.nav-signin.nav-signin-my{
+			.nav-dropdown{
+				width: 160px;
+			}
+		}
+    }
+    // 页脚
+    .imk-footer{
+        background-color: $bg-primary;
+		padding-top: 1rem;
+		padding-bottom: .5rem;
+		font-size: .875rem;
+		color: $gray-600;
+		border-top: 1px solid $br-primary;
+		.imk-footer-nav{
+			// padding-top: 1rem;
+		}
+		.copyright{
+			font-size: .75rem;
+			color: $gray-500;
+		}
+		.fa-heart{
+			font-size: .75rem;
+		}
+    }
+}
+// 手机导航展开
+.imk-root.menu-open .imk-content{
+    transform: translateX(-16.25rem);
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (min-width: 768px){
+
+}
+@media (min-width: 768px) and (max-width: 992px){
+	.container{
+		width: 100%;
+		min-width: 772px;
+		max-width: 960px;
+	}
+	.imk-content{
+		.navbar-dark{
+			.navbar-nav{
+				.nav-item{
+			        margin-left: .3rem;
+			        margin-right: .3rem;
+				}
+				.nav-link{
+					font-size: .875rem;
+					padding: 2px .6rem !important;
+				}
+			}
+			.navbar-sign{
+				padding-left: .3rem;
+				.navbar-right-spacer{
+					margin-right: .6rem;
+				}
+				.btn-group .btn{
+				}
+				.nav-signin{
+					margin-left: .5rem;
+				}
+			}
+		}
+	}
+}

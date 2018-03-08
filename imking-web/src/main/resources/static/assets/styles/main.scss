@@ -1,0 +1,30 @@
+/*
+ * 拆分每个模块的样式文件，使用all in one 方式引入打包
+ * 运行自动编译
+ * cd MyKindom/imking-web
+ * mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
+*/
+
+// 自定义bootstrap
+@import "variables.scss";
+
+// 引入bootstrap依赖
+@import "../lib/bootstrap-4.0.0/scss/bootstrap.scss";
+
+// 引入图标字体
+@import "../lib/fontawesome-free-5.0.8/web-fonts-with-css/scss/fontawesome.scss";
+@import "../lib/fontawesome-free-5.0.8/web-fonts-with-css/scss/fa-brands.scss";
+@import "../lib/fontawesome-free-5.0.8/web-fonts-with-css/scss/fa-regular.scss";
+@import "../lib/fontawesome-free-5.0.8/web-fonts-with-css/scss/fa-solid.scss";
+
+
+
+/*
+ * 从这里开始引入每个模块的样式文件
+*/
+// 公共页头和页尾
+@import "common.scss";
+// 首页
+@import "index.scss";
+
+// ...其它模块各自添加

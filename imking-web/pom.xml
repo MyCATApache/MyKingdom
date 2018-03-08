@@ -59,6 +59,25 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+
+				<!-- https://mvnrepository.com/artifact/com.github.warmuuh/libsass-maven-plugin -->
+				<plugin>
+					<groupId>com.github.warmuuh</groupId>
+					<artifactId>libsass-maven-plugin</artifactId>
+					<version>0.2.8-libsass_3.4.4</version>
+					<executions>
+						<execution>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<inputPath>${basedir}/src/main/resources/static/assets/styles/</inputPath>
+						<outputPath>${basedir}/target/classes/static/assets/styles/</outputPath>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
