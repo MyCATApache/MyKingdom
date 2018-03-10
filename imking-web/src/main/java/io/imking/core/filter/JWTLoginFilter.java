@@ -21,8 +21,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.imking.core.domain.User;
-import io.imking.domain.Result;
-import io.imking.domain.ResultEnum;
+import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 

@@ -14,7 +14,7 @@ import io.imking.biz.domain.CustInfo;
 import io.imking.biz.mapping.BusinessMapper;
 import io.imking.biz.mapping.CustBusinessMapper;
 import io.imking.biz.mapping.CustInfoMapper;
-import io.imking.domain.SnowflakeWorker.SnowflakeWorkerHloder;
+import io.imking.utils.SnowflakeWorker.SnowflakeWorkerHloder;
 
 @Service
 public class BusinessService {

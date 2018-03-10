@@ -2,10 +2,469 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>imking</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="assets/styles/main.css" rel="stylesheet">
 </head>
 <body>
-    <h1>hello </h1>
+    <div class="imk-root">
+        <!-- 手机导航 -->
+        <div class="imk-nav-mobile">
 
+            <nav class="navbar-collapse">
+                <div class="navbar-more">
+                    <!-- 未登录显示，已登录隐藏 -->
+                    <div class="navbar-more-brand">
+                        <a class="navbar-brand" href="/">
+                            <span><img src="/assets/images/imk-logo-black.svg" /></span>
+                        </a>
+                        <strong>更多</strong>
+                    </div>
+
+                    <!-- 已登录显示，未登录隐藏 -->
+                    <div class="navbar-my">
+                        <a class="navbar-avatar" href="/">
+                            <span><img src="/assets/images/imk-logo-full.svg" /></span>
+                        </a>
+                        <div class="navbar-my-profile">
+                            <div class="name">A Little King</div>
+                            <div class="des">
+                                <p><label>等级：</label>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </p>
+                                <p><label>积分：</label><span>250000000</span></p>
+                                <p><label>标签：</label>
+                                    <span class="text-info">万年小菜</span>
+                                    <span class="text-danger">首席设计师</span>
+                                    <span>跨界大神</span>
+                                    <span>二百五</span>
+                                    <span>强迫症</span>
+                                </p>
+                            </div>
+                            <i class="my-nav-toggle fa fa-angle-down" data-toggle="collapse" data-target=".navbar-my-nav"></i>
+                        </div>
+                    </div>
+                    <div class="navbar-my-nav collapse" id="mobile-my-nav">
+                        <div class="nav-item">
+                            <a href="/my/tasklist.html">
+                                <span>我的任务</span>
+                                <em class="badge badge-danger">23</em>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="/my/courselist.html">
+                                <span>我的课程</span>
+                                <em class="badge badge-danger">23</em>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="/my/messagelist.html">
+                                <span>消息中心</span>
+                                <em class="badge badge-danger">99+</em>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="/my/playcode.html">我的播放码</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link nav-setting"><span>设置</span></a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link nav-logout"><span>退出</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 主导航菜单 -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/task/index.html">king社区</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/courses/index.html">黄埔课程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/biz/index.html">商务合作</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/opensource/index.html">开源项目</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aboutus.html">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">联系我们</a>
+                    </li>
+                </ul>
+                <div class="navbar-sign">
+                    <!-- 未登录显示，已登录隐藏 -->
+                    <div class="nav-item"><a class="nav-link nav-signin" href="/signin.html">登录</a></div>
+                    <div class="nav-item"><a class="nav-link nav-signup" href="/signup.html">注册</a></div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- / -->
+        <div class="imk-content d-flex flex-column">
+            <header class="imk-header">
+                <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <span><img src="/assets/images/imk-logo-gold@3x.png" /></span>
+                    </a>
+                    <button class="navbar-toggler p-0 border-0" type="button" id="imk-menu-toggle">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- 主导航菜单 -->
+                    <div class="navbar-collapse offcanvas-collapse d-none d-lg-block">
+                        <ul class="navbar-nav ml-auto imk-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/topic/index.html">king社区</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/courses/index.html">黄埔课程</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/biz/index.html">商务合作</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/opensource/index.html">开源项目</a>
+                            </li>
+                        </ul>
+                        <div class="navbar-sign d-none d-md-block">
+                            <span class="navbar-right-spacer">|</span>
+                            <!-- 未登录显示，已登录隐藏 -->
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn btn-signin" href="/signin.html"><i class="fa fa-hand-point-right"></i> 登录</a>
+                                <em>|</em>
+                                <a class="btn btn-signup" href="/signup.html">注册</a>
+                            </div>
+                            <!-- 已登录显示，未登录隐藏 -->
+                            <div class="navbar-signin">
+                                <div class="nav-signin nav-signin-message">
+                                    <a class="nav-sigin-holder nav-message-holder" href="javascript:void(0);">
+                                        <i class="fas fa-bell"></i>
+                                        <!-- 一个小红点点，有新消息显示 -->
+                                        <em></em>
+                                        <span>消息</span>
+                                    </a>
+                                    <div class="nav-dropdown d-none">
+                                        <div class="nav-dropdown-box">
+                                            <i class="fa fa-caret-up nav-dropdown-arrow-up"></i>
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="tab-notify" data-toggle="tab" href="#notify" role="tab" aria-controls="notify" aria-selected="true">通知</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="tab-info" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">消息</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="tab-message" data-toggle="tab" href="#message" role="tab" aria-controls="message" aria-selected="false">私信</a>
+                                                </li>
+                                                <li class="align-self-center ml-auto mr-2">
+                                                    <a class="text-danger">标记为已读</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade show active" id="notify" role="tabpanel" aria-labelledby="tab-notify">
+                                                    <ul class="list-group top-msglist">
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title">Java高端基础要开课啦</div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title">恭喜你晋升为黑心架构师</div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title">恭喜你晋升为黑心架构师</div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title">恭喜你晋升为黑心架构师</div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="top-msglist-more"><a href="/my/message.html#notify" class="">查看更多>></a></div>
+                                                </div>
+                                                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="tab-info">
+                                                    <ul class="list-group top-msglist">
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title"><a href="#">木星</a> 赞了你的 <strong>&lt;&lt;相应式设计&gt;&gt;</strong></div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title"><a href="#">水星</a> 给你发了<em>50</em>元红包</div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="top-msglist-title"><a href="#">小星星</a> 邀请你回答<strong>如何编写高质量代码...</strong></div>
+                                                            <p>1分钟之前</p>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="top-msglist-more"><a href="/my/message.html#info" class="">查看更多>></a></div>
+                                                </div>
+                                                <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="tab-message">
+                                                    <ul class="list-group top-msglist">
+                                                        <li class="list-group-item">
+                                                            暂无私信
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-signin nav-signin-my">
+                                    <a class="nav-sigin-holder nav-my-holder" href="javascript:void(0);">
+                                        <i class="fa fa-user"></i>
+                                        <span>A little king</span>
+                                    </a>
+                                    <div class="nav-dropdown d-none">
+                                        <div class="nav-dropdown-box">
+                                            <i class="fa fa-caret-up nav-dropdown-arrow-up"></i>
+                                            <div class="navbar-my">
+                                                <a class="navbar-avatar" href="/">
+                                                    <span><img src="/assets/images/imk-logo-full.svg" /></span>
+                                                </a>
+                                                <div class="navbar-my-profile">
+                                                    <div class="name">A Little King</div>
+                                                    <div class="des">
+                                                        <p><label>等级：</label>
+                                                            <span>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>
+                                                        </p>
+                                                        <p><label>积分：</label><span>250000000</span></p>
+                                                        <p><label>标签：</label>
+                                                            <span class="text-info">万年小菜</span>
+                                                            <span class="text-danger">首席设计师</span>
+                                                            <span>跨界大神</span>
+                                                            <span>二百五</span>
+                                                            <span>强迫症</span>
+                                                        </p>
+                                                    </div>
+                                                    <!--<i class="my-nav-toggle fa fa-angle-down" data-toggle="collapse" data-target=".navbar-my-nav"></i>-->
+                                                </div>
+                                            </div>
+                                            <ul class="list-group nav-signin-dropdown">
+                                                <li class="list-group-item">
+                                                    <a href="/my/index.html">我的中心<i class="fa"></i></a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a href="/my/topiclist.html">我的任务</a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a href="/my/courselist.html">我的课程</a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a href="/my/playcode.html">我的播放码</a>
+                                                </li>
+                                                <!--<li class="list-group-item">-->
+                                                    <!--<a href="#">设置</a>-->
+                                                <!--</li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </nav>
+            </header>
+            <!-- 框架内容结束 -->
+
+
+            <!-- 填充内容开始 -->
+            <!-- banner -->
+            <section class="imk-index-s1">
+                <div class="container">
+                    <div class="row">
+                        <div class="imk-index-s1-img col-xs-12 col-md-2 d-none d-md-block"><img src="/assets/images/cat.png" /></div>
+                        <div class="imk-index-s1-text col-xs-12 col-md-6">
+                            <p>
+                                Iamking是Leader us领导的IT人的王国，打造百万IT人专属的知识付费人脉圈，开启自由职业者路线，通过参加原创技术贴、红包悬赏，赏金猎人，创业众包，在线课程，公益分享等活动，积累提升自己的王者口碑值...
+                            </p>
+                            <div>
+                                <button class="btn btn-secondary">登录/注册加入王的队列</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- topic list，每个栏目最多放五个 -->
+            <section class="imk-index-s2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel1" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel1" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel1" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">Web</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title"><p>1\http2的多路复用 和http1.1中的keepalive有什么区别?</p></div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3\http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">24</i>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel2" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel2" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel2" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel2" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">Mycat</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title">1,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">99+</i>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <div id="topic-carousel3" class="topic-carousel carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#topic-carousel3" data-slide-to="0" class="active"></li>
+                                    <li data-target="#topic-carousel3" data-slide-to="1"></li>
+                                    <li data-target="#topic-carousel3" data-slide-to="2"></li>
+                                </ol>
+                                <h3 class="topic-tab">DB</h3>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="topic-title">1,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">2,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="topic-title">3,http2的多路复用 和http1.1中的keepalive有什么区别?</div>
+                                    </div>
+                                </div>
+                                <i class="topic-amount">39</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container hr-space"><hr /></div>
+                <!-- 快速导航 -->
+                <div class="container d-flex flex-row justify-content-between topic-nav">
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-gift"></i>
+                        <label>king社区</label>
+                    </a>
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-shipping-fast"></i>
+                        <label>商务合作</label>
+                    </a>
+                    <a class="topic-nav-item">
+                        <i class="fa fas fa-graduation-cap"></i>
+                        <label>黄埔课堂</label>
+                    </a>
+                    <a class="topic-nav-item">
+                        <!--<i class="fab fa-codepen"></i>-->
+                        <i class="fa fas fa-cubes"></i>
+                        <label>开源项目</label>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 智能推荐 -->
+            <section class="imk-index-s3">
+                <div class="imk-titlebar">
+                    <div class="container">
+                        <h2 class="imk-title"><i class="far fa-images"></i> <strong>你也许感兴趣</strong></h2>
+                    </div>
+                </div>
+                <div class="imk-index-recommand">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa fas fa-cube"></i>-->
+                                        <h5 class="card-title">mycat</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa far fa-certificate"></i>-->
+                                        <h5 class="card-title">Java高端基础</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--<i class="fa fas fa-shipping-fast"></i>-->
+                                        <!--fas fa-shipping-fast-->
+                                        <h5 class="card-title">商务合作</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-secondary btn-m">查看更多</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 填充内容结束 -->
+
+
+
+            <!-- 框架内容开始 -->
+            <footer class="imk-footer mt-auto">
+                <div class="container">
+                    <div class="imk-footer-nav d-flex flex-row">
+                        <div><a href="aboutus.html">关于我们</a> | <a href="contact.html">联系我们</a></div>
+                        <label class="ml-auto"><i class="fas fa-heart"></i> powered by 黄埔黑金团队</label>
+                    </div>
+                    <p class="copyright">&copy; imking.io</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="assets/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="assets/lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/scripts/common.js"></script>
 </body>
 </html>
+
