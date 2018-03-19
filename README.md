@@ -63,6 +63,9 @@ mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
 ## 项目文档
 开始前参考[`doc`](/doc/README.md)目录下文档
 
+## 会议纪要
+ 1. [0318红包需求讲解](/doc/meeting/0318.md)
+
 ## 项目规范
 ###	1、文档规范
  * 所有文档需放到/doc目录下；
