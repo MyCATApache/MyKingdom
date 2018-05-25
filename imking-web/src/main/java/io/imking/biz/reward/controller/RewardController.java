@@ -17,7 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/reward")
 public class RewardController {
 
+    @Autowired
+    private RwAskService rwAskService;
 
+
+    /**
+     * 保存红包内容
+     * 红包id不为空
+     * 红包内容不为空
+     * @param rwAsk
+     * @return
+     */
+    @PostMapping("saveconnect")
+    public Result<String> getRwId(RwAsk rwAsk){
+        return rwAskService.saveContent(rwAsk);
+    }
 }
 
 

@@ -1,36 +1,38 @@
-function GetRequest() {
-    var url = location.search;
-    var theRequest = new Object();
-    if (url.indexOf("?") != -1) {
-        var str = url.substr(1);
-        strs = str.split("&");
+function getRequestParam() {
+    var _url = location.search;
+    var _theRequest = new Object();
+
+    if (_url.indexOf("?") != -1) {
+        var _str = _url.substr(1);
+        strs = _str.split("&");
         for(var i = 0; i < strs.length; i ++) {
-            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            var _requestParamKey = strs[i].split("=")[0];
+            var _requestParamValue = unescape(strs[i].split("=")[1]);
+            _theRequest[_requestParamKey] = _requestParamValue;
         }
     }
-    console.log(theRequest)
-    return theRequest;
+    return _theRequest;
 }
-$(document).ready(function(){
-    var param  = GetRequest();
-    jQuery('#id').val(param.id)
+jQuery(document).ready(function(){
+    var _requestParam  = getRequestParam();
+    jQuery('#id').val(_requestParam.id);
 });
 
 
 jQuery('#previous').click(function(){
-    alert(123)
+   //返回上一步
 });
 jQuery('#next').click(function(){
-    var id = jQuery('#id').val();
-    var content = jQuery('#contentText').val();
+    var _id = jQuery('#id').val();
+    var _content = jQuery('#contentText').val();
     jQuery.ajax({
        type: "POST",
        url: "/api/reward/saveconnect",
-       data: {id:id,content:content},
+       data: {id:_id,content:_content},
        dataType: "json",
        success: function(data){
-           console.log(data);
            if(data.desc == 'success'){
+               //跳转到红包三
                document.location = '/courses/index.html?id='+id
            }else{
                alert(data.data)
