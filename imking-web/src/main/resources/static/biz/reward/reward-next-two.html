@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/headerfooter.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 头部导航 -->
+
+    <div  class="header">
+        <div class="container-fluid hrederTop">
+            <div class="container topcontent">
+                <img src="../../assets/images/index/icon-notice.png"/><span>Mycat全方面为您提供服务！</span>
+            </div>
+        </div>
+        <div class="container-fluid hrederContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <a href="../../index.html"><img src="../../assets/images/index/footerimg.png"/></a>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <ul class="linkcollection">
+                            <li class= "active" @click="selected(index)">
+                                <a href="#">首页</a>
+                            </li>
+                            <li>
+                                <a href="#">众包项目</a>
+                            </li>
+                            <li>
+                                <a href="#">精准招聘</a>
+                            </li>
+                            <li>
+                                <a href="./biz/reward/index.html">红包悬赏</a>
+                            </li>
+                            <li>
+                                <a href="#">黄浦教程</a>
+                            </li>
+                            <li>
+                                <a href="#">开源项目</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- container -->
+<div class="container" id="content">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 left-side">
+            <ul class="list-group">
+                <li class="list-group-item active">发红包</li>
+                <li class="list-group-item">抢红包</li>
+                <li class="list-group-item">我发的红包（6）</li>
+                <li class="list-group-item">我参与的（6）</li>
+                <li class="list-group-item">红包众筹</li>
+                <li class="list-group-item">历史红包（15）</li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9 right-side">
+            <div id="reardcontent">
+                <input type="hidden" name="id" id = "id" value="123"/>
+                <p class="title"><b>红包内容</b>&nbsp;<span>必填</span></p>
+                <div >
+                    <textarea cols="100" rows="10" id="contentText">
+                    </textarea>
+                </div>
+                <div id="prompt">
+                    <p>提问正确姿势：</p>
+
+                    <p>1、请清晰简洁提出您的问题，而不是宣讲您的观点</p>
+
+                    <p>2、一次尽量只提一个问题，而不是嵌套多个问题</p>
+
+                    <p>3、请不要提过于宏大的问题，回答者更乐于回答精确、背景信息足够详尽的问题。</p>
+                </div>
+                <div id="button">
+                    <button class="btn" id="previous" >上一步</button><button class="btn"  id="next">下一步</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="./js/index.js"></script>
+</body>
+</html>
