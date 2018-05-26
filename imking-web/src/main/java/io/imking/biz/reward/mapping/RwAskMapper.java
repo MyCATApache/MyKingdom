@@ -74,4 +74,19 @@ public interface RwAskMapper {
             "where id = #{id,jdbcType=INTEGER}"
     })
     int saveContent(RwAsk record);
+
+
+    @Update({"<script>",
+            "update rw_ask",
+            "<set>",
+            "<if test=\"type != null\">type=#{type},</if>",
+            "<if test=\"isTop != null\">is_top=#{isTop},</if>",
+            "<if test=\"topAmount != null\">top_amount=#{topAmount},</if>",
+            "<if test=\"topExpirationDate != null\">top_expiration_date=#{topExpirationDate},</if>",
+            "<if test=\"status != null\">status=#{status},</if>",
+            "</set>",
+            " where id=#{id}",
+            "</script>"
+    })
+    int updateRwAsk(RwAsk record);
 }

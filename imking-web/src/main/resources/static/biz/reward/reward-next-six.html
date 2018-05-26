@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/reward-next-six.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.css">
+</head>
+
+<body>
+<!-- 头部导航 -->
+<nav class="navbar navbar-expand navbar-light">
+    <div class="content">
+        <a class="navbar-brand" href="#">
+            <img src="./img/logo.png" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">红包悬赏
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">商务合作</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">黄埔教程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">开源项目</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">众包项目</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">精准招聘</a>
+                </li>
+            </ul>
+            <div class="pull-right">
+                <div class="bell">
+                    <img src="./img/bell.png" alt="">
+                    <p>消息</p>
+                </div>
+                <div class="head">
+                    <img src="./img/head.png" alt="">
+                    <p>小明</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- container -->
+<div class="container content">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 left-side">
+            <ul class="list-group">
+                <li class="list-group-item active">发红包</li>
+                <li class="list-group-item">抢红包</li>
+                <li class="list-group-item">我发的红包（6）</li>
+                <li class="list-group-item">我参与的（6）</li>
+                <li class="list-group-item">红包众筹</li>
+                <li class="list-group-item">历史红包（15）</li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9 right-side" style="margin-top: 20px;">
+            <div><b>红包【置顶】</b>呼叫大虾非必填重要或者紧急红包建议选择红包【置顶】服务，您发的红包金额等值于您增加的【慷慨度】</div>
+            <div style="margin-top: 40px;">
+                <input id="days" type="text" style="width: 500px;"/>
+            </div>
+
+            <div class="red_text" style="margin-top: 40px;">红包说明：</div>
+            <div class="red_text">1、红包总额95%给予答题者，5%给予平台运营</div>
+            <div class="red_text">2、红包【置顶】金额作为服务费给予平台运营</div>
+            <div class="red_text">3、请仔细核对红包信息，红包发出后，若无人给出合理解答，红包关闭后，平台将全额退还红包金额</div>
+            <div class="red_text">4、请确保红包内容不包含敏感信息和不影响平台利益，否则平台有权删除红包，删除后红包金额将不予退回，同时扣减1分信用分，平台粉丝也有权举报红包主人，一经查实，红包主人信用分将被扣减1分。</div>
+            <div class="red_text">5、红包分配中，如果出现红包纠纷，若证实是红包主人的问题，红包主人将被扣减1分信用分，同时在平台运营的调解下给出合理分配，否则不能关闭红包，红包余额将充公。</div>
+
+
+            <div class="row justify-content-end">
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <input type="button" name="" class="btn btn-primary" value="上一步" onclick="javascript:history.go(-1)">
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <input type="button" name="" class="btn btn-info" value="呼叫大虾" onclick="updateRwAsk()">
+                </div>
+            </div>
+
+
+            <div>金主，您计划将红包</div>
+            <div><input type="radio" name="type" value="0" checked />立即发出</div>
+            <div>发出后抢到红包的人开始解答</div>
+            <div><input type="radio" name="type" value="1"/>与答题者沟通后发出</div>
+            <div>发出后计划抢红包的人需要提交申请，待申请通过后开始答题，若无合适申请者，5天后红包自动开放</div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/lib/jquery/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.js"></script>
+<script src="./js/reward-next-six.js"></script>
+
+</body>
+
+</html>
