@@ -37,6 +37,9 @@ jQuery('#next').click(function(){
            }else{
                alert(data.data)
            }
+       },
+       error: function (err) {
+           console.log(err)
        }
    })
 });
