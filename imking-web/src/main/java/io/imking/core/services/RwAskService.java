@@ -49,4 +49,21 @@ public class RwAskService {
         }
         return new Result<>(ResultEnum.SUCCESS , "保存成功" ) ;
     }
+
+
+    /**
+     * 更新红包内容
+     * @param rwAsk
+     * @return
+     */
+    public Result<String> updateRwAsk(RwAsk rwAsk){
+        Result<String> result = new Result<String>();
+        int count = rwAskMapper.updateRwAsk(rwAsk);
+        if(count > 0){
+            result.ok("更新成功");
+        }else{
+            result.error("更新失败");
+        }
+        return result;
+    }
 }

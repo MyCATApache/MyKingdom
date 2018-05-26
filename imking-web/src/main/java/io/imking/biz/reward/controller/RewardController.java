@@ -32,6 +32,17 @@ public class RewardController {
     public Result<String> getRwId(RwAsk rwAsk){
         return rwAskService.saveContent(rwAsk);
     }
+
+
+    /**
+     * 更新红包内容
+     * @param rwAsk
+     * @return
+     */
+    @PostMapping("updateRwAsk")
+    public Result<String> updateRwAsk(RwAsk rwAsk){
+        return rwAskService.updateRwAsk(rwAsk);
+    }
 }
 
 
