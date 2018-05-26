@@ -3,15 +3,8 @@ package io.imking.biz.reward.mapping;
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.domain.RwAskExample;
 import java.util.List;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 @Mapper
@@ -74,4 +67,26 @@ public interface RwAskMapper {
 
     @UpdateProvider(type=RwAskSqlProvider.class, method="updateByExample")
     int updateByExample(@Param("record") RwAsk record, @Param("example") RwAskExample example);
+
+    @Update({
+            "update rw_ask",
+            "set content = #{content,jdbcType=VARCHAR}",
+            "where id = #{id,jdbcType=INTEGER}"
+    })
+    int saveContent(RwAsk record);
+
+
+    @Update({"<script>",
+            "update rw_ask",
+            "<set>",
+            "<if test=\"type != null\">type=#{type},</if>",
+            "<if test=\"isTop != null\">is_top=#{isTop},</if>",
+            "<if test=\"topAmount != null\">top_amount=#{topAmount},</if>",
+            "<if test=\"topExpirationDate != null\">top_expiration_date=#{topExpirationDate},</if>",
+            "<if test=\"status != null\">status=#{status},</if>",
+            "</set>",
+            " where id=#{id}",
+            "</script>"
+    })
+    int updateRwAsk(RwAsk record);
 }
