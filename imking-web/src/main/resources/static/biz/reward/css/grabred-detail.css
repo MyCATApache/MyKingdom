@@ -1,0 +1,243 @@
+.navbar{
+    height: 88px;
+    background: rgba(42, 40, 51, 1);
+    overflow: hidden;
+}
+.navbar .navbar-brand{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 124px;
+    width: 124px;
+    border-radius: 50%;
+    margin-bottom: -72px;
+    background: #fff;
+}
+.navbar .navbar-brand img{
+    position: absolute;
+    width: 100px;
+    top: 10px;
+    left: 12px;
+}
+.navbar .navbar-nav{
+    margin-left: 60px;
+}
+.navbar .navbar-nav .nav-item{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 20px;
+    margin-top: 50px;
+    border-radius: 2px;
+    -webkit-transition: background-color .5s ease-in;
+	-moz-transition: background-color .5s ease-in;
+	transition: background-color .5s ease-in;
+}
+.navbar .navbar-nav .nav-item:hover{
+    background-color: rgba(255, 204, 0, 1);
+}
+.navbar .navbar-nav .nav-item a{
+    color: #ebebeb;
+    font-size: 14px;
+}
+.navbar .navbar-nav .active {
+    background: rgba(255, 204, 0, 1);
+}
+.navbar .pull-right .bell, .head{
+    float: left;
+    height: 88px;
+    text-align: center;
+    font-size: 14px;
+    color: #ebebeb;
+}
+.navbar .pull-right .bell{
+    margin-right: 30px;
+}
+.navbar .pull-right .bell img, .head img{
+    height: 40px;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: background-color .5s ease-in;
+	-moz-transition: background-color .5s ease-in;
+	transition: background-color .5s ease-in;
+}
+.navbar .pull-right .bell img:hover, .head img:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.navbar .pull-right .head img {
+    padding: 8px;
+}
+
+/* container */
+.container .back{
+    font-size: 24px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+.container .right-side {
+    border: 1px solid #ebebeb;
+}
+.user-info .avatar {
+    position: relative;
+}
+.avatar .label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    width: 70px;
+    text-align: center;
+    line-height: 40px;
+    background: rgba(255, 204, 0, 1);
+}
+.avatar img{
+    width: 100%;
+}
+.user-info .user {
+    margin: 1rem 0;
+}
+.user-info .user .nickname{
+    font-weight: bold;
+}
+.user-info .user .rank{
+    margin-left: 1rem;
+    padding: 2px 20px;
+    background: #fff;
+    border: 1px solid rgba(255, 204, 0, 1);
+    color: rgba(255, 204, 0, 1);
+}
+.user-info .user .chat {
+    margin-left: .5rem;
+    padding: 2px 20px;
+    background: #f00;
+    color: #fff;
+}
+.user-info .red-packet .btn{
+    width: 40%;
+    padding: 2px;
+    margin: 0 .5rem .5rem 0;
+    border: 1px solid #f00;
+    color: #f00;
+    background: #fff;
+    overflow: hidden;
+}
+.user-info .list-group .list-group-item {
+    border: none;
+}
+.user-info .list-group-item img{
+    height: 15px;
+    margin-top: -.25rem;
+}
+.user-info .list-group-item .progress-label{
+    float: left;
+}
+.user-info .list-group-item .progress{
+    width: 50%;
+    margin: .2rem;
+    float: left;
+}
+.user-info .list-group-item .progress-bar{
+    background: rgba(255, 204, 0, 1);
+}
+.right-side {
+    padding: 1rem;
+}
+.right-side .question .tips {
+    color: rgba(255, 204, 0, 1);
+}
+.question .name{
+    font-weight: bold;
+}
+.question .label{
+    padding: .2rem 1rem;
+    background: rgba(255, 204, 0, 1);
+}
+.question .time{
+    margin-left: 6rem;
+    font-size: 14px;
+    color: #999;
+}
+.question .sub .tips{
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #999;
+}
+.question .sub .btn-gruop .btn{
+    margin-left: .5rem;
+    background: #000000;
+    color: #fff;
+}
+.words{
+    margin-top: 2rem;
+    overflow: hidden;
+}
+.words .label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #000000;
+}
+#rating{
+    height: 10rem;
+    min-height: 10rem;
+    margin-left: 8%;
+    width: 90%;
+}
+.words .btn{
+    float: right;
+    width: 6rem;
+    margin-right: 2rem;
+    background: #000000;
+    color: #fff;
+}
+.words-list .nav-pills{
+    border-bottom: 1px solid #ccc;
+}
+.words-list .nav-pills li{
+    width: 5rem;
+    margin: 0 1rem;
+    text-align: center;
+}
+.words-list .nav-pills .active {
+    border-bottom: 4px solid rgba(255, 204, 0, 1);
+}
+.media-list .media {
+    margin-top: 1rem;
+}
+.media .media-object{
+    height: 8rem;
+}
+.media .media-body{
+    margin-left: 1rem;
+}
+.media .media-body .nickname{
+    font-weight: bold;
+}
+.media .jumbotron {
+    height: 4rem;
+    padding: 0;
+}
+.media .media-body .rank {
+    margin-left: 1rem;
+    padding: 2px 20px;
+    background: #fff;
+    border: 1px solid rgba(255, 204, 0, 1);
+    color: rgba(255, 204, 0, 1);
+}
+.media .media-body .time{
+    font-size: 14px;
+    color: #999;
+}
+.media .media-body .operate-group{
+    float: right;
+}
+.media .media-body .operate-group img{
+    height: 30px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.media .media-body .operate-group .btn{
+    margin-left: .5rem;
+    padding: 2px 20px;
+    background: #f00;
+    color: #fff;
+}
