@@ -45,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		userMan.setAuthoritiesByUsernameQuery("SELECT account AS username, t_role.role_code AS authority FROM t_user JOIN t_user_role ON t_user_role.user_id = t_user.id JOIN t_role ON t_role.id = t_user_role.role_id WHERE t_user.account = ?");
 		return userMan;
 	}
-
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
 		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")

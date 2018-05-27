@@ -2,21 +2,20 @@ package io.imking.biz.reward.controller;
 
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.core.services.RwAskService;
+import io.imking.utils.Constant;
 import io.imking.utils.Result;
-import io.imking.utils.ResultEnum;
-import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
 @RequestMapping("/api/reward")
 public class RewardController {
-
+	
     @Autowired
     private RwAskService rwAskService;
 
@@ -42,6 +41,18 @@ public class RewardController {
     @PostMapping("updateRwAsk")
     public Result<String> updateRwAsk(RwAsk rwAsk){
         return rwAskService.updateRwAsk(rwAsk);
+    }
+    
+    /**
+     * 
+     * @param rwAsk
+     * @return
+     */
+    @PostMapping("/getRwAskList")
+    public Result<Object> getRwAskList(@RequestParam int pageNum,@RequestParam int pageSize) throws Exception{
+    	Result<Object> ret = new Result<Object>();
+    	pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
+		return ret.ok(rwAskService.getRwAskList(pageNum, pageSize));
     }
 }
 

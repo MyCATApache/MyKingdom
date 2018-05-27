@@ -1,14 +1,19 @@
 package io.imking.core.services;
 
+import java.util.List;
+
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.domain.RwAskExample;
 import io.imking.biz.reward.mapping.RwAskMapper;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
 import lombok.extern.log4j.Log4j;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.github.pagehelper.PageHelper;
 
 /**
  * @author hwb
@@ -65,5 +70,21 @@ public class RwAskService {
             result.error("更新失败");
         }
         return result;
+    }
+    
+
+    /**
+     * 获取红包任务列表
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+	public Result<Object> getRwAskList(int pageNum,int pageSize) throws Exception{
+		PageHelper.startPage(pageNum, pageSize);
+		Result<Object> result = new Result<Object>();
+		List<RwAsk> RwAskList = rwAskMapper.selectByExample(null);
+		result.setData(RwAskList);
+		return result;
     }
 }
