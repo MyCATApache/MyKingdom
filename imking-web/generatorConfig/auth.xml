@@ -4,7 +4,7 @@
 
 <generatorConfiguration>
 	<classPathEntry
-			location="/Users/xqy/.m2/repository/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar" />
+			location="F:/software/repository/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar" />
 
 	<context id="context1" targetRuntime="MyBatis3" >
 		<plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
@@ -18,19 +18,19 @@
 			<property name="addRemarkComments" value="false" />
 			<property name="javaFileEncoding" value="UTF-8" />
 		</commentGenerator>
-		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://122.112.238.95:3389/imking" userId="imking"
 			password="46OMuh4j">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-		<javaModelGenerator targetPackage="io.imking.auth.domain" targetProject="MAVEN" />
-		<!--<javaClientGenerator targetPackage="io.imking.auth.mapping" targetProject="MAVEN" type="ANNOTATEDMAPPER" />-->
+		<javaModelGenerator targetPackage="io.imking.biz.domain" targetProject="MAVEN" />
+		<javaClientGenerator targetPackage="io.imking.biz.mapping" targetProject="MAVEN" type="ANNOTATEDMAPPER" />
 
-		<table schema="imking" tableName="t_user" domainObjectName="User"/>
-		<table schema="imking" tableName="t_role" domainObjectName="Role"/>
-
+		<table schema="imking" tableName="imk_user" domainObjectName="ImkUser"/>
+		<table schema="imking" tableName="imk_user_account_detail" domainObjectName="ImkUserAccountDetail"/>
+		<table schema="imking" tableName="imk_user_point_detail" domainObjectName="ImkUserPointDetail"/>
         <!-- <table tableName="t_attachment" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table> -->
         
