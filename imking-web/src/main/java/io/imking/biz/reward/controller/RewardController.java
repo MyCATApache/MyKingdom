@@ -1,6 +1,7 @@
 package io.imking.biz.reward.controller;
 
 import io.imking.biz.reward.domain.RwAsk;
+import io.imking.biz.reward.services.RewardService;
 import io.imking.core.services.RwAskService;
 import io.imking.utils.Constant;
 import io.imking.utils.Result;
@@ -18,6 +19,8 @@ public class RewardController {
 	
     @Autowired
     private RwAskService rwAskService;
+    @Autowired
+	protected RewardService rewardService;
 
 
     /**
@@ -42,7 +45,6 @@ public class RewardController {
     public Result<String> updateRwAsk(RwAsk rwAsk){
         return rwAskService.updateRwAsk(rwAsk);
     }
-    
     /**
      * 
      * @param rwAsk
@@ -54,6 +56,24 @@ public class RewardController {
     	pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
 		return ret.ok(rwAskService.getRwAskList(pageNum, pageSize));
     }
+	/**
+	 * table切换红包任务列表
+	 * 
+	 * @return Result
+	 * @author 天道
+	 */
+	@RequestMapping("/tableRwAsks")
+	public Result<String> tableRwAsks() {
+		Result result = new Result();
+		try {
+			result = rewardService.tableRwAsks();
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("查询失败");
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
 
 
