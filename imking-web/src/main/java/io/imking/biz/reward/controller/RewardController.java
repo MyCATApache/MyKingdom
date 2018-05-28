@@ -5,6 +5,7 @@ import io.imking.biz.reward.services.RewardService;
 import io.imking.core.services.RwAskService;
 import io.imking.utils.Constant;
 import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,7 +69,7 @@ public class RewardController {
 		try {
 			result = rewardService.tableRwAsks();
 		} catch (Exception e) {
-//			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
 			result.setDesc("查询失败");
 			e.printStackTrace();
 		}
