@@ -32,7 +32,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 	public JWTLoginFilter(AuthenticationManager authenticationManager) {
 		super.setAuthenticationManager(authenticationManager); 
 	}
-	
+	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String authorization = request.getHeader("Authorization"); 
@@ -59,7 +59,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 		}
 		chain.doFilter(request, res );
 	}
-	
+	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication auth) {
 		String token = Jwts.builder()
