@@ -1,5 +1,6 @@
 package io.imking.biz.reward.mapping;
 
+import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.domain.RwAskEvaluate;
 import io.imking.biz.reward.domain.RwAskEvaluateExample;
 import java.util.List;
@@ -49,7 +50,35 @@ public interface RwAskEvaluateMapper {
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP)
     })
     List<RwAskEvaluate> selectByExample(RwAskEvaluateExample example);
-
+    
+    /**
+     * 关联红包任务
+     * @param example
+     * @return List<RwAsk> 
+     * @author 天道
+     */
+    @SelectProvider(type=RwAskEvaluateSqlProvider.class, method="selectRelationByExample")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER),
+        @Result(column="rw_ask_index", property="rwAskIndex", jdbcType=JdbcType.TINYINT),
+        @Result(column="current_answer_user_id", property="currentAnswerUserId", jdbcType=JdbcType.INTEGER),
+        @Result(column="type", property="type", jdbcType=JdbcType.TINYINT),
+        @Result(column="title", property="title", jdbcType=JdbcType.VARCHAR),
+        @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
+        @Result(column="attach_group", property="attachGroup", jdbcType=JdbcType.VARCHAR),
+        @Result(column="is_top", property="isTop", jdbcType=JdbcType.BIT),
+        @Result(column="top_amount", property="topAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="top_expiration_date", property="topExpirationDate", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="task_amount", property="taskAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="crowdfunding_amount", property="crowdfundingAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="status", property="status", jdbcType=JdbcType.TINYINT),
+        @Result(column="status_change_time", property="statusChangeTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="create_by", property="createBy", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP)
+    })
+    List<RwAsk> selectRelationByExample(RwAskEvaluateExample example);
+    
     @UpdateProvider(type=RwAskEvaluateSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") RwAskEvaluate record, @Param("example") RwAskEvaluateExample example);
 

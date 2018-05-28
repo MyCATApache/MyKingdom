@@ -253,32 +253,12 @@
                 </div>
                 <div class="words-list">
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active">全部</li>
-                        <li role="presentation">回答（1）</li>
-                        <li role="presentation">提问（2）</li>
-                        <li role="presentation">评论（2）</li>
+                        <li role="presentation" class="active" onclick="tableRwAsks('all')">全部</li>
+                        <li role="presentation" onclick="tableRwAsks('evaluate')">回答（1）</li>
+                        <li role="presentation" onclick="tableRwAsks('question')">提问（2）</li>
+                        <li role="presentation" onclick="tableRwAsks('questionReply')">评论（2）</li>
                     </ul>
                     <ul class="media-list">
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="../../assets/images/reward/user.png" alt="...">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <span class="nickname">呆呆虎</span>
-                                <button class="btn rank">lv4</button>
-                                <p class="time">回答时间：2018-01-03 14:01:01</p>
-                                <div class="jumbotron">
-                                    Hello world!
-                                </div>
-                                <div class="operate-group">
-                                    <img src="../../assets/images/reward/good.png" alt="">
-                                    <img src="../../assets/images/reward/bad.png" alt="">
-                                    <button class="btn">举报</button>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -287,6 +267,7 @@
     <script src="../../assets/lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../assets/lib/bootstrap-4.0.0/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../assets/lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+    <script src="./js/grabred-detail.js"></script>
 </body>
 
 </html>
