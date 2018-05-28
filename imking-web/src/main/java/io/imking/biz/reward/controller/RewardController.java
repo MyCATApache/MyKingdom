@@ -3,8 +3,8 @@ package io.imking.biz.reward.controller;
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.services.RewardService;
 import io.imking.core.services.RwAskService;
-import io.imking.utils.Constant;
 import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +53,6 @@ public class RewardController {
     @PostMapping("/getRwAskList")
     public Result<Object> getRwAskList(@RequestParam int pageNum,@RequestParam int pageSize) throws Exception{
     	Result<Object> ret = new Result<Object>();
-    	pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
 		return ret.ok(rwAskService.getRwAskList(pageNum, pageSize));
     }
 	/**

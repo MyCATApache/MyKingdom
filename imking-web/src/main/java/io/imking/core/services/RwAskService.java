@@ -1,12 +1,15 @@
 package io.imking.core.services;
 
-import java.util.List;
-
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.domain.RwAskExample;
+import io.imking.biz.reward.domain.RwAskExample.Criteria;
 import io.imking.biz.reward.mapping.RwAskMapper;
+import io.imking.utils.Constant;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
+
+import java.util.List;
+
 import lombok.extern.log4j.Log4j;
 
 import org.apache.commons.lang3.StringUtils;
@@ -55,7 +58,6 @@ public class RwAskService {
         return new Result<>(ResultEnum.SUCCESS , "保存成功" ) ;
     }
 
-
     /**
      * 更新红包内容
      * @param rwAsk
@@ -71,7 +73,6 @@ public class RwAskService {
         }
         return result;
     }
-    
 
     /**
      * 获取红包任务列表
@@ -80,10 +81,14 @@ public class RwAskService {
      * @return
      * @throws Exception
      */
-	public Result<Object> getRwAskList(int pageNum,int pageSize) throws Exception{
+	public Result<List<RwAsk>> getRwAskList(int pageNum,int pageSize) throws Exception{
 		PageHelper.startPage(pageNum, pageSize);
-		Result<Object> result = new Result<Object>();
-		List<RwAsk> RwAskList = rwAskMapper.selectByExample(null);
+		Result<List<RwAsk>> result = new Result<List<RwAsk>>();
+		pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
+		RwAskExample example = new RwAskExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andTitleLike("%测试%");
+		List<RwAsk> RwAskList = rwAskMapper.selectByExample(example);
 		result.setData(RwAskList);
 		return result;
     }
