@@ -68,7 +68,7 @@ public class RewardController {
 		try {
 			result = rewardService.tableRwAsks();
 		} catch (Exception e) {
-			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+//			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
 			result.setDesc("查询失败");
 			e.printStackTrace();
 		}
