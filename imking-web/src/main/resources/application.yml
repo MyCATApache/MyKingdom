@@ -33,6 +33,12 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
+pagehelper:
+   helperDialect: mysql
+   reasonable: true
+   supportMethodsArguments: true
+   params: count=countSql
+
 #logging:
 #  config: classpath:log4j2.xml
 
