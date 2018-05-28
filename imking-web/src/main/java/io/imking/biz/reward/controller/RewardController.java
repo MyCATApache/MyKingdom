@@ -1,16 +1,21 @@
 package io.imking.biz.reward.controller;
 
-import io.imking.biz.reward.domain.RwAsk;
-import io.imking.biz.reward.services.RewardService;
-import io.imking.core.services.RwAskService;
-import io.imking.utils.Constant;
-import io.imking.utils.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.imking.biz.reward.domain.RwAsk;
+import io.imking.biz.reward.services.RewardService;
+import io.imking.biz.reward.status.RwStatus;
+import io.imking.core.services.RwAskService;
+import io.imking.utils.Constant;
+import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
 
 
 @RestController
@@ -35,7 +40,6 @@ public class RewardController {
         return rwAskService.saveContent(rwAsk);
     }
 
-
     /**
      * 更新红包内容
      * @param rwAsk
@@ -45,6 +49,7 @@ public class RewardController {
     public Result<String> updateRwAsk(RwAsk rwAsk){
         return rwAskService.updateRwAsk(rwAsk);
     }
+
     /**
      * 
      * @param rwAsk
@@ -74,6 +79,36 @@ public class RewardController {
 		}
 		return result;
 	}
+
+
+    @PostMapping("/add")
+    @ResponseBody
+    public Result<?> newRw(@RequestParam(required=true) String title
+    		) {
+    	//TODO: 用户注册方式待定 暂时为1
+    	int create_by = 1;
+    	RwAsk rwAsk = new RwAsk();
+    	rwAsk.setTitle(title);
+    	rwAsk.setStatus(RwStatus.CREATING.getStatus());
+    	rwAsk.setCreateBy(create_by);
+    	return rwAskService.createRw(rwAsk);
+    }
+    
+    @GetMapping("/list")
+    @ResponseBody
+    public Result<Object> searchRWByTitle(
+    		@RequestParam(required=true)String title,
+    		@RequestParam(defaultValue="1")int rwPageSize,
+    		@RequestParam(defaultValue="1")int rwPageNum,
+    		@RequestParam(defaultValue="1")int answerPageSize,
+    		@RequestParam(defaultValue="1")int answerPageNum){
+    	
+    	
+    	
+    	return null;
+    }
+
+
 }
 
 

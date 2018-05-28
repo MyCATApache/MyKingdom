@@ -43,3 +43,23 @@ jQuery('#next').click(function(){
        }
    })
 });
+jQuery("#stepTwo").click(function () {
+    var _title = jQuery('#rwTitle').val();
+    if (_title){
+        jQuery.ajax({
+            type: "POST",
+            url: "/api/reward/add",
+            data: {title: _title},
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 200){
+                    document.location = './reward-next-two.html?id='+data.data;
+                }else{
+                    alert(data.data);
+                }
+            }
+        });
+    }else{
+        alert("请输入标题!");
+    }
+});
