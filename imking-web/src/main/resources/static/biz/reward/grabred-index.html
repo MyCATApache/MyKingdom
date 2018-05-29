@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/headerfooter.css"/>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/grabred-index.css">
 </head>
 
 <body>
@@ -60,8 +60,7 @@
 
     </nav>
     <!-- container -->
-
-    <div class="container content" >
+    <div class="container content">
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3 left-side">
                 <ul class="list-group">
@@ -74,85 +73,132 @@
                 </ul>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9 right-side">
-                <div class="notice-wrap">
-                    <div class="notice">
-                        <!--<div class="tips">
-                            <div class="waring">
-                                <img src="../../assets/images/reward/horn.png" alt=""> 乱抢红包有风险，请谨慎！
-                            </div>
-                            <p>抢红包之前请认真阅读如下规则：</p>
-                            <p><a href="#">抢红包规则></a></p>
-                            <p><a href="#">提问规则></a></p>
-                            <p><a href="#">评论规则></a></p>
-                            <p><a href="#">此阶段加分规则></a></p>
-                        </div>-->
-                        <div class="search clearfix" >
-                            <label for="rwTitle" class="float-left">
-                                红包标题
-                            </label>
-                            <div class="input">
-                                <input type="text" id="rwTitle" placeholder="输入关键字（全文检索）">
-                                <span>
-                                    <img id="rwSearchBtn" class="img-fluid" src="../../assets/images/reward/search.png" alt="">
-                                </span>
-                            </div>
+                <div class="notice">
+                    <div class="tips">
+                        <div class="waring">
+                            <img src="../../assets/images/reward/horn.png" alt=""> 乱抢红包有风险，请谨慎！
                         </div>
-                        <div class="search-tip">请用几个关键字准确定位出您的问题，方便答题者快速定位，提高效率。</div>
+                        <p>抢红包之前请认真阅读如下规则：</p>
+                        <p>抢红包规则></p>
+                        <p>提问规则></p>
+                        <p>评论规则></p>
+                        <p>此阶段加分规则></p>
                     </div>
-                    <div class="rw-rule-wrap clearfix">
-                        <div class="rw-rule">
-                            <h3>温馨提醒，平台根据您填写的标题会找出相似问题</h3>
-                            <p>1、如果有您正好需要的，您可以直接在下方找到满意的答案，同时点击问题内容前方的红包按钮支付更少红包金额即可任性看答案。</p>
-                            <p>2、如果没有您需要的，您可以继续下一步完善红包资料。</p>
+                    <div class="search">
+                        <div class="input">
+                            <input type="text" placeholder="输入关键字（全文检索）">
+                            <span>
+                                <img src="../../assets/images/reward/search.png" alt="">
+                            </span>
                         </div>
-                        <div class="rw-rule-count ">
-                            <div class="count-title">此阶段加分规则:</div>
-                            <div class="count-content">
-                                <p>1、发红包获得等值【慷慨度】，如发100元红包即可获得100分【慷慨度】</p>
-                                <p>2、点赞/差评可获得【积极性】，如点赞/差评一次，获得1分【积极性】</p>
-                                <p>3、评论可获得【积极性】，如评论一次获得1分【积极性】</p>
-                                <p>4、积极举报可获得【积极性】，如您的举报一经查实，可获得1分【积极性】，如您的虚报毫无凭据，一经查实，将降低1分【靠谱值】，情况严重的将进入平台黑名单</p>
-                            </div>
-                        </div>
-                        <button class="float-right btn btn-dark" id="stepTwo">直接下一步</button>
                     </div>
-                    <div class="item-list" id="rwItemList">
-                        <!--<div class="item">
-                            <div class="user-infor">
-                                <div class="row">
-                                    <div class="col-sm-3 col-md-3 col-lg-3">
-                                        <div class="avatar">
-                                            <img class="img-responsive center-block" src="../../assets/images/reward/user.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-9 col-md-9 col-lg-9">
-                                        <div class="top">
-                                            <span class="name">呆呆虎</span>
-                                            <span class="rank">lv2</span>
-                                        </div>
-
-                                        <div class="center">
-                                            <div class="red-packet">
-                                                <img src="../../assets/images/reward/packet.png" alt="">
-                                            </div>
-                                            <div class="text">
-                                                <p class="money">800元</p>
-                                                <p class="question">Mycat五虎是哪五位？</p>
-                                            </div>
-                                        </div>
-                                        <div class="bottom">红包发放中 发布时间：2018-01-03 14：01：01</div>
+                </div>
+                <div class="item-list">
+                  
+                    <div class="item">
+                        <div class="user-infor">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <div class="avatar">
+                                        <img class="img-responsive center-block" src="../../assets/images/reward/user.png" alt="">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="answer">
-                                <ul>
-                                    <li>回答（0）</li>
-                                    <li>提问（0）</li>
-                                    <li>评论（3）</li>
-                                </ul>
+                                <div class="col-sm-9 col-md-9 col-lg-9">
+                                    <div class="top">
+                                        <span class="name">呆呆虎</span>
+                                        <span class="rank">lv2</span>
+                                    </div>
+                                    <div class="center">
+                                        <div class="red-packet">
+                                            <img src="../../assets/images/reward/packet.png" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <p class="money">800元</p>
+                                            <p class="question">Mycat五虎是哪五位？</p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">红包发放中 发布时间：2018-01-03 14：01：01</div>
+                                </div>
                             </div>
                         </div>
-                    </div>-->
+                        <div class="answer">
+                            <ul>
+                                <li>回答（0）</li>
+                                <li>提问（0）</li>
+                                <li>评论（3）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="user-infor">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <div class="avatar">
+                                        <img class="img-responsive center-block" src="../../assets/images/reward/user.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-md-9 col-lg-9">
+                                    <div class="top">
+                                        <input type="hidden" name="id" id = "id" value="123"/>
+                                        <span class="name">呆呆虎</span>
+                                        <span class="rank">lv2</span>
+                                    </div>
+                                    <div class="center">
+                                        <div class="red-packet">
+                                            <img src="../../assets/images/reward/packet.png" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <p class="money">800元</p>
+                                            <p class="question">Mycat五虎是哪五位？</p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">红包发放中 发布时间：2018-01-03 14：01：01</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <ul>
+                                <li>回答（0）</li>
+                                <li>提问（0）</li>
+                                <li>评论（3）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="user-infor">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <div class="avatar">
+                                        <img class="img-responsive center-block" src="../../assets/images/reward/user.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-md-9 col-lg-9">
+                                    <div class="top">
+                                        <span class="name">呆呆虎</span>
+                                        <span class="rank">lv2</span>
+                                    </div>
+                                    <div class="center">
+                                        <div class="red-packet">
+                                            <img src="../../assets/images/reward/packet.png" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <p class="money">800元</p>
+                                            <p class="question">Mycat五虎是哪五位？</p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">红包发放中 发布时间：2018-01-03 14：01：01</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <ul>
+                                <li>回答（0）</li>
+                                <li>提问（0）</li>
+                                <li>评论（3）</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -162,7 +208,6 @@
     <script src="../../assets/lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
     <script src="./js/grabred-index.js"></script>
   <!--   <script src="./index.js"></script> -->
-    <script src="./js/index.js"></script>
 </body>
 
 </html>
