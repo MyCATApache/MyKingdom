@@ -42,7 +42,7 @@ public class RwAskService {
             return new Result<>(ResultEnum.SERVER_ERROR , "红包内容不允许为空" ) ;
         }
         try {
-            rwAskMapper.saveContent(rwAsk);
+            rwAskMapper.updateByPrimaryKey(rwAsk);
         }catch (Exception e){
             log.error("红包内容存错异常"+e.toString());
             return new Result<>(ResultEnum.SERVER_ERROR , "存储异常" ) ;
@@ -58,7 +58,7 @@ public class RwAskService {
      */
     public Result<String> updateRwAsk(RwAsk rwAsk){
         Result<String> result = new Result<String>();
-        int count = rwAskMapper.updateRwAsk(rwAsk);
+        int count = rwAskMapper.updateByPrimaryKey(rwAsk);
         if(count > 0){
             result.ok("更新成功");
         }else{

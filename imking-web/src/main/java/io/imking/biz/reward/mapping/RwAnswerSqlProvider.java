@@ -148,6 +148,43 @@ public class RwAnswerSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAnswer record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_answer");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=TINYINT}");
+        }
+        
+        if (record.getContent() != null) {
+            sql.SET("content = #{content,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{attachGroup,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getCreateBy() != null) {
+            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAnswerExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

@@ -3,6 +3,7 @@ package io.imking.biz.reward.mapping;
 import io.imking.biz.reward.domain.RwAskQuestionReply;
 import io.imking.biz.reward.domain.RwAskQuestionReplyExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
@@ -10,7 +11,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
@@ -21,6 +24,12 @@ public interface RwAskQuestionReplyMapper {
 
     @DeleteProvider(type=RwAskQuestionReplySqlProvider.class, method="deleteByExample")
     int deleteByExample(RwAskQuestionReplyExample example);
+
+    @Delete({
+        "delete from rw_ask_question_reply",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into rw_ask_question_reply (id, rw_ask_question_id, ",
@@ -37,7 +46,7 @@ public interface RwAskQuestionReplyMapper {
 
     @SelectProvider(type=RwAskQuestionReplySqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER),
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="rw_ask_question_id", property="rwAskQuestionId", jdbcType=JdbcType.INTEGER),
         @Result(column="reply_content", property="replyContent", jdbcType=JdbcType.VARCHAR),
         @Result(column="create_by", property="createBy", jdbcType=JdbcType.INTEGER),
@@ -45,9 +54,37 @@ public interface RwAskQuestionReplyMapper {
     })
     List<RwAskQuestionReply> selectByExample(RwAskQuestionReplyExample example);
 
+    @Select({
+        "select",
+        "id, rw_ask_question_id, reply_content, create_by, create_time",
+        "from rw_ask_question_reply",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+        @Result(column="rw_ask_question_id", property="rwAskQuestionId", jdbcType=JdbcType.INTEGER),
+        @Result(column="reply_content", property="replyContent", jdbcType=JdbcType.VARCHAR),
+        @Result(column="create_by", property="createBy", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP)
+    })
+    RwAskQuestionReply selectByPrimaryKey(Integer id);
+
     @UpdateProvider(type=RwAskQuestionReplySqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") RwAskQuestionReply record, @Param("example") RwAskQuestionReplyExample example);
 
     @UpdateProvider(type=RwAskQuestionReplySqlProvider.class, method="updateByExample")
     int updateByExample(@Param("record") RwAskQuestionReply record, @Param("example") RwAskQuestionReplyExample example);
+
+    @UpdateProvider(type=RwAskQuestionReplySqlProvider.class, method="updateByPrimaryKeySelective")
+    int updateByPrimaryKeySelective(RwAskQuestionReply record);
+
+    @Update({
+        "update rw_ask_question_reply",
+        "set rw_ask_question_id = #{rwAskQuestionId,jdbcType=INTEGER},",
+          "reply_content = #{replyContent,jdbcType=VARCHAR},",
+          "create_by = #{createBy,jdbcType=INTEGER},",
+          "create_time = #{createTime,jdbcType=TIMESTAMP}",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
+    int updateByPrimaryKey(RwAskQuestionReply record);
 }

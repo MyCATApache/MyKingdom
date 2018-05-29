@@ -1,68 +1,73 @@
 package io.imking.biz.reward.mapping;
 
-import io.imking.biz.reward.domain.RwAskQuestionReply;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criteria;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criterion;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample;
+import io.imking.biz.reward.domain.ImkUserPointDetail;
+import io.imking.biz.reward.domain.ImkUserPointDetailExample.Criteria;
+import io.imking.biz.reward.domain.ImkUserPointDetailExample.Criterion;
+import io.imking.biz.reward.domain.ImkUserPointDetailExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class RwAskQuestionReplySqlProvider {
+public class ImkUserPointDetailSqlProvider {
 
-    public String countByExample(RwAskQuestionReplyExample example) {
+    public String countByExample(ImkUserPointDetailExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("rw_ask_question_reply");
+        sql.SELECT("count(*)").FROM("imk_user_point_detail");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(RwAskQuestionReplyExample example) {
+    public String deleteByExample(ImkUserPointDetailExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("rw_ask_question_reply");
+        sql.DELETE_FROM("imk_user_point_detail");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(RwAskQuestionReply record) {
+    public String insertSelective(ImkUserPointDetail record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("rw_ask_question_reply");
+        sql.INSERT_INTO("imk_user_point_detail");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.VALUES("rw_ask_question_id", "#{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getUserId() != null) {
+            sql.VALUES("user_id", "#{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.VALUES("reply_content", "#{replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.VALUES("amount", "#{amount,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.VALUES("create_by", "#{createBy,jdbcType=INTEGER}");
+        if (record.getBalance() != null) {
+            sql.VALUES("balance", "#{balance,jdbcType=INTEGER}");
         }
         
         if (record.getCreateTime() != null) {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getRemark() != null) {
+            sql.VALUES("remark", "#{remark,jdbcType=VARCHAR}");
+        }
+        
         return sql.toString();
     }
 
-    public String selectByExample(RwAskQuestionReplyExample example) {
+    public String selectByExample(ImkUserPointDetailExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("rw_ask_question_id");
-        sql.SELECT("reply_content");
-        sql.SELECT("create_by");
+        sql.SELECT("user_id");
+        sql.SELECT("amount");
+        sql.SELECT("balance");
         sql.SELECT("create_time");
-        sql.FROM("rw_ask_question_reply");
+        sql.SELECT("remark");
+        sql.FROM("imk_user_point_detail");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -73,30 +78,34 @@ public class RwAskQuestionReplySqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        RwAskQuestionReply record = (RwAskQuestionReply) parameter.get("record");
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        ImkUserPointDetail record = (ImkUserPointDetail) parameter.get("record");
+        ImkUserPointDetailExample example = (ImkUserPointDetailExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("imk_user_point_detail");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{record.amount,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
+        if (record.getBalance() != null) {
+            sql.SET("balance = #{record.balance,jdbcType=INTEGER}");
         }
         
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getRemark() != null) {
+            sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
         }
         
         applyWhere(sql, example, true);
@@ -105,37 +114,42 @@ public class RwAskQuestionReplySqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("imk_user_point_detail");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
-        sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
-        sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
+        sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
+        sql.SET("amount = #{record.amount,jdbcType=INTEGER}");
+        sql.SET("balance = #{record.balance,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
         
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        ImkUserPointDetailExample example = (ImkUserPointDetailExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(RwAskQuestionReply record) {
+    public String updateByPrimaryKeySelective(ImkUserPointDetail record) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("imk_user_point_detail");
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{amount,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        if (record.getBalance() != null) {
+            sql.SET("balance = #{balance,jdbcType=INTEGER}");
         }
         
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getRemark() != null) {
+            sql.SET("remark = #{remark,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
@@ -143,7 +157,7 @@ public class RwAskQuestionReplySqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, RwAskQuestionReplyExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, ImkUserPointDetailExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

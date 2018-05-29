@@ -1,43 +1,67 @@
 package io.imking.biz.reward.mapping;
 
-import io.imking.biz.reward.domain.RwAskQuestionReply;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criteria;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criterion;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample;
+import io.imking.biz.reward.domain.Attach;
+import io.imking.biz.reward.domain.AttachExample.Criteria;
+import io.imking.biz.reward.domain.AttachExample.Criterion;
+import io.imking.biz.reward.domain.AttachExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class RwAskQuestionReplySqlProvider {
+public class AttachSqlProvider {
 
-    public String countByExample(RwAskQuestionReplyExample example) {
+    public String countByExample(AttachExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("rw_ask_question_reply");
+        sql.SELECT("count(*)").FROM("attach");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(RwAskQuestionReplyExample example) {
+    public String deleteByExample(AttachExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("rw_ask_question_reply");
+        sql.DELETE_FROM("attach");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(RwAskQuestionReply record) {
+    public String insertSelective(Attach record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("rw_ask_question_reply");
+        sql.INSERT_INTO("attach");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.VALUES("rw_ask_question_id", "#{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.VALUES("attach_group", "#{attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.VALUES("reply_content", "#{replyContent,jdbcType=VARCHAR}");
+        if (record.getFileName() != null) {
+            sql.VALUES("file_name", "#{fileName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileType() != null) {
+            sql.VALUES("file_type", "#{fileType,jdbcType=TINYINT}");
+        }
+        
+        if (record.getSaveName() != null) {
+            sql.VALUES("save_name", "#{saveName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSavePath() != null) {
+            sql.VALUES("save_path", "#{savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.VALUES("file_desc", "#{fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.VALUES("size", "#{size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.VALUES("extension", "#{extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -48,21 +72,37 @@ public class RwAskQuestionReplySqlProvider {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.VALUES("update_by", "#{updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.VALUES("update_time", "#{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         return sql.toString();
     }
 
-    public String selectByExample(RwAskQuestionReplyExample example) {
+    public String selectByExample(AttachExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("rw_ask_question_id");
-        sql.SELECT("reply_content");
+        sql.SELECT("attach_group");
+        sql.SELECT("file_name");
+        sql.SELECT("file_type");
+        sql.SELECT("save_name");
+        sql.SELECT("save_path");
+        sql.SELECT("file_desc");
+        sql.SELECT("size");
+        sql.SELECT("extension");
         sql.SELECT("create_by");
         sql.SELECT("create_time");
-        sql.FROM("rw_ask_question_reply");
+        sql.SELECT("update_by");
+        sql.SELECT("update_time");
+        sql.FROM("attach");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -73,22 +113,46 @@ public class RwAskQuestionReplySqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        RwAskQuestionReply record = (RwAskQuestionReply) parameter.get("record");
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        Attach record = (Attach) parameter.get("record");
+        AttachExample example = (AttachExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("attach");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{record.attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
+        if (record.getFileName() != null) {
+            sql.SET("file_name = #{record.fileName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileType() != null) {
+            sql.SET("file_type = #{record.fileType,jdbcType=TINYINT}");
+        }
+        
+        if (record.getSaveName() != null) {
+            sql.SET("save_name = #{record.saveName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSavePath() != null) {
+            sql.SET("save_path = #{record.savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.SET("file_desc = #{record.fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.SET("size = #{record.size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.SET("extension = #{record.extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -99,35 +163,75 @@ public class RwAskQuestionReplySqlProvider {
             sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.SET("update_by = #{record.updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{record.updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("attach");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
-        sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
+        sql.SET("attach_group = #{record.attachGroup,jdbcType=VARCHAR}");
+        sql.SET("file_name = #{record.fileName,jdbcType=VARCHAR}");
+        sql.SET("file_type = #{record.fileType,jdbcType=TINYINT}");
+        sql.SET("save_name = #{record.saveName,jdbcType=VARCHAR}");
+        sql.SET("save_path = #{record.savePath,jdbcType=VARCHAR}");
+        sql.SET("file_desc = #{record.fileDesc,jdbcType=VARCHAR}");
+        sql.SET("size = #{record.size,jdbcType=INTEGER}");
+        sql.SET("extension = #{record.extension,jdbcType=VARCHAR}");
         sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("update_by = #{record.updateBy,jdbcType=INTEGER}");
+        sql.SET("update_time = #{record.updateTime,jdbcType=TIMESTAMP}");
         
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        AttachExample example = (AttachExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(RwAskQuestionReply record) {
+    public String updateByPrimaryKeySelective(Attach record) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("attach");
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{replyContent,jdbcType=VARCHAR}");
+        if (record.getFileName() != null) {
+            sql.SET("file_name = #{fileName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileType() != null) {
+            sql.SET("file_type = #{fileType,jdbcType=TINYINT}");
+        }
+        
+        if (record.getSaveName() != null) {
+            sql.SET("save_name = #{saveName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSavePath() != null) {
+            sql.SET("save_path = #{savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.SET("file_desc = #{fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.SET("size = #{size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.SET("extension = #{extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -138,12 +242,20 @@ public class RwAskQuestionReplySqlProvider {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.SET("update_by = #{updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
         
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, RwAskQuestionReplyExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, AttachExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

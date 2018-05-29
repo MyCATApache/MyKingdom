@@ -148,6 +148,43 @@ public class RwAskEvaluateSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAskEvaluate record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_ask_evaluate");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=TINYINT}");
+        }
+        
+        if (record.getEvaluateUserId() != null) {
+            sql.SET("evaluate_user_id = #{evaluateUserId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUserEvaluateDimensionId() != null) {
+            sql.SET("user_evaluate_dimension_id = #{userEvaluateDimensionId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getScore() != null) {
+            sql.SET("score = #{score,jdbcType=TINYINT}");
+        }
+        
+        if (record.getCreateBy() != null) {
+            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAskEvaluateExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

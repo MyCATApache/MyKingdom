@@ -98,6 +98,23 @@ public class RwAskTagRelationshipSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAskTagRelationship record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_ask_tag_relationship");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getTagId() != null) {
+            sql.SET("tag_id = #{tagId,jdbcType=INTEGER}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAskTagRelationshipExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

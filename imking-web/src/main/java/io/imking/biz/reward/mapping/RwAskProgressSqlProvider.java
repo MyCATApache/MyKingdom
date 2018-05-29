@@ -138,6 +138,39 @@ public class RwAskProgressSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAskProgress record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_ask_progress");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=TINYINT}");
+        }
+        
+        if (record.getStartTime() != null) {
+            sql.SET("start_time = #{startTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getDeadlineTime() != null) {
+            sql.SET("deadline_time = #{deadlineTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getActualEndTime() != null) {
+            sql.SET("actual_end_time = #{actualEndTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAskProgressExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

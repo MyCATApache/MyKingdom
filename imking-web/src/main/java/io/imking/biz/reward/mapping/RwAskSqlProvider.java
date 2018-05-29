@@ -238,6 +238,79 @@ public class RwAskSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAsk record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_ask");
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=TINYINT}");
+        }
+        
+        if (record.getCurrentAnswerUserId() != null) {
+            sql.SET("current_answer_user_id = #{currentAnswerUserId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getType() != null) {
+            sql.SET("type = #{type,jdbcType=TINYINT}");
+        }
+        
+        if (record.getTitle() != null) {
+            sql.SET("title = #{title,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getContent() != null) {
+            sql.SET("content = #{content,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{attachGroup,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getIsTop() != null) {
+            sql.SET("is_top = #{isTop,jdbcType=BIT}");
+        }
+        
+        if (record.getTopAmount() != null) {
+            sql.SET("top_amount = #{topAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getTopExpirationDate() != null) {
+            sql.SET("top_expiration_date = #{topExpirationDate,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getTaskAmount() != null) {
+            sql.SET("task_amount = #{taskAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getCrowdfundingAmount() != null) {
+            sql.SET("crowdfunding_amount = #{crowdfundingAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=TINYINT}");
+        }
+        
+        if (record.getStatusChangeTime() != null) {
+            sql.SET("status_change_time = #{statusChangeTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getCreateBy() != null) {
+            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAskExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

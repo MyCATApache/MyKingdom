@@ -1,43 +1,43 @@
 package io.imking.biz.reward.mapping;
 
-import io.imking.biz.reward.domain.RwAskQuestionReply;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criteria;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample.Criterion;
-import io.imking.biz.reward.domain.RwAskQuestionReplyExample;
+import io.imking.biz.reward.domain.CrowdFundingInfo;
+import io.imking.biz.reward.domain.CrowdFundingInfoExample.Criteria;
+import io.imking.biz.reward.domain.CrowdFundingInfoExample.Criterion;
+import io.imking.biz.reward.domain.CrowdFundingInfoExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class RwAskQuestionReplySqlProvider {
+public class CrowdFundingInfoSqlProvider {
 
-    public String countByExample(RwAskQuestionReplyExample example) {
+    public String countByExample(CrowdFundingInfoExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("rw_ask_question_reply");
+        sql.SELECT("count(*)").FROM("crowdfunding_info");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(RwAskQuestionReplyExample example) {
+    public String deleteByExample(CrowdFundingInfoExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("rw_ask_question_reply");
+        sql.DELETE_FROM("crowdfunding_info");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(RwAskQuestionReply record) {
+    public String insertSelective(CrowdFundingInfo record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("rw_ask_question_reply");
+        sql.INSERT_INTO("crowdfunding_info");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.VALUES("rw_ask_question_id", "#{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getRwAskId() != null) {
+            sql.VALUES("rw_ask_id", "#{rwAskId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.VALUES("reply_content", "#{replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.VALUES("amount", "#{amount,jdbcType=DECIMAL}");
         }
         
         if (record.getCreateBy() != null) {
@@ -51,18 +51,18 @@ public class RwAskQuestionReplySqlProvider {
         return sql.toString();
     }
 
-    public String selectByExample(RwAskQuestionReplyExample example) {
+    public String selectByExample(CrowdFundingInfoExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("rw_ask_question_id");
-        sql.SELECT("reply_content");
+        sql.SELECT("rw_ask_id");
+        sql.SELECT("amount");
         sql.SELECT("create_by");
         sql.SELECT("create_time");
-        sql.FROM("rw_ask_question_reply");
+        sql.FROM("crowdfunding_info");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -73,22 +73,22 @@ public class RwAskQuestionReplySqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        RwAskQuestionReply record = (RwAskQuestionReply) parameter.get("record");
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        CrowdFundingInfo record = (CrowdFundingInfo) parameter.get("record");
+        CrowdFundingInfoExample example = (CrowdFundingInfoExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("crowdfunding_info");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
         }
         
         if (record.getCreateBy() != null) {
@@ -105,29 +105,29 @@ public class RwAskQuestionReplySqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("crowdfunding_info");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("rw_ask_question_id = #{record.rwAskQuestionId,jdbcType=INTEGER}");
-        sql.SET("reply_content = #{record.replyContent,jdbcType=VARCHAR}");
+        sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
+        sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
         sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         
-        RwAskQuestionReplyExample example = (RwAskQuestionReplyExample) parameter.get("example");
+        CrowdFundingInfoExample example = (CrowdFundingInfoExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(RwAskQuestionReply record) {
+    public String updateByPrimaryKeySelective(CrowdFundingInfo record) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_ask_question_reply");
+        sql.UPDATE("crowdfunding_info");
         
-        if (record.getRwAskQuestionId() != null) {
-            sql.SET("rw_ask_question_id = #{rwAskQuestionId,jdbcType=INTEGER}");
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
         }
         
-        if (record.getReplyContent() != null) {
-            sql.SET("reply_content = #{replyContent,jdbcType=VARCHAR}");
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
         }
         
         if (record.getCreateBy() != null) {
@@ -143,7 +143,7 @@ public class RwAskQuestionReplySqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, RwAskQuestionReplyExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, CrowdFundingInfoExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }
