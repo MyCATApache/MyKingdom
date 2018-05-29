@@ -86,7 +86,39 @@ public class RwAskEvaluateSqlProvider {
         
         return sql.toString();
     }
-
+    
+    /**
+     * 关联红包任务
+     * @param example
+     * @return string
+     * @author zhu
+     */
+    public String selectRelationByExample(RwAskEvaluateExample example) {
+        SQL sql = new SQL();
+        sql.SELECT("rw_ask.id");
+        sql.SELECT("rw_ask.rw_ask_index");
+        sql.SELECT("rw_ask.current_answer_user_id");
+        sql.SELECT("rw_ask.type");
+        sql.SELECT("rw_ask.title");
+        sql.SELECT("rw_ask.content");
+        sql.SELECT("rw_ask.attach_group");
+        sql.SELECT("rw_ask.is_top");
+        sql.SELECT("rw_ask.top_amount");
+        sql.SELECT("rw_ask.top_expiration_date");
+        sql.SELECT("rw_ask.task_amount");
+        sql.SELECT("rw_ask.crowdfunding_amount");
+        sql.SELECT("rw_ask.status");
+        sql.SELECT("rw_ask.status_change_time");
+        sql.SELECT("rw_ask.create_by");
+        sql.SELECT("rw_ask.create_time");
+        sql.SELECT("rw_ask.update_time");
+        sql.FROM("rw_ask_evaluate");
+        sql.INNER_JOIN("rw_ask");        
+        sql.WHERE("rw_ask_evaluate.rw_ask_id=rw_ask.id");
+        sql.GROUP_BY("rw_ask.id");
+        return sql.toString();
+    } 
+    
     public String updateByExampleSelective(Map<String, Object> parameter) {
         RwAskEvaluate record = (RwAskEvaluate) parameter.get("record");
         RwAskEvaluateExample example = (RwAskEvaluateExample) parameter.get("example");

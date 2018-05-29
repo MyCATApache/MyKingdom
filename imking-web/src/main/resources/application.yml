@@ -3,9 +3,12 @@ spring:
     name: mykingdom-imking
   datasource:
     url: jdbc:mysql://122.112.238.95:3389/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+#   url: jdbc:mysql://localhost:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: imking
     password: 46OMuh4j
+#    username: root
+#    password: admin
     druid:
       initial-size: 10
       max-active: 20
@@ -29,6 +32,12 @@ server:
   context-path: /
   tomcat:
     uri-encoding: UTF-8
+
+pagehelper:
+   helperDialect: mysql
+   reasonable: true
+   supportMethodsArguments: true
+   params: count=countSql
 
 #logging:
 #  config: classpath:log4j2.xml

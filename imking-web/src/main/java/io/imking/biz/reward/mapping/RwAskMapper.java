@@ -52,7 +52,7 @@ public interface RwAskMapper {
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
     int insert(RwAsk record);
-
+    
     @InsertProvider(type=RwAskSqlProvider.class, method="insertSelective")
     int insertSelective(RwAsk record);
 
@@ -136,5 +136,15 @@ public interface RwAskMapper {
           "update_time = #{updateTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=INTEGER}"
     })
+
     int updateByPrimaryKey(RwAsk record);
+
+    int updateRwAsk(RwAsk record);
+    
+    @Select({
+    	"SELECT LAST_INSERT_ID()"
+    })
+    @ResultType(Integer.class)
+    int selectLastInsert();
+
 }
