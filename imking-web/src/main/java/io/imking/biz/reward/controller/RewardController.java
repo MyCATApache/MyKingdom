@@ -1,6 +1,8 @@
 package io.imking.biz.reward.controller;
 
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
+
 import io.imking.biz.reward.domain.RwAsk;
+import io.imking.biz.reward.dto.RwDetailDto;
 import io.imking.biz.reward.services.RewardService;
 import io.imking.biz.reward.status.RwStatus;
 import io.imking.core.services.RwAskService;
@@ -91,24 +96,23 @@ public class RewardController {
     	rwAsk.setTitle(title);
     	rwAsk.setStatus(RwStatus.CREATING.getStatus());
     	rwAsk.setCreateBy(create_by);
-    	return rwAskService.createRw(rwAsk);
+    	rwAsk.setCreateTime(new Date());
+    	return rewardService.createRw(rwAsk);
     }
     
     @GetMapping("/list")
     @ResponseBody
-    public Result<Object> searchRWByTitle(
+    public Result<PageInfo<RwDetailDto>> searchRWByTitle(
     		@RequestParam(required=true)String title,
-    		@RequestParam(defaultValue="1")int rwPageSize,
+    		@RequestParam(defaultValue="5")int rwPageSize,
     		@RequestParam(defaultValue="1")int rwPageNum,
     		@RequestParam(defaultValue="1")int answerPageSize,
     		@RequestParam(defaultValue="1")int answerPageNum){
-    	
-    	
-    	
-    	return null;
+    	PageInfo<RwDetailDto> rs = rewardService.searchRWByTitle(title, rwPageNum, rwPageSize);
+    	return new Result<PageInfo<RwDetailDto>>(ResultEnum.SUCCESS, rs);
     }
 
-
+    
 }
 
 

@@ -63,3 +63,44 @@ jQuery("#stepTwo").click(function () {
         alert("请输入标题!");
     }
 });
+jQuery("#rwSearchBtn").click(function () {
+    var _title = jQuery('#rwTitle').val();
+    if (_title){
+        jQuery.ajax({
+            type: "GET",
+            url: "/api/reward/list",
+            data: {title: _title},
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 200){
+                    console.log(data.data);
+                    var rwItemList = jQuery("#rwItemList");
+                    rwItemList.html('');
+                    var rwList = data.data.list || [];
+                    var html = '';
+                    for (var index in  rwList){
+                        console.log(rwList[index]);
+                        var rwItem = rwList[index];
+                        html+='<html><head></head><body><div class="item"><div class="user-infor"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3"><div class="avatar"><img class="img-responsive center-block" src="../../assets/images/reward/user.png" alt="" /></div></div><div class="col-sm-9 col-md-9 col-lg-9"><div class="top"><span class="name">'+rwItem.nickname+'</span><span class="rank">'+rwItem.level+'</span></div><div class="center"><div class="red-packet"><img src="../../assets/images/reward/packet.png" alt="" /></div><div class="text"><p class="money">'+rwItem.taskAmount+'元</p><p class="question">'+rwItem.title+'</p></div></div><div class="bottom">       红包发放中 发布时间：'+timestampToTime(rwItem.createTime)+'</div></div></div></div><div class="answer"><ul><li>回答（'+rwItem.answerCount+'）</li><li>提问（'+rwItem.questionCount+'）</li><li>评论（'+rwItem.commentCount+'）</li></ul></div></div></body></html>';
+                    }
+                    rwItemList.html(html);
+                }else{
+                    alert(data.data);
+                }
+            }
+        });
+    }else{
+        alert("请输入标题!");
+    }
+});
+
+function timestampToTime(timestamp) {
+    var date = new Date(timestamp);
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes() + ':';
+    s = date.getSeconds();
+    return Y+M+D+h+m+s;
+}

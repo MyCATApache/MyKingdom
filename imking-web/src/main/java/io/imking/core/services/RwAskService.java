@@ -27,17 +27,7 @@ public class RwAskService {
 	@Autowired
 	private RwAskMapper rwAskMapper;
 
-	@Transactional
-	public Result<?> createRw(RwAsk rwAsk) {
-		int count = rwAskMapper.insertSelective(rwAsk);
-		if (count < 1) {
-			log.error("创建红包异常 ");
-			return new Result<>(ResultEnum.SERVER_ERROR, "创建红包异常");
-		}
-		// 返回ID
-		int rwId = rwAskMapper.selectLastInsert();
-		return new Result<>(ResultEnum.SUCCESS, rwId);
-	}
+	
 
 	public Result<String> saveContent(RwAsk rwAsk) {
 		RwAskExample example = new RwAskExample();
@@ -99,5 +89,7 @@ public class RwAskService {
 		result.setData(RwAskList);
 		return result;
     }
+	
+	
 
 }
