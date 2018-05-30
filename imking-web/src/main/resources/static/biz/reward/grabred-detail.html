@@ -240,16 +240,17 @@
                             <p class="tips">如果您认为红包内容有敏感信息或者有损他人利益，请举报</p>
                         </div>
                         <div class="col-sm-5 col-md-5 col-lg-5 btn-gruop">
-                            <button class="btn btn-default">提问</button>
-                            <button class="btn btn-default">评论</button>
-                            <button class="btn btn-default">举报</button>
+                            <button class="btn btn-default opt-type" value="ask">提问</button>
+                            <button class="btn btn-default opt-type" value="reply">回答</button>
+                            <button class="btn btn-default opt-type" value="comment">评论</button>
+                            <button class="btn btn-default opt-type" value="report">举报</button>
                         </div>
                     </div>
                 </div>
-                <div class="words">
+                <div id="words" class="words">
                     <p class="label">俺要发言</p>
                     <textarea name="rating" id="rating"></textarea>
-                    <button class="btn btn-default">提交</button>
+                    <button id="submit-replay"class="btn btn-default">提交</button>
                 </div>
                 <div class="words-list">
                     <ul class="nav nav-pills">
@@ -287,6 +288,7 @@
     <script src="../../assets/lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../assets/lib/bootstrap-4.0.0/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../assets/lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+    <script src="./js/grabred-detail.js"></script>
 </body>
 
 </html>

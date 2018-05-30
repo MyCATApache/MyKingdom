@@ -29,6 +29,11 @@ public class Result<T> {
 		this.data = data;
 	}
 
+	public Result(int status, String desc) {
+		this.status = status;
+		this.desc = desc;
+	}
+
 	public Result<T> ok(T data) {
 		this.data = data;
 		this.status = ResultEnum.SUCCESS.getCode();
