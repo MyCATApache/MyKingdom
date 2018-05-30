@@ -1,59 +1,55 @@
 package io.imking.biz.reward.mapping;
 
-import io.imking.biz.reward.domain.RwProAct;
-import io.imking.biz.reward.domain.RwProActExample.Criteria;
-import io.imking.biz.reward.domain.RwProActExample.Criterion;
-import io.imking.biz.reward.domain.RwProActExample;
+import io.imking.biz.reward.domain.OpMsg;
+import io.imking.biz.reward.domain.OpMsgExample.Criteria;
+import io.imking.biz.reward.domain.OpMsgExample.Criterion;
+import io.imking.biz.reward.domain.OpMsgExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class RwProActSqlProvider {
+public class OpMsgSqlProvider {
 
-    public String countByExample(RwProActExample example) {
+    public String countByExample(OpMsgExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("rw_pro_act");
+        sql.SELECT("count(*)").FROM("op_msg");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(RwProActExample example) {
+    public String deleteByExample(OpMsgExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("rw_pro_act");
+        sql.DELETE_FROM("op_msg");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(RwProAct record) {
+    public String insertSelective(OpMsg record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("rw_pro_act");
+        sql.INSERT_INTO("op_msg");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
-        }
-        
-        if (record.getRwAskId() != null) {
-            sql.VALUES("rw_ask_id", "#{rwAskId,jdbcType=INTEGER}");
-        }
-        
-        if (record.getRwAskIndex() != null) {
-            sql.VALUES("rw_ask_index", "#{rwAskIndex,jdbcType=INTEGER}");
         }
         
         if (record.getType() != null) {
             sql.VALUES("type", "#{type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.VALUES("amount", "#{amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.VALUES("from_user_id", "#{fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.VALUES("apply_delay_days", "#{applyDelayDays,jdbcType=TINYINT}");
+        if (record.getToUserId() != null) {
+            sql.VALUES("to_user_id", "#{toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.VALUES("create_by", "#{createBy,jdbcType=INTEGER}");
+        if (record.getContent() != null) {
+            sql.VALUES("content", "#{content,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getIsRead() != null) {
+            sql.VALUES("is_read", "#{isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -63,21 +59,20 @@ public class RwProActSqlProvider {
         return sql.toString();
     }
 
-    public String selectByExample(RwProActExample example) {
+    public String selectByExample(OpMsgExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("rw_ask_id");
-        sql.SELECT("rw_ask_index");
         sql.SELECT("type");
-        sql.SELECT("amount");
-        sql.SELECT("apply_delay_days");
-        sql.SELECT("create_by");
+        sql.SELECT("from_user_id");
+        sql.SELECT("to_user_id");
+        sql.SELECT("content");
+        sql.SELECT("is_read");
         sql.SELECT("create_time");
-        sql.FROM("rw_pro_act");
+        sql.FROM("op_msg");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -88,38 +83,34 @@ public class RwProActSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        RwProAct record = (RwProAct) parameter.get("record");
-        RwProActExample example = (RwProActExample) parameter.get("example");
+        OpMsg record = (OpMsg) parameter.get("record");
+        OpMsgExample example = (OpMsgExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
+        sql.UPDATE("op_msg");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        }
-        
-        if (record.getRwAskId() != null) {
-            sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
-        }
-        
-        if (record.getRwAskIndex() != null) {
-            sql.SET("rw_ask_index = #{record.rwAskIndex,jdbcType=INTEGER}");
         }
         
         if (record.getType() != null) {
             sql.SET("type = #{record.type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.SET("from_user_id = #{record.fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.SET("apply_delay_days = #{record.applyDelayDays,jdbcType=TINYINT}");
+        if (record.getToUserId() != null) {
+            sql.SET("to_user_id = #{record.toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
+        if (record.getContent() != null) {
+            sql.SET("content = #{record.content,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getIsRead() != null) {
+            sql.SET("is_read = #{record.isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -132,48 +123,43 @@ public class RwProActSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
+        sql.UPDATE("op_msg");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
-        sql.SET("rw_ask_index = #{record.rwAskIndex,jdbcType=INTEGER}");
         sql.SET("type = #{record.type,jdbcType=TINYINT}");
-        sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
-        sql.SET("apply_delay_days = #{record.applyDelayDays,jdbcType=TINYINT}");
-        sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
+        sql.SET("from_user_id = #{record.fromUserId,jdbcType=INTEGER}");
+        sql.SET("to_user_id = #{record.toUserId,jdbcType=INTEGER}");
+        sql.SET("content = #{record.content,jdbcType=VARCHAR}");
+        sql.SET("is_read = #{record.isRead,jdbcType=BIT}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         
-        RwProActExample example = (RwProActExample) parameter.get("example");
+        OpMsgExample example = (OpMsgExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(RwProAct record) {
+    public String updateByPrimaryKeySelective(OpMsg record) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
-        
-        if (record.getRwAskId() != null) {
-            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
-        }
-        
-        if (record.getRwAskIndex() != null) {
-            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
-        }
+        sql.UPDATE("op_msg");
         
         if (record.getType() != null) {
             sql.SET("type = #{type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.SET("from_user_id = #{fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.SET("apply_delay_days = #{applyDelayDays,jdbcType=TINYINT}");
+        if (record.getToUserId() != null) {
+            sql.SET("to_user_id = #{toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateBy() != null) {
-            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        if (record.getContent() != null) {
+            sql.SET("content = #{content,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getIsRead() != null) {
+            sql.SET("is_read = #{isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
@@ -185,7 +171,7 @@ public class RwProActSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, RwProActExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, OpMsgExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

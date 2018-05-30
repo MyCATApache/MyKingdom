@@ -26,8 +26,34 @@ public class RwAskService {
 
 	@Autowired
 	private RwAskMapper rwAskMapper;
-
-	
+    public Result<String> saveContent(RwAsk rwAsk){
+        RwAskExample example = new RwAskExample();
+        RwAskExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(rwAsk.getId());
+        try {
+            long rwAskNum = rwAskMapper.countByExample(example);
+            if(rwAskNum!=1){
+                return new Result<>(ResultEnum.SERVER_ERROR , "红包异常" ) ;
+            }
+        }catch (Exception e){
+            log.error("红包查询异常"+e.toString());
+            return new Result<>(ResultEnum.SERVER_ERROR , "当前红包不存在" ) ;
+        }
+        /**
+         * 判断当前操作人是否是该条红包悬赏的主人
+         */
+        String content = rwAsk.getContent().trim();
+        if(StringUtils.isBlank(content)){
+            return new Result<>(ResultEnum.SERVER_ERROR , "红包内容不允许为空" ) ;
+        }
+        try {
+            rwAskMapper.updateByPrimaryKey(rwAsk);
+        }catch (Exception e){
+            log.error("红包内容存错异常"+e.toString());
+            return new Result<>(ResultEnum.SERVER_ERROR , "存储异常" ) ;
+        }
+        return new Result<>(ResultEnum.SUCCESS , "保存成功" ) ;
+    }
 
 	public Result<String> saveContent(RwAsk rwAsk) {
 		RwAskExample example = new RwAskExample();
@@ -65,7 +91,7 @@ public class RwAskService {
      */
     public Result<String> updateRwAsk(RwAsk rwAsk){
         Result<String> result = new Result<String>();
-        int count = rwAskMapper.updateRwAsk(rwAsk);
+        int count = rwAskMapper.updateByPrimaryKey(rwAsk);
         if(count > 0){
             result.ok("更新成功");
         }else{

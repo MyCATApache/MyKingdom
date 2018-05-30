@@ -1,55 +1,67 @@
 package io.imking.biz.reward.mapping;
 
-import io.imking.biz.reward.domain.RwProAct;
-import io.imking.biz.reward.domain.RwProActExample.Criteria;
-import io.imking.biz.reward.domain.RwProActExample.Criterion;
-import io.imking.biz.reward.domain.RwProActExample;
+import io.imking.biz.reward.domain.Attach;
+import io.imking.biz.reward.domain.AttachExample.Criteria;
+import io.imking.biz.reward.domain.AttachExample.Criterion;
+import io.imking.biz.reward.domain.AttachExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class RwProActSqlProvider {
+public class AttachSqlProvider {
 
-    public String countByExample(RwProActExample example) {
+    public String countByExample(AttachExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("rw_pro_act");
+        sql.SELECT("count(*)").FROM("attach");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(RwProActExample example) {
+    public String deleteByExample(AttachExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("rw_pro_act");
+        sql.DELETE_FROM("attach");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(RwProAct record) {
+    public String insertSelective(Attach record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("rw_pro_act");
+        sql.INSERT_INTO("attach");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskId() != null) {
-            sql.VALUES("rw_ask_id", "#{rwAskId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.VALUES("attach_group", "#{attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getRwAskIndex() != null) {
-            sql.VALUES("rw_ask_index", "#{rwAskIndex,jdbcType=INTEGER}");
+        if (record.getFileName() != null) {
+            sql.VALUES("file_name", "#{fileName,jdbcType=VARCHAR}");
         }
         
-        if (record.getType() != null) {
-            sql.VALUES("type", "#{type,jdbcType=TINYINT}");
+        if (record.getFileType() != null) {
+            sql.VALUES("file_type", "#{fileType,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.VALUES("amount", "#{amount,jdbcType=DECIMAL}");
+        if (record.getSaveName() != null) {
+            sql.VALUES("save_name", "#{saveName,jdbcType=VARCHAR}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.VALUES("apply_delay_days", "#{applyDelayDays,jdbcType=TINYINT}");
+        if (record.getSavePath() != null) {
+            sql.VALUES("save_path", "#{savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.VALUES("file_desc", "#{fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.VALUES("size", "#{size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.VALUES("extension", "#{extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -60,24 +72,37 @@ public class RwProActSqlProvider {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.VALUES("update_by", "#{updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.VALUES("update_time", "#{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         return sql.toString();
     }
 
-    public String selectByExample(RwProActExample example) {
+    public String selectByExample(AttachExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("rw_ask_id");
-        sql.SELECT("rw_ask_index");
-        sql.SELECT("type");
-        sql.SELECT("amount");
-        sql.SELECT("apply_delay_days");
+        sql.SELECT("attach_group");
+        sql.SELECT("file_name");
+        sql.SELECT("file_type");
+        sql.SELECT("save_name");
+        sql.SELECT("save_path");
+        sql.SELECT("file_desc");
+        sql.SELECT("size");
+        sql.SELECT("extension");
         sql.SELECT("create_by");
         sql.SELECT("create_time");
-        sql.FROM("rw_pro_act");
+        sql.SELECT("update_by");
+        sql.SELECT("update_time");
+        sql.FROM("attach");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -88,34 +113,46 @@ public class RwProActSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        RwProAct record = (RwProAct) parameter.get("record");
-        RwProActExample example = (RwProActExample) parameter.get("example");
+        Attach record = (Attach) parameter.get("record");
+        AttachExample example = (AttachExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
+        sql.UPDATE("attach");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getRwAskId() != null) {
-            sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{record.attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getRwAskIndex() != null) {
-            sql.SET("rw_ask_index = #{record.rwAskIndex,jdbcType=INTEGER}");
+        if (record.getFileName() != null) {
+            sql.SET("file_name = #{record.fileName,jdbcType=VARCHAR}");
         }
         
-        if (record.getType() != null) {
-            sql.SET("type = #{record.type,jdbcType=TINYINT}");
+        if (record.getFileType() != null) {
+            sql.SET("file_type = #{record.fileType,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
+        if (record.getSaveName() != null) {
+            sql.SET("save_name = #{record.saveName,jdbcType=VARCHAR}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.SET("apply_delay_days = #{record.applyDelayDays,jdbcType=TINYINT}");
+        if (record.getSavePath() != null) {
+            sql.SET("save_path = #{record.savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.SET("file_desc = #{record.fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.SET("size = #{record.size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.SET("extension = #{record.extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -126,50 +163,75 @@ public class RwProActSqlProvider {
             sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.SET("update_by = #{record.updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{record.updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
+        sql.UPDATE("attach");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("rw_ask_id = #{record.rwAskId,jdbcType=INTEGER}");
-        sql.SET("rw_ask_index = #{record.rwAskIndex,jdbcType=INTEGER}");
-        sql.SET("type = #{record.type,jdbcType=TINYINT}");
-        sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
-        sql.SET("apply_delay_days = #{record.applyDelayDays,jdbcType=TINYINT}");
+        sql.SET("attach_group = #{record.attachGroup,jdbcType=VARCHAR}");
+        sql.SET("file_name = #{record.fileName,jdbcType=VARCHAR}");
+        sql.SET("file_type = #{record.fileType,jdbcType=TINYINT}");
+        sql.SET("save_name = #{record.saveName,jdbcType=VARCHAR}");
+        sql.SET("save_path = #{record.savePath,jdbcType=VARCHAR}");
+        sql.SET("file_desc = #{record.fileDesc,jdbcType=VARCHAR}");
+        sql.SET("size = #{record.size,jdbcType=INTEGER}");
+        sql.SET("extension = #{record.extension,jdbcType=VARCHAR}");
         sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("update_by = #{record.updateBy,jdbcType=INTEGER}");
+        sql.SET("update_time = #{record.updateTime,jdbcType=TIMESTAMP}");
         
-        RwProActExample example = (RwProActExample) parameter.get("example");
+        AttachExample example = (AttachExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(RwProAct record) {
+    public String updateByPrimaryKeySelective(Attach record) {
         SQL sql = new SQL();
-        sql.UPDATE("rw_pro_act");
+        sql.UPDATE("attach");
         
-        if (record.getRwAskId() != null) {
-            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        if (record.getAttachGroup() != null) {
+            sql.SET("attach_group = #{attachGroup,jdbcType=VARCHAR}");
         }
         
-        if (record.getRwAskIndex() != null) {
-            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
+        if (record.getFileName() != null) {
+            sql.SET("file_name = #{fileName,jdbcType=VARCHAR}");
         }
         
-        if (record.getType() != null) {
-            sql.SET("type = #{type,jdbcType=TINYINT}");
+        if (record.getFileType() != null) {
+            sql.SET("file_type = #{fileType,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        if (record.getSaveName() != null) {
+            sql.SET("save_name = #{saveName,jdbcType=VARCHAR}");
         }
         
-        if (record.getApplyDelayDays() != null) {
-            sql.SET("apply_delay_days = #{applyDelayDays,jdbcType=TINYINT}");
+        if (record.getSavePath() != null) {
+            sql.SET("save_path = #{savePath,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getFileDesc() != null) {
+            sql.SET("file_desc = #{fileDesc,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getSize() != null) {
+            sql.SET("size = #{size,jdbcType=INTEGER}");
+        }
+        
+        if (record.getExtension() != null) {
+            sql.SET("extension = #{extension,jdbcType=VARCHAR}");
         }
         
         if (record.getCreateBy() != null) {
@@ -180,12 +242,20 @@ public class RwProActSqlProvider {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
         
+        if (record.getUpdateBy() != null) {
+            sql.SET("update_by = #{updateBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getUpdateTime() != null) {
+            sql.SET("update_time = #{updateTime,jdbcType=TIMESTAMP}");
+        }
+        
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
         
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, RwProActExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, AttachExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

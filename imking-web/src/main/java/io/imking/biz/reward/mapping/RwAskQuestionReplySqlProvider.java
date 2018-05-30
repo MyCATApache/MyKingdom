@@ -152,6 +152,31 @@ public class RwAskQuestionReplySqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwAskQuestionReply record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_ask_question_reply");
+        
+        if (record.getRwAskQuestionId() != null) {
+            sql.SET("rw_ask_question_id = #{rwAskQuestionId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getReplyContent() != null) {
+            sql.SET("reply_content = #{replyContent,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getCreateBy() != null) {
+            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwAskQuestionReplyExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

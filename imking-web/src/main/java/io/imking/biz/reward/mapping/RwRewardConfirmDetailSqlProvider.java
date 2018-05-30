@@ -148,6 +148,43 @@ public class RwRewardConfirmDetailSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwRewardConfirmDetail record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_reward_confirm_detail");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
+        }
+        
+        if (record.getFromUserId() != null) {
+            sql.SET("from_user_id = #{fromUserId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getToUserId() != null) {
+            sql.SET("to_user_id = #{toUserId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getReason() != null) {
+            sql.SET("reason = #{reason,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwRewardConfirmDetailExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
