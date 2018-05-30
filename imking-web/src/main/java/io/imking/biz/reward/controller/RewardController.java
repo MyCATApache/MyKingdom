@@ -16,7 +16,7 @@ import com.github.pagehelper.PageInfo;
 import io.imking.biz.reward.domain.RwAsk;
 import io.imking.biz.reward.dto.RwDetailDto;
 import io.imking.biz.reward.services.RewardService;
-import io.imking.biz.reward.status.RwStatus;
+import io.imking.biz.reward.status.RewardStatusEnum;
 import io.imking.core.services.RwAskService;
 import io.imking.utils.Constant;
 import io.imking.utils.Result;
@@ -56,8 +56,7 @@ public class RewardController {
     }
 
     /**
-     * 
-     * @param rwAsk
+     *
      * @return
      */
     @PostMapping("/getRwAskList")
@@ -94,7 +93,7 @@ public class RewardController {
     	int create_by = 1;
     	RwAsk rwAsk = new RwAsk();
     	rwAsk.setTitle(title);
-    	rwAsk.setStatus(RwStatus.CREATING.getStatus());
+    	rwAsk.setStatus(RewardStatusEnum.OPEN.getCode());
     	rwAsk.setCreateBy(create_by);
     	rwAsk.setCreateTime(new Date());
     	return rewardService.createRw(rwAsk);

@@ -26,7 +26,7 @@ import io.imking.biz.reward.mapping.RwAskMapper;
 import io.imking.biz.reward.mapping.RwAskQuestionMapper;
 import io.imking.biz.reward.mapping.RwAskQuestionReplyMapper;
 import io.imking.biz.reward.mapping.RwCommentMapper;
-import io.imking.biz.reward.status.RwStatus;
+import io.imking.biz.reward.status.RewardStatusEnum;
 import io.imking.core.domain.User;
 import io.imking.core.mapping.UserMapper;
 import io.imking.utils.Result;
@@ -93,7 +93,7 @@ public class RewardService {
 		RwAnswerExample rwAnswerExample = new RwAnswerExample();
 		RwCommentExample rwCommentExample = new RwCommentExample();
 		RwAskQuestionExample rwAskQuestionExample = new RwAskQuestionExample();
-		example.createCriteria().andStatusEqualTo(RwStatus.ENABLE.getStatus()).andTitleLike("%"+title+"%");
+		example.createCriteria().andStatusEqualTo(RewardStatusEnum.OPEN.getCode()).andTitleLike("%"+title+"%");
 		example.setOrderByClause("create_time desc");
 		List<RwAsk> rwAsks = rwAskMapper.selectByExample(example);
 		List<RwDetailDto> rwDetailDtos = rwAsks.stream().map((rwAsk)->{
