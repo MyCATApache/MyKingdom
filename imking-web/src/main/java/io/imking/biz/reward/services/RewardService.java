@@ -55,7 +55,7 @@ public class RewardService {
 	 * @author 天道
 	 */
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true, timeout = 2000)
-	public Result<Map<String, Object>> tableRwAsks() {
+	public Result<Map<String, Object>> getRwAskDetail() {
 		Result result = new Result();
 		try {
 			WeakHashMap responseResult = new WeakHashMap();

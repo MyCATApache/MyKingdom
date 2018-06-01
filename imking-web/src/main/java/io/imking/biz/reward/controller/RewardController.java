@@ -2,6 +2,8 @@ package io.imking.biz.reward.controller;
 
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,11 +73,11 @@ public class RewardController {
 	 * @return Result
 	 * @author 天道
 	 */
-	@RequestMapping("/tableRwAsks")
-	public Result<String> tableRwAsks() {
+	@RequestMapping("/getRwAskDetail")
+	public Result<Map<String,List>> getRwAskDetail() {
 		Result result = new Result();
 		try {
-			result = rewardService.tableRwAsks();
+			result = rewardService.getRwAskDetail();
 		} catch (Exception e) {
 			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
 			result.setDesc("查询失败");
