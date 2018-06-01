@@ -1,4 +1,4 @@
-package io.imking.common.services;
+package io.imking.reward.services;
 
 import java.util.List;
 
