@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.imking.biz.domain.Business;
 import io.imking.biz.domain.CustInfo;
-import io.imking.core.services.BusinessService;
+import io.imking.biz.services.BusinessService;
 import io.imking.utils.Constant;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
