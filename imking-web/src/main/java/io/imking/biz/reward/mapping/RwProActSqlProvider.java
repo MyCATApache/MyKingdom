@@ -148,6 +148,43 @@ public class RwProActSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwProAct record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_pro_act");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
+        }
+        
+        if (record.getType() != null) {
+            sql.SET("type = #{type,jdbcType=TINYINT}");
+        }
+        
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getApplyDelayDays() != null) {
+            sql.SET("apply_delay_days = #{applyDelayDays,jdbcType=TINYINT}");
+        }
+        
+        if (record.getCreateBy() != null) {
+            sql.SET("create_by = #{createBy,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwProActExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;

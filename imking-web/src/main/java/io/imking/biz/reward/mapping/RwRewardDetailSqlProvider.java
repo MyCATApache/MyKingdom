@@ -148,6 +148,43 @@ public class RwRewardDetailSqlProvider {
         return sql.toString();
     }
 
+    public String updateByPrimaryKeySelective(RwRewardDetail record) {
+        SQL sql = new SQL();
+        sql.UPDATE("rw_reward_detail");
+        
+        if (record.getRwAskId() != null) {
+            sql.SET("rw_ask_id = #{rwAskId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRwAskIndex() != null) {
+            sql.SET("rw_ask_index = #{rwAskIndex,jdbcType=INTEGER}");
+        }
+        
+        if (record.getRewardUserId() != null) {
+            sql.SET("reward_user_id = #{rewardUserId,jdbcType=INTEGER}");
+        }
+        
+        if (record.getAmount() != null) {
+            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getIsAll() != null) {
+            sql.SET("is_all = #{isAll,jdbcType=BIT}");
+        }
+        
+        if (record.getComment() != null) {
+            sql.SET("comment = #{comment,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        
+        return sql.toString();
+    }
+
     protected void applyWhere(SQL sql, RwRewardDetailExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
