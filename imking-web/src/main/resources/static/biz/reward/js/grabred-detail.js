@@ -11,7 +11,7 @@ function init(){
 	var thef=this;
 	$.ajax({
 	       type: "GET",
-	       url: "/api/reward/tableRwAsks",
+	       url: "/api/reward/getRwAskDetail",
 	       dataType: "json",
 	       success: function(data){
 	           if(data.status == 200){
