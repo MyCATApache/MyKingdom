@@ -1,4 +1,4 @@
-package io.imking.reward.domain;
+package io.imking.common.domain;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -10,18 +10,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OpMsg {
+public class ImkUserPointDetail {
     private Integer id;
 
-    private Byte type;
+    private Integer userId;
 
-    private Integer fromUserId;
+    private Integer amount;
 
-    private Integer toUserId;
-
-    private String content;
-
-    private Boolean isRead;
+    private Integer balance;
 
     private Date createTime;
+
+    private String remark;
 }

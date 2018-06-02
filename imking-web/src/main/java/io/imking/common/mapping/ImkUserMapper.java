@@ -1,4 +1,4 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 
 import java.util.List;
@@ -16,8 +16,9 @@ import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
-import io.imking.reward.domain.ImkUser;
-import io.imking.reward.domain.ImkUserExample;
+import io.imking.common.beans.dto.ImkUserDTO;
+import io.imking.common.domain.ImkUser;
+import io.imking.common.domain.ImkUserExample;
 
 @Mapper
 public interface ImkUserMapper {
@@ -102,7 +103,7 @@ public interface ImkUserMapper {
         @Result(column="balance", property="balance", jdbcType=JdbcType.DECIMAL),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP)
     })
-    ImkUser selectByPrimaryKey(Integer id);
+    ImkUserDTO selectByPrimaryKey(Integer id);
 
     @UpdateProvider(type=ImkUserSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") ImkUser record, @Param("example") ImkUserExample example);

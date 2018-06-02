@@ -1,104 +1,79 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-import io.imking.reward.domain.ImkUserAccountDetail;
-import io.imking.reward.domain.ImkUserAccountDetailExample;
-import io.imking.reward.domain.ImkUserAccountDetailExample.Criteria;
-import io.imking.reward.domain.ImkUserAccountDetailExample.Criterion;
+import io.imking.common.domain.OpMsg;
+import io.imking.common.domain.OpMsgExample;
+import io.imking.common.domain.OpMsgExample.Criteria;
+import io.imking.common.domain.OpMsgExample.Criterion;
 
-public class ImkUserAccountDetailSqlProvider {
+public class OpMsgSqlProvider {
 
-    public String countByExample(ImkUserAccountDetailExample example) {
+    public String countByExample(OpMsgExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("imk_user_account_detail");
+        sql.SELECT("count(*)").FROM("op_msg");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(ImkUserAccountDetailExample example) {
+    public String deleteByExample(OpMsgExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("imk_user_account_detail");
+        sql.DELETE_FROM("op_msg");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(ImkUserAccountDetail record) {
+    public String insertSelective(OpMsg record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("imk_user_account_detail");
+        sql.INSERT_INTO("op_msg");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserId() != null) {
-            sql.VALUES("user_id", "#{userId,jdbcType=INTEGER}");
+        if (record.getType() != null) {
+            sql.VALUES("type", "#{type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.VALUES("amount", "#{amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.VALUES("from_user_id", "#{fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getBalance() != null) {
-            sql.VALUES("balance", "#{balance,jdbcType=DECIMAL}");
+        if (record.getToUserId() != null) {
+            sql.VALUES("to_user_id", "#{toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPayMethod() != null) {
-            sql.VALUES("pay_method", "#{payMethod,jdbcType=TINYINT}");
+        if (record.getContent() != null) {
+            sql.VALUES("content", "#{content,jdbcType=VARCHAR}");
         }
         
-        if (record.getPayJustify() != null) {
-            sql.VALUES("pay_justify", "#{payJustify,jdbcType=VARCHAR}");
+        if (record.getIsRead() != null) {
+            sql.VALUES("is_read", "#{isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getVerifyTime() != null) {
-            sql.VALUES("verify_time", "#{verifyTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getRemark() != null) {
-            sql.VALUES("remark", "#{remark,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getManagerId() != null) {
-            sql.VALUES("manager_id", "#{managerId,jdbcType=BIGINT}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.VALUES("status", "#{status,jdbcType=TINYINT}");
-        }
-        
-        if (record.getTaskId() != null) {
-            sql.VALUES("task_id", "#{taskId,jdbcType=BIGINT}");
-        }
-        
         return sql.toString();
     }
 
-    public String selectByExample(ImkUserAccountDetailExample example) {
+    public String selectByExample(OpMsgExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("user_id");
-        sql.SELECT("amount");
-        sql.SELECT("balance");
-        sql.SELECT("pay_method");
-        sql.SELECT("pay_justify");
+        sql.SELECT("type");
+        sql.SELECT("from_user_id");
+        sql.SELECT("to_user_id");
+        sql.SELECT("content");
+        sql.SELECT("is_read");
         sql.SELECT("create_time");
-        sql.SELECT("verify_time");
-        sql.SELECT("remark");
-        sql.SELECT("manager_id");
-        sql.SELECT("status");
-        sql.SELECT("task_id");
-        sql.FROM("imk_user_account_detail");
+        sql.FROM("op_msg");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -109,58 +84,38 @@ public class ImkUserAccountDetailSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        ImkUserAccountDetail record = (ImkUserAccountDetail) parameter.get("record");
-        ImkUserAccountDetailExample example = (ImkUserAccountDetailExample) parameter.get("example");
+        OpMsg record = (OpMsg) parameter.get("record");
+        OpMsgExample example = (OpMsgExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("imk_user_account_detail");
+        sql.UPDATE("op_msg");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserId() != null) {
-            sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
+        if (record.getType() != null) {
+            sql.SET("type = #{record.type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.SET("from_user_id = #{record.fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getBalance() != null) {
-            sql.SET("balance = #{record.balance,jdbcType=DECIMAL}");
+        if (record.getToUserId() != null) {
+            sql.SET("to_user_id = #{record.toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPayMethod() != null) {
-            sql.SET("pay_method = #{record.payMethod,jdbcType=TINYINT}");
+        if (record.getContent() != null) {
+            sql.SET("content = #{record.content,jdbcType=VARCHAR}");
         }
         
-        if (record.getPayJustify() != null) {
-            sql.SET("pay_justify = #{record.payJustify,jdbcType=VARCHAR}");
+        if (record.getIsRead() != null) {
+            sql.SET("is_read = #{record.isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getVerifyTime() != null) {
-            sql.SET("verify_time = #{record.verifyTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getRemark() != null) {
-            sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getManagerId() != null) {
-            sql.SET("manager_id = #{record.managerId,jdbcType=BIGINT}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.SET("status = #{record.status,jdbcType=TINYINT}");
-        }
-        
-        if (record.getTaskId() != null) {
-            sql.SET("task_id = #{record.taskId,jdbcType=BIGINT}");
         }
         
         applyWhere(sql, example, true);
@@ -169,72 +124,47 @@ public class ImkUserAccountDetailSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("imk_user_account_detail");
+        sql.UPDATE("op_msg");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
-        sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
-        sql.SET("balance = #{record.balance,jdbcType=DECIMAL}");
-        sql.SET("pay_method = #{record.payMethod,jdbcType=TINYINT}");
-        sql.SET("pay_justify = #{record.payJustify,jdbcType=VARCHAR}");
+        sql.SET("type = #{record.type,jdbcType=TINYINT}");
+        sql.SET("from_user_id = #{record.fromUserId,jdbcType=INTEGER}");
+        sql.SET("to_user_id = #{record.toUserId,jdbcType=INTEGER}");
+        sql.SET("content = #{record.content,jdbcType=VARCHAR}");
+        sql.SET("is_read = #{record.isRead,jdbcType=BIT}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
-        sql.SET("verify_time = #{record.verifyTime,jdbcType=TIMESTAMP}");
-        sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
-        sql.SET("manager_id = #{record.managerId,jdbcType=BIGINT}");
-        sql.SET("status = #{record.status,jdbcType=TINYINT}");
-        sql.SET("task_id = #{record.taskId,jdbcType=BIGINT}");
         
-        ImkUserAccountDetailExample example = (ImkUserAccountDetailExample) parameter.get("example");
+        OpMsgExample example = (OpMsgExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(ImkUserAccountDetail record) {
+    public String updateByPrimaryKeySelective(OpMsg record) {
         SQL sql = new SQL();
-        sql.UPDATE("imk_user_account_detail");
+        sql.UPDATE("op_msg");
         
-        if (record.getUserId() != null) {
-            sql.SET("user_id = #{userId,jdbcType=INTEGER}");
+        if (record.getType() != null) {
+            sql.SET("type = #{type,jdbcType=TINYINT}");
         }
         
-        if (record.getAmount() != null) {
-            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+        if (record.getFromUserId() != null) {
+            sql.SET("from_user_id = #{fromUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getBalance() != null) {
-            sql.SET("balance = #{balance,jdbcType=DECIMAL}");
+        if (record.getToUserId() != null) {
+            sql.SET("to_user_id = #{toUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPayMethod() != null) {
-            sql.SET("pay_method = #{payMethod,jdbcType=TINYINT}");
+        if (record.getContent() != null) {
+            sql.SET("content = #{content,jdbcType=VARCHAR}");
         }
         
-        if (record.getPayJustify() != null) {
-            sql.SET("pay_justify = #{payJustify,jdbcType=VARCHAR}");
+        if (record.getIsRead() != null) {
+            sql.SET("is_read = #{isRead,jdbcType=BIT}");
         }
         
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getVerifyTime() != null) {
-            sql.SET("verify_time = #{verifyTime,jdbcType=TIMESTAMP}");
-        }
-        
-        if (record.getRemark() != null) {
-            sql.SET("remark = #{remark,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getManagerId() != null) {
-            sql.SET("manager_id = #{managerId,jdbcType=BIGINT}");
-        }
-        
-        if (record.getStatus() != null) {
-            sql.SET("status = #{status,jdbcType=TINYINT}");
-        }
-        
-        if (record.getTaskId() != null) {
-            sql.SET("task_id = #{taskId,jdbcType=BIGINT}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
@@ -242,7 +172,7 @@ public class ImkUserAccountDetailSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, ImkUserAccountDetailExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, OpMsgExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

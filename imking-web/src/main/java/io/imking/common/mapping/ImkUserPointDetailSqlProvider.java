@@ -1,14 +1,14 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-import io.imking.reward.domain.ImkUserPointDetail;
-import io.imking.reward.domain.ImkUserPointDetailExample;
-import io.imking.reward.domain.ImkUserPointDetailExample.Criteria;
-import io.imking.reward.domain.ImkUserPointDetailExample.Criterion;
+import io.imking.common.domain.ImkUserPointDetail;
+import io.imking.common.domain.ImkUserPointDetailExample;
+import io.imking.common.domain.ImkUserPointDetailExample.Criteria;
+import io.imking.common.domain.ImkUserPointDetailExample.Criterion;
 
 public class ImkUserPointDetailSqlProvider {
 

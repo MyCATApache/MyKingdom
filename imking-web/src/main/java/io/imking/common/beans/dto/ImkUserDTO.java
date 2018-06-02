@@ -1,4 +1,4 @@
-package io.imking.reward.domain;
+package io.imking.common.beans.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,12 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImkUser {
+public class ImkUserDTO {
     private Integer id;
 
     private String account;
-
-    private String pwd;
 
     private String realname;
 
