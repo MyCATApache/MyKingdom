@@ -1,14 +1,14 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-import io.imking.reward.domain.CrowdFundingInfo;
-import io.imking.reward.domain.CrowdFundingInfoExample;
-import io.imking.reward.domain.CrowdFundingInfoExample.Criteria;
-import io.imking.reward.domain.CrowdFundingInfoExample.Criterion;
+import io.imking.common.domain.CrowdFundingInfo;
+import io.imking.common.domain.CrowdFundingInfoExample;
+import io.imking.common.domain.CrowdFundingInfoExample.Criteria;
+import io.imking.common.domain.CrowdFundingInfoExample.Criterion;
 
 public class CrowdFundingInfoSqlProvider {
 

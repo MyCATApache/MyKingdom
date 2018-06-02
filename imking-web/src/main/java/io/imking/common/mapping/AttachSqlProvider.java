@@ -1,13 +1,13 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-import io.imking.reward.domain.Attach;
-import io.imking.reward.domain.AttachExample;
-import io.imking.reward.domain.AttachExample.Criteria;
-import io.imking.reward.domain.AttachExample.Criterion;
+import io.imking.common.domain.Attach;
+import io.imking.common.domain.AttachExample;
+import io.imking.common.domain.AttachExample.Criteria;
+import io.imking.common.domain.AttachExample.Criterion;
 
 public class AttachSqlProvider {
 

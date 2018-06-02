@@ -1,18 +1,17 @@
-package io.imking.reward.domain;
+package io.imking.common.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CrowdFundingInfoExample {
+public class ImkUserPointDetailExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CrowdFundingInfoExample() {
+    public ImkUserPointDetailExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -166,63 +165,63 @@ public class CrowdFundingInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdIsNull() {
-            addCriterion("rw_ask_id is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdIsNotNull() {
-            addCriterion("rw_ask_id is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdEqualTo(Integer value) {
-            addCriterion("rw_ask_id =", value, "rwAskId");
+        public Criteria andUserIdEqualTo(Integer value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdNotEqualTo(Integer value) {
-            addCriterion("rw_ask_id <>", value, "rwAskId");
+        public Criteria andUserIdNotEqualTo(Integer value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdGreaterThan(Integer value) {
-            addCriterion("rw_ask_id >", value, "rwAskId");
+        public Criteria andUserIdGreaterThan(Integer value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("rw_ask_id >=", value, "rwAskId");
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdLessThan(Integer value) {
-            addCriterion("rw_ask_id <", value, "rwAskId");
+        public Criteria andUserIdLessThan(Integer value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdLessThanOrEqualTo(Integer value) {
-            addCriterion("rw_ask_id <=", value, "rwAskId");
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdIn(List<Integer> values) {
-            addCriterion("rw_ask_id in", values, "rwAskId");
+        public Criteria andUserIdIn(List<Integer> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdNotIn(List<Integer> values) {
-            addCriterion("rw_ask_id not in", values, "rwAskId");
+        public Criteria andUserIdNotIn(List<Integer> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdBetween(Integer value1, Integer value2) {
-            addCriterion("rw_ask_id between", value1, value2, "rwAskId");
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andRwAskIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("rw_ask_id not between", value1, value2, "rwAskId");
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
@@ -236,113 +235,113 @@ public class CrowdFundingInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAmountEqualTo(BigDecimal value) {
+        public Criteria andAmountEqualTo(Integer value) {
             addCriterion("amount =", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotEqualTo(BigDecimal value) {
+        public Criteria andAmountNotEqualTo(Integer value) {
             addCriterion("amount <>", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountGreaterThan(BigDecimal value) {
+        public Criteria andAmountGreaterThan(Integer value) {
             addCriterion("amount >", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andAmountGreaterThanOrEqualTo(Integer value) {
             addCriterion("amount >=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountLessThan(BigDecimal value) {
+        public Criteria andAmountLessThan(Integer value) {
             addCriterion("amount <", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andAmountLessThanOrEqualTo(Integer value) {
             addCriterion("amount <=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountIn(List<BigDecimal> values) {
+        public Criteria andAmountIn(List<Integer> values) {
             addCriterion("amount in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotIn(List<BigDecimal> values) {
+        public Criteria andAmountNotIn(List<Integer> values) {
             addCriterion("amount not in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andAmountBetween(Integer value1, Integer value2) {
             addCriterion("amount between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andAmountNotBetween(Integer value1, Integer value2) {
             addCriterion("amount not between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByIsNull() {
-            addCriterion("create_by is null");
+        public Criteria andBalanceIsNull() {
+            addCriterion("balance is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByIsNotNull() {
-            addCriterion("create_by is not null");
+        public Criteria andBalanceIsNotNull() {
+            addCriterion("balance is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByEqualTo(Integer value) {
-            addCriterion("create_by =", value, "createBy");
+        public Criteria andBalanceEqualTo(Integer value) {
+            addCriterion("balance =", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByNotEqualTo(Integer value) {
-            addCriterion("create_by <>", value, "createBy");
+        public Criteria andBalanceNotEqualTo(Integer value) {
+            addCriterion("balance <>", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByGreaterThan(Integer value) {
-            addCriterion("create_by >", value, "createBy");
+        public Criteria andBalanceGreaterThan(Integer value) {
+            addCriterion("balance >", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByGreaterThanOrEqualTo(Integer value) {
-            addCriterion("create_by >=", value, "createBy");
+        public Criteria andBalanceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("balance >=", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByLessThan(Integer value) {
-            addCriterion("create_by <", value, "createBy");
+        public Criteria andBalanceLessThan(Integer value) {
+            addCriterion("balance <", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByLessThanOrEqualTo(Integer value) {
-            addCriterion("create_by <=", value, "createBy");
+        public Criteria andBalanceLessThanOrEqualTo(Integer value) {
+            addCriterion("balance <=", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByIn(List<Integer> values) {
-            addCriterion("create_by in", values, "createBy");
+        public Criteria andBalanceIn(List<Integer> values) {
+            addCriterion("balance in", values, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByNotIn(List<Integer> values) {
-            addCriterion("create_by not in", values, "createBy");
+        public Criteria andBalanceNotIn(List<Integer> values) {
+            addCriterion("balance not in", values, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByBetween(Integer value1, Integer value2) {
-            addCriterion("create_by between", value1, value2, "createBy");
+        public Criteria andBalanceBetween(Integer value1, Integer value2) {
+            addCriterion("balance between", value1, value2, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCreateByNotBetween(Integer value1, Integer value2) {
-            addCriterion("create_by not between", value1, value2, "createBy");
+        public Criteria andBalanceNotBetween(Integer value1, Integer value2) {
+            addCriterion("balance not between", value1, value2, "balance");
             return (Criteria) this;
         }
 
@@ -403,6 +402,76 @@ public class CrowdFundingInfoExample {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
             return (Criteria) this;
         }
     }
