@@ -17,6 +17,8 @@ import com.github.pagehelper.PageInfo;
 import io.imking.reward.beans.dto.RwDetailDto;
 import io.imking.reward.beans.enums.RewardStatusEnum;
 import io.imking.reward.domain.RwAsk;
+import io.imking.reward.domain.RwAskQuestion;
+import io.imking.reward.domain.RwComment;
 import io.imking.reward.services.RewardService;
 import io.imking.reward.services.RwAskService;
 import io.imking.utils.Constant;
@@ -112,7 +114,66 @@ public class RewardController {
     	return new Result<PageInfo<RwDetailDto>>(ResultEnum.SUCCESS, rs);
     }
 
-    
+    /**
+	 * 回答问题(抢红包)
+	 * @return Result<String>
+	 * @param rwAsk 红包任务
+	 * @param rwAnswerContent 红包任务回答内容
+	 * @author 天道
+	 */
+	@RequestMapping("/submitAnswer")
+	public Result<String> submitAnswer(RwAsk rwAsk, String rwAnswerContent) {
+		Result<String> result = new Result<String>();
+		try {
+			result = rewardService.submitAnswer(rwAsk, rwAnswerContent);
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("抢红包失败请刷新重试");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/**
+	 * 提交红包提问
+	 * @return Result<String>
+	 * @param rwAsk 红包任务
+	 * @param rwAskQuestion 红包提问
+	 * @author 天道
+	 */
+	@RequestMapping("/submitQuestion")
+	public Result<String> submitQuestion(RwAsk rwAsk, RwAskQuestion rwAskQuestion) {
+		Result<String> result = new Result<String>();
+		try {
+			result = rewardService.submitQuestion(rwAsk, rwAskQuestion);
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("提交红包提问失败");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/**
+	 * 提交红包评论
+	 * @return Result<String>
+	 * @param rwAsk 红包任务
+	 * @param rwComment 红包评论
+	 * @param commentType  评论类型(ANSWER(回答),QUESTION(提问),GENERAL(普通))
+	 * @author 天道
+	 */
+	@RequestMapping("/submitComment")
+	public Result<String> submitComment(RwAsk rwAsk, RwComment rwComment,String commentType) {
+		Result<String> result = new Result<String>();
+		try {
+			result = rewardService.submitComment(rwAsk, rwComment,commentType);
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("提交红包评论失败");
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
 
 
