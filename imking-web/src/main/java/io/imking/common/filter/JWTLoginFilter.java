@@ -1,16 +1,15 @@
 package io.imking.common.filter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,8 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.imking.common.domain.User;
+import io.imking.common.domain.ImkUser;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
 import io.jsonwebtoken.Jwts;
@@ -38,10 +36,10 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 			if(StringUtils.isBlank(authorization) ){
 				return super.attemptAuthentication(request, response)  ;  
 			}
-			User user = new ObjectMapper().readValue(authorization , User.class);
+			ImkUser user = new ObjectMapper().readValue(authorization , ImkUser.class);
 			
 			return getAuthenticationManager().authenticate(
-					new UsernamePasswordAuthenticationToken(user.getAccount(), "", Arrays.asList( new SimpleGrantedAuthority("admin") ) ));
+					new UsernamePasswordAuthenticationToken(user.getAccount(), user.getPwd(),  new ArrayList<>() ));
 		} catch (IOException e) {
 			throw new RuntimeException( e ); 
 		}

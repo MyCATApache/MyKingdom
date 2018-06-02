@@ -1,4 +1,4 @@
-package io.imking.reward.domain;
+package io.imking.common.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

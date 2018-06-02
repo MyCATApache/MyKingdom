@@ -1,4 +1,4 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
@@ -15,8 +15,8 @@ import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
-import io.imking.reward.domain.OpMsg;
-import io.imking.reward.domain.OpMsgExample;
+import io.imking.common.domain.OpMsg;
+import io.imking.common.domain.OpMsgExample;
 
 @Mapper
 public interface OpMsgMapper {

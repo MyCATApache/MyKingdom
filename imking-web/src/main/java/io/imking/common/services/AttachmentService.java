@@ -20,8 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import io.imking.common.domain.Attachment;
-import io.imking.common.mapping.AttachmentMapper;
+import io.imking.common.domain.Attach;
+import io.imking.common.mapping.AttachMapper;
 import io.imking.utils.SnowflakeWorker.SnowflakeWorkerHloder;
 
 @Service
@@ -44,9 +44,9 @@ public class AttachmentService {
 	}
 
 	@Autowired
-	protected AttachmentMapper attachmentMapper;
+	protected AttachMapper attachmentMapper;
 
-	public Attachment insertUploadFile(MultipartFile file) {
+	public Attach insertUploadFile(MultipartFile file) {
 		if (null == file) {
 			return null;
 		}
@@ -71,41 +71,41 @@ public class AttachmentService {
 			IOUtils.closeQuietly(in);
 			IOUtils.closeQuietly(out);
 		}
-		Attachment attachment = new Attachment();
+		Attach attachment = new Attach();
 		attachment.setCreateTime(new Date());
 		attachment.setFileName( originalFilename )  ;
 		String contentType = FILE_EXT_CONTENT_TYPE.get(extension.toLowerCase()) ; 
-		
+/*		
 		attachment.setFileType(StringUtils.isEmpty(contentType) ? "image/png" : contentType); 
 		attachment.setPath( dateDir + "/" + fileName ); 
 		attachment.setSize( file.getSize() );
-		attachment.setId( SnowflakeWorkerHloder.nextId());
+		attachment.setId( SnowflakeWorkerHloder.nextId());*/
 		insert( attachment ) ;
 		
 		return attachment ;
 	}
 
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(Integer id) {
 		return attachmentMapper.deleteByPrimaryKey(id);
 	}
 
-	public int insert(Attachment record) {
+	public int insert(Attach record) {
 		return attachmentMapper.insert(record);
 	}
 
-	public int insertSelective(Attachment record) {
+	public int insertSelective(Attach record) {
 		return attachmentMapper.insertSelective(record);
 	}
 
-	public Attachment selectByPrimaryKey(Long id) {
+	public Attach selectByPrimaryKey(Integer id) {
 		return attachmentMapper.selectByPrimaryKey(id);
 	}
 
-	public int updateByPrimaryKeySelective(Attachment record) {
+	public int updateByPrimaryKeySelective(Attach record) {
 		return attachmentMapper.updateByPrimaryKeySelective(record);
 	}
 
-	public int updateByPrimaryKey(Attachment record) {
+	public int updateByPrimaryKey(Attach record) {
 		return attachmentMapper.updateByPrimaryKey(record);
 	}
 }

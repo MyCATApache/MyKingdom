@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import io.imking.common.domain.User;
-import io.imking.common.mapping.UserMapper;
+import io.imking.common.domain.ImkUser;
+import io.imking.common.mapping.ImkUserMapper;
 import io.imking.reward.beans.dto.RwDetailDto;
 import io.imking.reward.beans.enums.RewardStatusEnum;
 import io.imking.reward.domain.RwAnswerExample;
@@ -45,7 +45,7 @@ public class RewardService {
 	@Autowired
 	protected RwCommentMapper rwCommentMapper;
 	@Autowired
-	protected UserMapper userMapper;
+	protected ImkUserMapper userMapper;
 	@Autowired
 	protected RwAnswerMapper rwAnswerMapper;
 	/**
@@ -102,8 +102,8 @@ public class RewardService {
 			dto.setId(rwAsk.getId());
 			dto.setTitle(rwAsk.getTitle());
 			dto.setType(rwAsk.getType());
-			User user = userMapper.selectNameByPrimaryKey(rwAsk.getCreateBy().longValue());
-			dto.setNickname(user.getNickname());
+			/*ImkUser user = userMapper.selectNameByPrimaryKey(rwAsk.getCreateBy().longValue());
+			dto.setNickname(user.getNickname());*/
 			//rwAsk.get
 			rwAnswerExample
 				.createCriteria()

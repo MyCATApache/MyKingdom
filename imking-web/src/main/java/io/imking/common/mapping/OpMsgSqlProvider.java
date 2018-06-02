@@ -1,13 +1,13 @@
-package io.imking.reward.mapping;
+package io.imking.common.mapping;
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-import io.imking.reward.domain.OpMsg;
-import io.imking.reward.domain.OpMsgExample;
-import io.imking.reward.domain.OpMsgExample.Criteria;
-import io.imking.reward.domain.OpMsgExample.Criterion;
+import io.imking.common.domain.OpMsg;
+import io.imking.common.domain.OpMsgExample;
+import io.imking.common.domain.OpMsgExample.Criteria;
+import io.imking.common.domain.OpMsgExample.Criterion;
 
 public class OpMsgSqlProvider {
 
