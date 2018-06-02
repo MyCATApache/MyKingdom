@@ -19,7 +19,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.imking.common.domain.User;
+import io.imking.common.domain.ImkUser;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
 import io.jsonwebtoken.Jwts;
@@ -38,7 +38,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 			if(StringUtils.isBlank(authorization) ){
 				return super.attemptAuthentication(request, response)  ;  
 			}
-			User user = new ObjectMapper().readValue(authorization , User.class);
+			ImkUser user = new ObjectMapper().readValue(authorization , ImkUser.class);
 			
 			return getAuthenticationManager().authenticate(
 					new UsernamePasswordAuthenticationToken(user.getAccount(), "", Arrays.asList( new SimpleGrantedAuthority("admin") ) ));
