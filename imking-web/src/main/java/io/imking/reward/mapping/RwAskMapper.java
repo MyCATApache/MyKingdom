@@ -141,6 +141,29 @@ public interface RwAskMapper {
     })
 
     int updateByPrimaryKey(RwAsk record);
+    
+	/**
+	 * 开放红包抢红包更新
+	 * 
+	 * @param record
+	 * @param status
+	 * @return int
+	 */
+	@Update({ "update rw_ask", "set rw_ask_index = #{record.rwAskIndex,jdbcType=TINYINT},",
+			"current_answer_user_id = #{record.currentAnswerUserId,jdbcType=INTEGER},",
+			"type = #{record.type,jdbcType=TINYINT},", "title = #{record.title,jdbcType=VARCHAR},",
+			"content = #{record.content,jdbcType=VARCHAR},", "attach_group = #{record.attachGroup,jdbcType=VARCHAR},",
+			"is_top = #{record.isTop,jdbcType=BIT},", "top_amount = #{record.topAmount,jdbcType=DECIMAL},",
+			"top_expiration_date = #{record.topExpirationDate,jdbcType=TIMESTAMP},",
+			"task_amount = #{record.taskAmount,jdbcType=DECIMAL},",
+			"crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL},",
+			"status = #{record.status,jdbcType=TINYINT},",
+			"status_change_time = #{record.statusChangeTime,jdbcType=TIMESTAMP},",
+			"create_by = #{record.createBy,jdbcType=INTEGER},",
+			"create_time = #{record.createTime,jdbcType=TIMESTAMP},",
+			"update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
+			"where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
+	int updateByPrimaryKey(@Param("record") RwAsk record, @Param("status") int status);
 
     int updateRwAsk(RwAsk record);
     
