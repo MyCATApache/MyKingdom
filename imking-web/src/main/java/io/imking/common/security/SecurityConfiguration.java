@@ -42,8 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		JdbcUserDetailsManager userMan = new JdbcUserDetailsManager();
 		userMan.setDataSource( dataSource ) ;
 		userMan.setRolePrefix("ROLE_");
-		userMan.setUsersByUsernameQuery( "SELECT account as username,pwd as password,1 enabled FROM t_user where account = ?" ); 
-		userMan.setAuthoritiesByUsernameQuery("SELECT account AS username, t_role.role_code AS authority FROM t_user JOIN t_user_role ON t_user_role.user_id = t_user.id JOIN t_role ON t_role.id = t_user_role.role_id WHERE t_user.account = ?");
+		userMan.setUsersByUsernameQuery( "SELECT account as username,pwd as password,1 enabled FROM imk_user where account = ?" ); 
+		userMan.setAuthoritiesByUsernameQuery("SELECT account AS username, t_role.role_code AS authority FROM imk_user JOIN imk_user_role ON imk_user_role.user_id = imk_user.id JOIN imk_role ON t_role.id = imk_user_role.role_id WHERE imk_user.account = ?");
 		return userMan;
 	}
 	@Override
