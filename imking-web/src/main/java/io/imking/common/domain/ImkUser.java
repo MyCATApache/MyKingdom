@@ -1,4 +1,4 @@
-package io.imking.reward.domain;
+package io.imking.common.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -2,9 +2,8 @@ package io.imking.common.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import io.imking.common.domain.User;
-import io.imking.common.mapping.UserMapper;
+import io.imking.common.domain.ImkUser;
+import io.imking.common.mapping.ImkUserMapper;
 import io.imking.utils.Result;
 
 /**
@@ -15,11 +14,11 @@ import io.imking.utils.Result;
 public class UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private ImkUserMapper userMapper;
 
-    public Result<User> getUserInfo(Long id) {
-    	Result<User> result = new Result<User>();
-    	User user = userMapper.selectByPrimaryKey(id);
+    public Result<ImkUser> getUserInfo(Integer id) {
+    	Result<ImkUser> result = new Result<ImkUser>();
+    	ImkUser user = userMapper.selectByPrimaryKey(id);
         if(user != null){
             result.setData(user);
         }

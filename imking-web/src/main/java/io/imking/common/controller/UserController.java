@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import io.imking.common.domain.User;
+import io.imking.common.domain.ImkUser;
 import io.imking.common.services.UserService;
 import io.imking.utils.Result;
 
@@ -18,8 +17,8 @@ public class UserController {
 	 
 	 
 	 @PostMapping("getUserInfo")
-     public Result<User> getUserInfo(Long id){
-		 Result<User> result =  userService.getUserInfo(id);
+     public Result<ImkUser> getUserInfo(Integer id){
+		 Result<ImkUser> result =  userService.getUserInfo(id);
          return result;
 	 }
 
