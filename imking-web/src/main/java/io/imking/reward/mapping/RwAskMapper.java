@@ -2,14 +2,15 @@ package io.imking.reward.mapping;
 
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -54,9 +55,11 @@ public interface RwAskMapper {
         "#{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
+    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insert(RwAsk record);
     
     @InsertProvider(type=RwAskSqlProvider.class, method="insertSelective")
+    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insertSelective(RwAsk record);
 
     @SelectProvider(type=RwAskSqlProvider.class, method="selectByExample")
@@ -141,13 +144,28 @@ public interface RwAskMapper {
     })
 
     int updateByPrimaryKey(RwAsk record);
-
-    int updateRwAsk(RwAsk record);
     
-    @Select({
-    	"SELECT LAST_INSERT_ID()"
-    })
-    @ResultType(Integer.class)
-    int selectLastInsert();
-
+	/**
+	 * 开放红包抢红包更新
+	 * 
+	 * @param record
+	 * @param status
+	 * @return int
+	 */
+	@Update({ "update rw_ask", "set rw_ask_index = #{record.rwAskIndex,jdbcType=TINYINT},",
+			"current_answer_user_id = #{record.currentAnswerUserId,jdbcType=INTEGER},",
+			"type = #{record.type,jdbcType=TINYINT},", "title = #{record.title,jdbcType=VARCHAR},",
+			"content = #{record.content,jdbcType=VARCHAR},", "attach_group = #{record.attachGroup,jdbcType=VARCHAR},",
+			"is_top = #{record.isTop,jdbcType=BIT},", "top_amount = #{record.topAmount,jdbcType=DECIMAL},",
+			"top_expiration_date = #{record.topExpirationDate,jdbcType=TIMESTAMP},",
+			"task_amount = #{record.taskAmount,jdbcType=DECIMAL},",
+			"crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL},",
+			"status = #{record.status,jdbcType=TINYINT},",
+			"status_change_time = #{record.statusChangeTime,jdbcType=TIMESTAMP},",
+			"create_by = #{record.createBy,jdbcType=INTEGER},",
+			"create_time = #{record.createTime,jdbcType=TIMESTAMP},",
+			"update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
+			"where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
+	int updateRwAsk(@Param("record") RwAsk record, @Param("status") int status);
+	
 }
