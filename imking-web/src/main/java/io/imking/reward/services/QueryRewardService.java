@@ -26,7 +26,7 @@ public class QueryRewardService {
 	protected RwAskMapper rwAskMapper;
 	
 	/**
-	 * 获取用户红包申请列表
+	 * 查询我参与的红包列表
 	 * @param userId
 	 * @param pageNum
 	 * @param pageSize

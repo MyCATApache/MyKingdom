@@ -21,13 +21,13 @@ public class QueryRewardController {
 	private QueryRewardService queryRewardService;
 
 	/**
-	 * 查询我提交的申请
+	 * 查询我参与的红包列表
 	 * @param userId
 	 * @param pageNum
 	 * @param pageSize
 	 * @return
 	 */
-	@PostMapping("/getMyPublishs")
+	@PostMapping("/getMyParticipates")
 	public Result<PageInfo<RwApplyDetailDTO>> getMyParticipates(
 			@RequestParam Integer userId, @RequestParam Integer pageNum,
 			@RequestParam Integer pageSize) {
