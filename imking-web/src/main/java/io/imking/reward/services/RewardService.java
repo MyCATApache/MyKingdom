@@ -85,7 +85,7 @@ public class RewardService {
 			return new Result<>(ResultEnum.SERVER_ERROR, "创建红包异常");
 		}
 		// 返回ID
-		int rwId = rwAskMapper.selectLastInsert();
+		int rwId = rwAsk.getId() ; 
 		return new Result<>(ResultEnum.SUCCESS, rwId);
 	}
 	
