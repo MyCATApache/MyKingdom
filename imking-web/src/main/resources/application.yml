@@ -37,11 +37,15 @@ pagehelper:
    helperDialect: mysql
    reasonable: true
    supportMethodsArguments: true
-   params: count=countSql
+   params: count=countByExample
 
-#logging:
-#  config: classpath:log4j2.xml
-
+logging:
+  #config: classpath:log4j2.xml
+#输出sql到日志
+  level:
+    io.imking.biz.mapping:debug
+    io.imking.common.mapping:debug
+    io.imking.reward.mapping:debug
 mybatis:
   configuration:
     cache-enabled: false
