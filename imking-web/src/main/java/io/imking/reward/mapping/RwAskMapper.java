@@ -166,9 +166,6 @@ public interface RwAskMapper {
 			"create_time = #{record.createTime,jdbcType=TIMESTAMP},",
 			"update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
 			"where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
-	int updateByPrimaryKey(@Param("record") RwAsk record, @Param("status") int status);
-
-    int updateRwAsk(RwAsk record);
-    
-    
+	int updateRwAsk(@Param("record") RwAsk record, @Param("status") int status);
+	
 }

@@ -151,7 +151,7 @@ public class RewardService {
 						rwAsk.setUpdateTime(dateTime);
 						rwAsk.setStatusChangeTime(dateTime);
 						rwAsk.setStatus(RewardStatusEnum.ANSWER.getCode());
-						int status = rwAskMapper.updateByPrimaryKey(rwAsk, RewardStatusEnum.OPEN.getCode());
+						int status = rwAskMapper.updateRwAsk(rwAsk, RewardStatusEnum.OPEN.getCode());
 						if (status > 0) {
 							RwAnswer rwAnswer = new RwAnswer();
 							rwAnswer.setRwAskId(rwAsk.getId());
