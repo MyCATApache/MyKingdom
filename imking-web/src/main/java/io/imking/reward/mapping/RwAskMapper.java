@@ -2,14 +2,15 @@ package io.imking.reward.mapping;
 
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -54,9 +55,11 @@ public interface RwAskMapper {
         "#{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
+    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insert(RwAsk record);
     
     @InsertProvider(type=RwAskSqlProvider.class, method="insertSelective")
+    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insertSelective(RwAsk record);
 
     @SelectProvider(type=RwAskSqlProvider.class, method="selectByExample")
@@ -163,14 +166,6 @@ public interface RwAskMapper {
 			"create_time = #{record.createTime,jdbcType=TIMESTAMP},",
 			"update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
 			"where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
-	int updateByPrimaryKey(@Param("record") RwAsk record, @Param("status") int status);
-
-    int updateRwAsk(RwAsk record);
-    
-    @Select({
-    	"SELECT LAST_INSERT_ID()"
-    })
-    @ResultType(Integer.class)
-    int selectLastInsert();
-
+	int updateRwAsk(@Param("record") RwAsk record, @Param("status") int status);
+	
 }
