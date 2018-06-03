@@ -28,10 +28,10 @@ public class QueryRewardController {
 	 * @return
 	 */
 	@PostMapping("/getMyPublishs")
-	public Result<PageInfo<RwApplyDetailDTO>> getMyPublishs(
+	public Result<PageInfo<RwApplyDetailDTO>> getMyParticipates(
 			@RequestParam Integer userId, @RequestParam Integer pageNum,
 			@RequestParam Integer pageSize) {
-		PageInfo<RwApplyDetailDTO> rs = queryRewardService.getMyPublishs(userId, pageNum, pageSize);
+		PageInfo<RwApplyDetailDTO> rs = queryRewardService.getMyParticipates(userId, pageNum, pageSize);
 		return new Result<PageInfo<RwApplyDetailDTO>>(ResultEnum.SUCCESS, rs);
 	}
 

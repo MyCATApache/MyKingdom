@@ -31,7 +31,7 @@ public class QueryRewardService {
 	 * @param pageNum
 	 * @param pageSize
 	 */
-	public PageInfo<RwApplyDetailDTO> getMyPublishs(Integer userId,int pageNum,int pageSize) {
+	public PageInfo<RwApplyDetailDTO> getMyParticipates(Integer userId,int pageNum,int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
 		RwApplyDetailExample example = new RwApplyDetailExample();
