@@ -135,4 +135,15 @@ public interface ImkUserMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(ImkUser record);
+    
+    @Select({
+        "select",
+        "nickname",
+        "from imk_user",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
+    @Results({
+        @Result(column="nickname", property="nickname", jdbcType=JdbcType.VARCHAR)
+    })
+	ImkUser selectNameByPrimaryKey(Integer createBy);
 }
