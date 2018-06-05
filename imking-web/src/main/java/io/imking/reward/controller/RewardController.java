@@ -1,6 +1,16 @@
 package io.imking.reward.controller;
 
 
+import io.imking.reward.beans.dto.RwDetailDto;
+import io.imking.reward.beans.enums.RewardStatusEnum;
+import io.imking.reward.domain.RwAsk;
+import io.imking.reward.domain.RwAskQuestion;
+import io.imking.reward.domain.RwComment;
+import io.imking.reward.services.RewardService;
+import io.imking.reward.services.RwAskService;
+import io.imking.utils.Result;
+import io.imking.utils.ResultEnum;
+
 import java.util.Date;
 import java.util.Map;
 
@@ -13,17 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
-
-import io.imking.reward.beans.dto.RwDetailDto;
-import io.imking.reward.beans.enums.RewardStatusEnum;
-import io.imking.reward.domain.RwAsk;
-import io.imking.reward.domain.RwAskQuestion;
-import io.imking.reward.domain.RwComment;
-import io.imking.reward.services.RewardService;
-import io.imking.reward.services.RwAskService;
-import io.imking.utils.Constant;
-import io.imking.utils.Result;
-import io.imking.utils.ResultEnum;
 
 
 @RestController
@@ -57,17 +56,7 @@ public class RewardController {
     public Result<String> updateRwAsk(RwAsk rwAsk){
         return rwAskService.updateRwAsk(rwAsk);
     }
-
-    /**
-     *
-     * @return
-     */
-    @PostMapping("/getRwAskList")
-    public Result<Object> getRwAskList(@RequestParam int pageNum,@RequestParam int pageSize) throws Exception{
-    	Result<Object> ret = new Result<Object>();
-    	pageSize = (pageSize>Constant.MAX_PAGE_SIZE?Constant.MAX_PAGE_SIZE:pageSize);
-		return ret.ok(rwAskService.getRwAskList(pageNum, pageSize));
-    }
+    
 	/**
 	 * table切换红包任务列表
 	 * 
