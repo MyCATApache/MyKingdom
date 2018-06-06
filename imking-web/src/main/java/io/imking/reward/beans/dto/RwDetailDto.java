@@ -19,7 +19,7 @@ public class RwDetailDto {
 	
 	private int level;
 	
-	private BigDecimal taskAmount;
+	private Integer taskAmount;
 	
 	private String title;
 	

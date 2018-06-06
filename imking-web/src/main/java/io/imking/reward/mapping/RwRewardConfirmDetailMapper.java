@@ -1,18 +1,8 @@
 package io.imking.reward.mapping;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 import io.imking.reward.domain.RwRewardConfirmDetail;
@@ -39,7 +29,7 @@ public interface RwRewardConfirmDetailMapper {
         "reason, create_time)",
         "values (#{id,jdbcType=INTEGER}, #{rwAskId,jdbcType=INTEGER}, ",
         "#{rwAskIndex,jdbcType=INTEGER}, #{fromUserId,jdbcType=INTEGER}, ",
-        "#{toUserId,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, ",
+        "#{toUserId,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}, ",
         "#{reason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})"
     })
     int insert(RwRewardConfirmDetail record);
@@ -54,7 +44,7 @@ public interface RwRewardConfirmDetailMapper {
         @Result(column="rw_ask_index", property="rwAskIndex", jdbcType=JdbcType.INTEGER),
         @Result(column="from_user_id", property="fromUserId", jdbcType=JdbcType.INTEGER),
         @Result(column="to_user_id", property="toUserId", jdbcType=JdbcType.INTEGER),
-        @Result(column="amount", property="amount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="amount", property="amount", jdbcType=JdbcType.INTEGER),
         @Result(column="reason", property="reason", jdbcType=JdbcType.VARCHAR),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP)
     })
@@ -72,7 +62,7 @@ public interface RwRewardConfirmDetailMapper {
         @Result(column="rw_ask_index", property="rwAskIndex", jdbcType=JdbcType.INTEGER),
         @Result(column="from_user_id", property="fromUserId", jdbcType=JdbcType.INTEGER),
         @Result(column="to_user_id", property="toUserId", jdbcType=JdbcType.INTEGER),
-        @Result(column="amount", property="amount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="amount", property="amount", jdbcType=JdbcType.INTEGER),
         @Result(column="reason", property="reason", jdbcType=JdbcType.VARCHAR),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP)
     })
@@ -93,7 +83,7 @@ public interface RwRewardConfirmDetailMapper {
           "rw_ask_index = #{rwAskIndex,jdbcType=INTEGER},",
           "from_user_id = #{fromUserId,jdbcType=INTEGER},",
           "to_user_id = #{toUserId,jdbcType=INTEGER},",
-          "amount = #{amount,jdbcType=DECIMAL},",
+          "amount = #{amount,jdbcType=INTEGER},",
           "reason = #{reason,jdbcType=VARCHAR},",
           "create_time = #{createTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=INTEGER}"

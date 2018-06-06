@@ -1,7 +1,7 @@
 package io.imking.reward.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,13 +28,13 @@ public class RwAsk {
 
     private Boolean isTop;
 
-    private BigDecimal topAmount;
+    private Integer topAmount;
 
     private Date topExpirationDate;
 
-    private BigDecimal taskAmount;
+    private Integer taskAmount;
 
-    private BigDecimal crowdfundingAmount;
+    private Integer crowdfundingAmount;
 
     private Byte status;
 
