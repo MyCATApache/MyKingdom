@@ -26,5 +26,5 @@ public class RwApplyDetailDTO {
 
     private String askContent;
     
-    private BigDecimal taskAmount;
+    private Integer taskAmount;
 }

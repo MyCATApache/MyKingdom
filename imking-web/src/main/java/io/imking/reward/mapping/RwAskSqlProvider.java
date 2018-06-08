@@ -2,6 +2,7 @@ package io.imking.reward.mapping;
 
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 import io.imking.reward.domain.RwAsk;
@@ -62,7 +63,7 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTopAmount() != null) {
-            sql.VALUES("top_amount", "#{topAmount,jdbcType=DECIMAL}");
+            sql.VALUES("top_amount", "#{topAmount,jdbcType=INTEGER}");
         }
         
         if (record.getTopExpirationDate() != null) {
@@ -70,11 +71,11 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTaskAmount() != null) {
-            sql.VALUES("task_amount", "#{taskAmount,jdbcType=DECIMAL}");
+            sql.VALUES("task_amount", "#{taskAmount,jdbcType=INTEGER}");
         }
         
         if (record.getCrowdfundingAmount() != null) {
-            sql.VALUES("crowdfunding_amount", "#{crowdfundingAmount,jdbcType=DECIMAL}");
+            sql.VALUES("crowdfunding_amount", "#{crowdfundingAmount,jdbcType=INTEGER}");
         }
         
         if (record.getStatus() != null) {
@@ -173,7 +174,7 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTopAmount() != null) {
-            sql.SET("top_amount = #{record.topAmount,jdbcType=DECIMAL}");
+            sql.SET("top_amount = #{record.topAmount,jdbcType=INTEGER}");
         }
         
         if (record.getTopExpirationDate() != null) {
@@ -181,11 +182,11 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTaskAmount() != null) {
-            sql.SET("task_amount = #{record.taskAmount,jdbcType=DECIMAL}");
+            sql.SET("task_amount = #{record.taskAmount,jdbcType=INTEGER}");
         }
         
         if (record.getCrowdfundingAmount() != null) {
-            sql.SET("crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL}");
+            sql.SET("crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=INTEGER}");
         }
         
         if (record.getStatus() != null) {
@@ -224,10 +225,10 @@ public class RwAskSqlProvider {
         sql.SET("content = #{record.content,jdbcType=VARCHAR}");
         sql.SET("attach_group = #{record.attachGroup,jdbcType=VARCHAR}");
         sql.SET("is_top = #{record.isTop,jdbcType=BIT}");
-        sql.SET("top_amount = #{record.topAmount,jdbcType=DECIMAL}");
+        sql.SET("top_amount = #{record.topAmount,jdbcType=INTEGER}");
         sql.SET("top_expiration_date = #{record.topExpirationDate,jdbcType=TIMESTAMP}");
-        sql.SET("task_amount = #{record.taskAmount,jdbcType=DECIMAL}");
-        sql.SET("crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL}");
+        sql.SET("task_amount = #{record.taskAmount,jdbcType=INTEGER}");
+        sql.SET("crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=INTEGER}");
         sql.SET("status = #{record.status,jdbcType=TINYINT}");
         sql.SET("status_change_time = #{record.statusChangeTime,jdbcType=TIMESTAMP}");
         sql.SET("create_by = #{record.createBy,jdbcType=INTEGER}");
@@ -272,7 +273,7 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTopAmount() != null) {
-            sql.SET("top_amount = #{topAmount,jdbcType=DECIMAL}");
+            sql.SET("top_amount = #{topAmount,jdbcType=INTEGER}");
         }
         
         if (record.getTopExpirationDate() != null) {
@@ -280,11 +281,11 @@ public class RwAskSqlProvider {
         }
         
         if (record.getTaskAmount() != null) {
-            sql.SET("task_amount = #{taskAmount,jdbcType=DECIMAL}");
+            sql.SET("task_amount = #{taskAmount,jdbcType=INTEGER}");
         }
         
         if (record.getCrowdfundingAmount() != null) {
-            sql.SET("crowdfunding_amount = #{crowdfundingAmount,jdbcType=DECIMAL}");
+            sql.SET("crowdfunding_amount = #{crowdfundingAmount,jdbcType=INTEGER}");
         }
         
         if (record.getStatus() != null) {

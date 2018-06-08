@@ -4,7 +4,7 @@
 
 <generatorConfiguration>
 	<classPathEntry
-			location="F:/software/repository/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar" />
+			location="C:/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar" />
 
 	<context id="context1" targetRuntime="MyBatis3" >
 		<plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
@@ -28,9 +28,17 @@
 		<javaModelGenerator targetPackage="io.imking.biz.domain" targetProject="MAVEN" />
 		<javaClientGenerator targetPackage="io.imking.biz.mapping" targetProject="MAVEN" type="ANNOTATEDMAPPER" />
 
-		<table schema="imking" tableName="imk_user" domainObjectName="ImkUser"/>
+		<table schema="imking" tableName="crowdfunding_info" domainObjectName="CrowdfundingInfo"/>
 		<table schema="imking" tableName="imk_user_account_detail" domainObjectName="ImkUserAccountDetail"/>
+		<table schema="imking" tableName="imk_role" domainObjectName="ImkRole"/>
 		<table schema="imking" tableName="imk_user_point_detail" domainObjectName="ImkUserPointDetail"/>
+		<table schema="imking" tableName="imk_user_role" domainObjectName="ImkUserRole"/>
+		<table schema="imking" tableName="rw_ask" domainObjectName="RwAsk"/>
+		<table schema="imking" tableName="rw_pro_act" domainObjectName="RwProAct"/>
+		<table schema="imking" tableName="rw_reward_confirm_detail" domainObjectName="RwRewardConfirmDetail"/>
+		<table schema="imking" tableName="rw_reward_detail" domainObjectName="RwRewardDetail"/>
+		<!--<table schema="imking" tableName="imk_user_account_detail" domainObjectName="ImkUserAccountDetail"/>
+		<table schema="imking" tableName="imk_user_point_detail" domainObjectName="ImkUserPointDetail"/>-->
         <!-- <table tableName="t_attachment" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table> -->
         

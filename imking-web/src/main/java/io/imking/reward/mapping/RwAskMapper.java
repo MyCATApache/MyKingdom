@@ -1,21 +1,8 @@
 package io.imking.reward.mapping;
 
-
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 import io.imking.reward.domain.RwAsk;
@@ -49,17 +36,15 @@ public interface RwAskMapper {
         "#{currentAnswerUserId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, ",
         "#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, ",
         "#{attachGroup,jdbcType=VARCHAR}, #{isTop,jdbcType=BIT}, ",
-        "#{topAmount,jdbcType=DECIMAL}, #{topExpirationDate,jdbcType=TIMESTAMP}, ",
-        "#{taskAmount,jdbcType=DECIMAL}, #{crowdfundingAmount,jdbcType=DECIMAL}, ",
+        "#{topAmount,jdbcType=INTEGER}, #{topExpirationDate,jdbcType=TIMESTAMP}, ",
+        "#{taskAmount,jdbcType=INTEGER}, #{crowdfundingAmount,jdbcType=INTEGER}, ",
         "#{status,jdbcType=TINYINT}, #{statusChangeTime,jdbcType=TIMESTAMP}, ",
         "#{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
-    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insert(RwAsk record);
-    
+
     @InsertProvider(type=RwAskSqlProvider.class, method="insertSelective")
-    @Options( useGeneratedKeys = true , keyProperty = "id" )
     int insertSelective(RwAsk record);
 
     @SelectProvider(type=RwAskSqlProvider.class, method="selectByExample")
@@ -72,10 +57,10 @@ public interface RwAskMapper {
         @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
         @Result(column="attach_group", property="attachGroup", jdbcType=JdbcType.VARCHAR),
         @Result(column="is_top", property="isTop", jdbcType=JdbcType.BIT),
-        @Result(column="top_amount", property="topAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="top_amount", property="topAmount", jdbcType=JdbcType.INTEGER),
         @Result(column="top_expiration_date", property="topExpirationDate", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="task_amount", property="taskAmount", jdbcType=JdbcType.DECIMAL),
-        @Result(column="crowdfunding_amount", property="crowdfundingAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="task_amount", property="taskAmount", jdbcType=JdbcType.INTEGER),
+        @Result(column="crowdfunding_amount", property="crowdfundingAmount", jdbcType=JdbcType.INTEGER),
         @Result(column="status", property="status", jdbcType=JdbcType.TINYINT),
         @Result(column="status_change_time", property="statusChangeTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="create_by", property="createBy", jdbcType=JdbcType.INTEGER),
@@ -101,10 +86,10 @@ public interface RwAskMapper {
         @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
         @Result(column="attach_group", property="attachGroup", jdbcType=JdbcType.VARCHAR),
         @Result(column="is_top", property="isTop", jdbcType=JdbcType.BIT),
-        @Result(column="top_amount", property="topAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="top_amount", property="topAmount", jdbcType=JdbcType.INTEGER),
         @Result(column="top_expiration_date", property="topExpirationDate", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="task_amount", property="taskAmount", jdbcType=JdbcType.DECIMAL),
-        @Result(column="crowdfunding_amount", property="crowdfundingAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="task_amount", property="taskAmount", jdbcType=JdbcType.INTEGER),
+        @Result(column="crowdfunding_amount", property="crowdfundingAmount", jdbcType=JdbcType.INTEGER),
         @Result(column="status", property="status", jdbcType=JdbcType.TINYINT),
         @Result(column="status_change_time", property="statusChangeTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="create_by", property="createBy", jdbcType=JdbcType.INTEGER),
@@ -131,10 +116,10 @@ public interface RwAskMapper {
           "content = #{content,jdbcType=VARCHAR},",
           "attach_group = #{attachGroup,jdbcType=VARCHAR},",
           "is_top = #{isTop,jdbcType=BIT},",
-          "top_amount = #{topAmount,jdbcType=DECIMAL},",
+          "top_amount = #{topAmount,jdbcType=INTEGER},",
           "top_expiration_date = #{topExpirationDate,jdbcType=TIMESTAMP},",
-          "task_amount = #{taskAmount,jdbcType=DECIMAL},",
-          "crowdfunding_amount = #{crowdfundingAmount,jdbcType=DECIMAL},",
+          "task_amount = #{taskAmount,jdbcType=INTEGER},",
+          "crowdfunding_amount = #{crowdfundingAmount,jdbcType=INTEGER},",
           "status = #{status,jdbcType=TINYINT},",
           "status_change_time = #{statusChangeTime,jdbcType=TIMESTAMP},",
           "create_by = #{createBy,jdbcType=INTEGER},",
@@ -142,30 +127,30 @@ public interface RwAskMapper {
           "update_time = #{updateTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=INTEGER}"
     })
-
     int updateByPrimaryKey(RwAsk record);
-    
-	/**
-	 * 开放红包抢红包更新
-	 * 
-	 * @param record
-	 * @param status
-	 * @return int
-	 */
-	@Update({ "update rw_ask", "set rw_ask_index = #{record.rwAskIndex,jdbcType=TINYINT},",
-			"current_answer_user_id = #{record.currentAnswerUserId,jdbcType=INTEGER},",
-			"type = #{record.type,jdbcType=TINYINT},", "title = #{record.title,jdbcType=VARCHAR},",
-			"content = #{record.content,jdbcType=VARCHAR},", "attach_group = #{record.attachGroup,jdbcType=VARCHAR},",
-			"is_top = #{record.isTop,jdbcType=BIT},", "top_amount = #{record.topAmount,jdbcType=DECIMAL},",
-			"top_expiration_date = #{record.topExpirationDate,jdbcType=TIMESTAMP},",
-			"task_amount = #{record.taskAmount,jdbcType=DECIMAL},",
-			"crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL},",
-			"status = #{record.status,jdbcType=TINYINT},",
-			"status_change_time = #{record.statusChangeTime,jdbcType=TIMESTAMP},",
-			"create_by = #{record.createBy,jdbcType=INTEGER},",
-			"create_time = #{record.createTime,jdbcType=TIMESTAMP},",
-			"update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
-			"where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
-	int updateRwAsk(@Param("record") RwAsk record, @Param("status") int status);
-	
+
+
+    /**
+     * 开放红包抢红包更新
+     *
+     * @param record
+     * @param status
+     * @return int
+     */
+    @Update({ "update rw_ask", "set rw_ask_index = #{record.rwAskIndex,jdbcType=TINYINT},",
+            "current_answer_user_id = #{record.currentAnswerUserId,jdbcType=INTEGER},",
+            "type = #{record.type,jdbcType=TINYINT},", "title = #{record.title,jdbcType=VARCHAR},",
+            "content = #{record.content,jdbcType=VARCHAR},", "attach_group = #{record.attachGroup,jdbcType=VARCHAR},",
+            "is_top = #{record.isTop,jdbcType=BIT},", "top_amount = #{record.topAmount,jdbcType=DECIMAL},",
+            "top_expiration_date = #{record.topExpirationDate,jdbcType=TIMESTAMP},",
+            "task_amount = #{record.taskAmount,jdbcType=DECIMAL},",
+            "crowdfunding_amount = #{record.crowdfundingAmount,jdbcType=DECIMAL},",
+            "status = #{record.status,jdbcType=TINYINT},",
+            "status_change_time = #{record.statusChangeTime,jdbcType=TIMESTAMP},",
+            "create_by = #{record.createBy,jdbcType=INTEGER},",
+            "create_time = #{record.createTime,jdbcType=TIMESTAMP},",
+            "update_time = #{record.updateTime,jdbcType=TIMESTAMP}",
+            "where id = #{record.id,jdbcType=INTEGER} and status=#{status,jdbcType=TINYINT}" })
+    int updateRwAsk(@Param("record") io.imking.reward.domain.RwAsk record, @Param("status") int status);
+
 }
