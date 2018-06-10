@@ -1,8 +1,8 @@
 package io.imking.reward.mapping;
 
-
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 import io.imking.reward.domain.RwRewardConfirmDetail;
@@ -51,7 +51,7 @@ public class RwRewardConfirmDetailSqlProvider {
         }
         
         if (record.getAmount() != null) {
-            sql.VALUES("amount", "#{amount,jdbcType=DECIMAL}");
+            sql.VALUES("amount", "#{amount,jdbcType=INTEGER}");
         }
         
         if (record.getReason() != null) {
@@ -117,7 +117,7 @@ public class RwRewardConfirmDetailSqlProvider {
         }
         
         if (record.getAmount() != null) {
-            sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
+            sql.SET("amount = #{record.amount,jdbcType=INTEGER}");
         }
         
         if (record.getReason() != null) {
@@ -141,7 +141,7 @@ public class RwRewardConfirmDetailSqlProvider {
         sql.SET("rw_ask_index = #{record.rwAskIndex,jdbcType=INTEGER}");
         sql.SET("from_user_id = #{record.fromUserId,jdbcType=INTEGER}");
         sql.SET("to_user_id = #{record.toUserId,jdbcType=INTEGER}");
-        sql.SET("amount = #{record.amount,jdbcType=DECIMAL}");
+        sql.SET("amount = #{record.amount,jdbcType=INTEGER}");
         sql.SET("reason = #{record.reason,jdbcType=VARCHAR}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         
@@ -171,7 +171,7 @@ public class RwRewardConfirmDetailSqlProvider {
         }
         
         if (record.getAmount() != null) {
-            sql.SET("amount = #{amount,jdbcType=DECIMAL}");
+            sql.SET("amount = #{amount,jdbcType=INTEGER}");
         }
         
         if (record.getReason() != null) {

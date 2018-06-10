@@ -1,5 +1,6 @@
-package io.imking.reward.domain;
+package io.imking.reward.beans.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -11,20 +12,19 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RwProAct {
-    private Integer id;
+public class RwApplyDetailDTO {
 
-    private Integer rwAskId;
+    private Byte rwAskIndex;
 
-    private Integer rwAskIndex;
-
-    private Byte type;
-
-    private Integer amount;
-
-    private Byte applyDelayDays;
+    private String content;
 
     private Integer createBy;
 
     private Date createTime;
+    
+    private String title;
+
+    private String askContent;
+    
+    private Integer taskAmount;
 }

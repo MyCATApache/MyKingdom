@@ -1,7 +1,7 @@
 package io.imking.reward.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +22,7 @@ public class RwRewardConfirmDetail {
 
     private Integer toUserId;
 
-    private BigDecimal amount;
+    private Integer amount;
 
     private String reason;
 

@@ -1,6 +1,5 @@
 package io.imking.reward.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -626,52 +625,52 @@ public class RwAskExample {
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountEqualTo(BigDecimal value) {
+        public Criteria andTopAmountEqualTo(Integer value) {
             addCriterion("top_amount =", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountNotEqualTo(BigDecimal value) {
+        public Criteria andTopAmountNotEqualTo(Integer value) {
             addCriterion("top_amount <>", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountGreaterThan(BigDecimal value) {
+        public Criteria andTopAmountGreaterThan(Integer value) {
             addCriterion("top_amount >", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andTopAmountGreaterThanOrEqualTo(Integer value) {
             addCriterion("top_amount >=", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountLessThan(BigDecimal value) {
+        public Criteria andTopAmountLessThan(Integer value) {
             addCriterion("top_amount <", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andTopAmountLessThanOrEqualTo(Integer value) {
             addCriterion("top_amount <=", value, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountIn(List<BigDecimal> values) {
+        public Criteria andTopAmountIn(List<Integer> values) {
             addCriterion("top_amount in", values, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountNotIn(List<BigDecimal> values) {
+        public Criteria andTopAmountNotIn(List<Integer> values) {
             addCriterion("top_amount not in", values, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andTopAmountBetween(Integer value1, Integer value2) {
             addCriterion("top_amount between", value1, value2, "topAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTopAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andTopAmountNotBetween(Integer value1, Integer value2) {
             addCriterion("top_amount not between", value1, value2, "topAmount");
             return (Criteria) this;
         }
@@ -746,52 +745,52 @@ public class RwAskExample {
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountEqualTo(BigDecimal value) {
+        public Criteria andTaskAmountEqualTo(Integer value) {
             addCriterion("task_amount =", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountNotEqualTo(BigDecimal value) {
+        public Criteria andTaskAmountNotEqualTo(Integer value) {
             addCriterion("task_amount <>", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountGreaterThan(BigDecimal value) {
+        public Criteria andTaskAmountGreaterThan(Integer value) {
             addCriterion("task_amount >", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andTaskAmountGreaterThanOrEqualTo(Integer value) {
             addCriterion("task_amount >=", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountLessThan(BigDecimal value) {
+        public Criteria andTaskAmountLessThan(Integer value) {
             addCriterion("task_amount <", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andTaskAmountLessThanOrEqualTo(Integer value) {
             addCriterion("task_amount <=", value, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountIn(List<BigDecimal> values) {
+        public Criteria andTaskAmountIn(List<Integer> values) {
             addCriterion("task_amount in", values, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountNotIn(List<BigDecimal> values) {
+        public Criteria andTaskAmountNotIn(List<Integer> values) {
             addCriterion("task_amount not in", values, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andTaskAmountBetween(Integer value1, Integer value2) {
             addCriterion("task_amount between", value1, value2, "taskAmount");
             return (Criteria) this;
         }
 
-        public Criteria andTaskAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andTaskAmountNotBetween(Integer value1, Integer value2) {
             addCriterion("task_amount not between", value1, value2, "taskAmount");
             return (Criteria) this;
         }
@@ -806,52 +805,52 @@ public class RwAskExample {
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountEqualTo(BigDecimal value) {
+        public Criteria andCrowdfundingAmountEqualTo(Integer value) {
             addCriterion("crowdfunding_amount =", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountNotEqualTo(BigDecimal value) {
+        public Criteria andCrowdfundingAmountNotEqualTo(Integer value) {
             addCriterion("crowdfunding_amount <>", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountGreaterThan(BigDecimal value) {
+        public Criteria andCrowdfundingAmountGreaterThan(Integer value) {
             addCriterion("crowdfunding_amount >", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andCrowdfundingAmountGreaterThanOrEqualTo(Integer value) {
             addCriterion("crowdfunding_amount >=", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountLessThan(BigDecimal value) {
+        public Criteria andCrowdfundingAmountLessThan(Integer value) {
             addCriterion("crowdfunding_amount <", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andCrowdfundingAmountLessThanOrEqualTo(Integer value) {
             addCriterion("crowdfunding_amount <=", value, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountIn(List<BigDecimal> values) {
+        public Criteria andCrowdfundingAmountIn(List<Integer> values) {
             addCriterion("crowdfunding_amount in", values, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountNotIn(List<BigDecimal> values) {
+        public Criteria andCrowdfundingAmountNotIn(List<Integer> values) {
             addCriterion("crowdfunding_amount not in", values, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCrowdfundingAmountBetween(Integer value1, Integer value2) {
             addCriterion("crowdfunding_amount between", value1, value2, "crowdfundingAmount");
             return (Criteria) this;
         }
 
-        public Criteria andCrowdfundingAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCrowdfundingAmountNotBetween(Integer value1, Integer value2) {
             addCriterion("crowdfunding_amount not between", value1, value2, "crowdfundingAmount");
             return (Criteria) this;
         }

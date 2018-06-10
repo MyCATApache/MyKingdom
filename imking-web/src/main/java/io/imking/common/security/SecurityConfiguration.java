@@ -47,14 +47,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		 http.cors().and().csrf().disable().authorizeRequests()  
+		 http.cors().and().csrf().disable();/**.authorizeRequests()
          .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
          .anyRequest().authenticated()  
          .and()  
          .addFilter(new JWTLoginFilter(authenticationManager()))  
          .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
 		 
-		 
+		 **/
 //		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
 //		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
 //		.anyRequest().permitAll();
