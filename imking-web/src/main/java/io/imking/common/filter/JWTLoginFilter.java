@@ -1,8 +1,10 @@
 package io.imking.common.filter;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -12,21 +14,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.imking.common.domain.ImkUser;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
+import io.imking.utils.SpringUtils;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
-
 
 	public JWTLoginFilter(AuthenticationManager authenticationManager) {
 		super.setAuthenticationManager(authenticationManager); 
@@ -38,10 +43,9 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 			if(StringUtils.isBlank(authorization) ){
 				return super.attemptAuthentication(request, response)  ;  
 			}
-			ImkUser user = new ObjectMapper().readValue(authorization , ImkUser.class);
-			
+			ImkUser user = new ObjectMapper().readValue(request.getInputStream() , ImkUser.class);
 			return getAuthenticationManager().authenticate(
-					new UsernamePasswordAuthenticationToken(user.getAccount(), "", Arrays.asList( new SimpleGrantedAuthority("admin") ) ));
+					new UsernamePasswordAuthenticationToken(user.getAccount(), user.getPwd(), new ArrayList<>() ));
 		} catch (IOException e) {
 			throw new RuntimeException( e ); 
 		}
@@ -61,13 +65,20 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication auth) {
+		 Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+         // 定义存放角色集合的对象
+         List roleList = new ArrayList<>();
+         for (GrantedAuthority grantedAuthority : authorities) {
+             roleList.add(grantedAuthority.getAuthority());
+         }
+         //生成token
 		String token = Jwts.builder()
-				.setSubject(((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername())
+				.setSubject(auth.getName()+"_"+roleList.toString())
 				.setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
 				.signWith(SignatureAlgorithm.HS512, "MyJwtSecret").compact();
 		response.addHeader("Authorization", token);
 		try {
-			Result<Object> result = new Result<Object>(ResultEnum.SUCCESS, auth.getName()) ;
+			Result<Object> result = new Result<Object>(ResultEnum.SUCCESS, auth.getName()+"_"+roleList.toString()) ;
 			 ObjectMapper mapper = new ObjectMapper();
 			response.getWriter().write( mapper.writeValueAsString( result ) ); 
 		} catch (IOException e) {

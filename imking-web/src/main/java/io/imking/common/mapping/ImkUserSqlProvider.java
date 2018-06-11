@@ -12,6 +12,16 @@ import io.imking.common.domain.ImkUserExample.Criterion;
 
 public class ImkUserSqlProvider {
 
+	public String queryImkUserRole(String account){
+		String sql = "SELECT account AS username, "
+				+ "imk_role.role_code AS authority FROM imk_user JOIN imk_user_"
+				+ "role ON imk_user_role.user_id = imk_user.id JOIN imk_role ON "
+				+ "imk_role.id = imk_user_role.role_id WHERE "
+				+ "imk_user.account ='" + account +"'";
+		return sql ; 
+	}
+	
+	
     public String countByExample(ImkUserExample example) {
         SQL sql = new SQL();
         sql.SELECT("count(*)").FROM("imk_user");
