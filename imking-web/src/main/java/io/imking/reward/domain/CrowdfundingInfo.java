@@ -11,20 +11,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RwRewardDetail {
+public class CrowdfundingInfo {
     private Integer id;
 
     private Integer rwAskId;
 
-    private Integer rwAskIndex;
-
-    private Integer rewardUserId;
-
     private Integer amount;
 
-    private Boolean isAll;
-
-    private String comment;
+    private Integer createBy;
 
     private Date createTime;
 }

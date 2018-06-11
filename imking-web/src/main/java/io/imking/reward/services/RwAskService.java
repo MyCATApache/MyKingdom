@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import io.imking.reward.domain.RwAsk;
 import io.imking.reward.domain.RwAskExample;
 import io.imking.reward.mapping.RwAskMapper;
+import io.imking.utils.Constant;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
 import lombok.extern.log4j.Log4j;
@@ -71,23 +72,4 @@ public class RwAskService {
         }
         return result;
     }
-    
-
-    /**
-     * 获取红包任务列表
-     * @param pageNum
-     * @param pageSize
-     * @return
-     * @throws Exception
-     */
-	public Result<Object> getRwAskList(int pageNum,int pageSize) throws Exception{
-		PageHelper.startPage(pageNum, pageSize);
-		Result<Object> result = new Result<Object>();
-		List<RwAsk> RwAskList = rwAskMapper.selectByExample(null);
-		result.setData(RwAskList);
-		return result;
-    }
-	
-	
-
 }

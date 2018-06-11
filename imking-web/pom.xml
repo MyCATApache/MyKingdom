@@ -10,9 +10,9 @@
 	</parent>
 	<artifactId>imking-web</artifactId>
 
-    <properties>
-        <start-class>io.imking.MyKingdomApp</start-class>
-    </properties>
+	<properties>
+		<start-class>io.imking.MyKingdomApp</start-class>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -24,6 +24,18 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>imking-web</finalName>
@@ -33,15 +45,15 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
 
-            <plugin>
-                <groupId>com.github.warmuuh</groupId>
-                <artifactId>libsass-maven-plugin</artifactId>
-            </plugin>
+			<plugin>
+				<groupId>com.github.warmuuh</groupId>
+				<artifactId>libsass-maven-plugin</artifactId>
+			</plugin>
 
 		</plugins>
 	</build>

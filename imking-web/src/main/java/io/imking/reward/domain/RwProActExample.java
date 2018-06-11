@@ -1,6 +1,5 @@
 package io.imking.reward.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -356,52 +355,52 @@ public class RwProActExample {
             return (Criteria) this;
         }
 
-        public Criteria andAmountEqualTo(BigDecimal value) {
+        public Criteria andAmountEqualTo(Integer value) {
             addCriterion("amount =", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotEqualTo(BigDecimal value) {
+        public Criteria andAmountNotEqualTo(Integer value) {
             addCriterion("amount <>", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountGreaterThan(BigDecimal value) {
+        public Criteria andAmountGreaterThan(Integer value) {
             addCriterion("amount >", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andAmountGreaterThanOrEqualTo(Integer value) {
             addCriterion("amount >=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountLessThan(BigDecimal value) {
+        public Criteria andAmountLessThan(Integer value) {
             addCriterion("amount <", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andAmountLessThanOrEqualTo(Integer value) {
             addCriterion("amount <=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountIn(List<BigDecimal> values) {
+        public Criteria andAmountIn(List<Integer> values) {
             addCriterion("amount in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotIn(List<BigDecimal> values) {
+        public Criteria andAmountNotIn(List<Integer> values) {
             addCriterion("amount not in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andAmountBetween(Integer value1, Integer value2) {
             addCriterion("amount between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andAmountNotBetween(Integer value1, Integer value2) {
             addCriterion("amount not between", value1, value2, "amount");
             return (Criteria) this;
         }
