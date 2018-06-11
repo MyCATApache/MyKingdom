@@ -1,5 +1,7 @@
 package io.imking;
 
+import javax.annotation.PostConstruct;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +23,7 @@ public class MyKingdomApp {
 	public static void main(String[] args) {
 		SpringApplication.run(MyKingdomApp.class, args);
 	}
+	@PostConstruct
 	@Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();

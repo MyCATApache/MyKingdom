@@ -17,6 +17,7 @@ import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
 import io.imking.common.beans.dto.ImkUserDTO;
+import io.imking.common.beans.dto.UserRoleDTO;
 import io.imking.common.domain.ImkUser;
 import io.imking.common.domain.ImkUserExample;
 
@@ -146,4 +147,8 @@ public interface ImkUserMapper {
         @Result(column="nickname", property="nickname", jdbcType=JdbcType.VARCHAR)
     })
 	ImkUser selectNameByPrimaryKey(Integer createBy);
+    
+    @SelectProvider(type=ImkUserSqlProvider.class, method="queryImkUserRole")
+    List<UserRoleDTO> queryImkUserRole(String account);
+    
 }
