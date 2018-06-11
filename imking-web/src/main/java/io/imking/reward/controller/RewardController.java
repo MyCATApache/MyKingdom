@@ -3,6 +3,7 @@ package io.imking.reward.controller;
 
 import io.imking.reward.beans.dto.RwDetailDto;
 import io.imking.reward.beans.enums.RewardStatusEnum;
+import io.imking.reward.domain.RwApplyDetail;
 import io.imking.reward.domain.RwAsk;
 import io.imking.reward.domain.RwAskQuestion;
 import io.imking.reward.domain.RwComment;
@@ -157,6 +158,26 @@ public class RewardController {
 		Result<String> result = new Result<String>();
 		try {
 			result = rewardService.submitComment(rwAsk, rwComment,commentType);
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("提交红包评论失败");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/**
+     * 提交申请获取抢红包的资格
+     * @param rwAsk 红包任务
+     * @param rwApplyDetail 申请内容
+     * @return  Result<String>
+     * @author 天道
+     */
+	@RequestMapping("/submitApply")
+	public Result<String> submitApply(RwAsk rwAsk, RwApplyDetail rwApplyDetail) {
+		Result<String> result = new Result<String>();
+		try {
+			result = rewardService.submitApply(rwAsk,rwApplyDetail);
 		} catch (Exception e) {
 			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
 			result.setDesc("提交红包评论失败");

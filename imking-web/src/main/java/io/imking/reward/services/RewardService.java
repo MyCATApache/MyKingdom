@@ -20,6 +20,7 @@ import io.imking.reward.beans.enums.CommentTypeEnum;
 import io.imking.reward.beans.enums.RewardStatusEnum;
 import io.imking.reward.domain.RwAnswer;
 import io.imking.reward.domain.RwAnswerExample;
+import io.imking.reward.domain.RwApplyDetail;
 import io.imking.reward.domain.RwAsk;
 import io.imking.reward.domain.RwAskExample;
 import io.imking.reward.domain.RwAskQuestion;
@@ -27,6 +28,7 @@ import io.imking.reward.domain.RwAskQuestionExample;
 import io.imking.reward.domain.RwComment;
 import io.imking.reward.domain.RwCommentExample;
 import io.imking.reward.mapping.RwAnswerMapper;
+import io.imking.reward.mapping.RwApplyDetailMapper;
 import io.imking.reward.mapping.RwAskEvaluateMapper;
 import io.imking.reward.mapping.RwAskMapper;
 import io.imking.reward.mapping.RwAskQuestionMapper;
@@ -52,6 +54,8 @@ public class RewardService {
 	protected ImkUserMapper userMapper;
 	@Autowired
 	protected RwAnswerMapper rwAnswerMapper;
+	@Autowired
+	protected RwApplyDetailMapper rwApplyDetailMapper;
 	/**
 	 * table切换红包任务列表
 	 * @return Result
@@ -310,6 +314,45 @@ public class RewardService {
 		}
 		return result;
 
+	}
+	
+	/**
+	 * 提交申请获取抢红包的资格
+	 * 
+	 * @param rwAsk
+	 *            红包任务
+	 * @param rwApplyDetail
+	 *            申请内容
+	 * @return Result<String>
+	 */
+	public Result<String> submitApply(RwAsk rwAsk, RwApplyDetail rwApplyDetail) {
+		Result<String> result = new Result<String>();
+		if (null != rwAsk.getId() && rwAsk.getId() > 0) {
+			rwAsk = rwAskMapper.selectByPrimaryKey(rwAsk.getId());
+			if (null != rwAsk) {
+				if (null != rwApplyDetail.getCreateBy() && rwApplyDetail.getCreateBy() > 0) {
+					ImkUserDTO user = userMapper.selectByPrimaryKey((rwApplyDetail.getCreateBy()));
+					if (null != user) {
+						rwApplyDetailMapper.insert(rwApplyDetail);
+						result.setDesc("申请成功");
+						result.setStatus(ResultEnum.SUCCESS.getCode());
+					} else {
+						result.setDesc("申请人不存在");
+						result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+					}
+				} else {
+					result.setDesc("申请人非法参数请求");
+					result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+				}
+			} else {
+				result.setDesc("红包任务不存在");
+				result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			}
+		} else {
+			result.setDesc("红包任务非法参数请求");
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+		}
+		return result;
 	}
 
 }
