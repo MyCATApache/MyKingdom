@@ -88,7 +88,6 @@ public interface ImkUserMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="account", property="account", jdbcType=JdbcType.VARCHAR),
-        @Result(column="pwd", property="pwd", jdbcType=JdbcType.VARCHAR),
         @Result(column="realname", property="realname", jdbcType=JdbcType.VARCHAR),
         @Result(column="pinyin", property="pinyin", jdbcType=JdbcType.VARCHAR),
         @Result(column="nickname", property="nickname", jdbcType=JdbcType.VARCHAR),
