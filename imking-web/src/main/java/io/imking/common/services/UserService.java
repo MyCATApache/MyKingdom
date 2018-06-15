@@ -20,19 +20,26 @@ public class UserService {
 	/*
 	 * 获取用户信息
 	 */
-    public Result<ImkUserDTO> getUserInfo(Integer id) {
-    	Result<ImkUserDTO> result = new Result<ImkUserDTO>();
+    public ImkUserDTO getUserInfo(Integer id) {
     	ImkUserDTO user = userMapper.selectByPrimaryKey(id);
-        if(user != null){
-            result.setData(user);
-        }
-        return result;
+        return user;
     }
+
+
 	/*
 	 * 插入用户信息
 	 */
     public void insert(ImkUser user) {
 		// TODO Auto-generated method stub
     	userMapper.insert(user);
+	}
+
+	/**
+	 * 更新用户信息
+	 * @param user
+	 * @return
+	 */
+	public int updateByPrimaryKeySelective(ImkUser user){
+    	return userMapper.updateByPrimaryKeySelective(user);
 	}
 }

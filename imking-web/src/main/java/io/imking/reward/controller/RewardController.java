@@ -3,9 +3,11 @@ package io.imking.reward.controller;
 
 import io.imking.reward.beans.dto.RwDetailDto;
 import io.imking.reward.beans.enums.RewardStatusEnum;
+import io.imking.reward.domain.RwApplyDetail;
 import io.imking.reward.domain.RwAsk;
 import io.imking.reward.domain.RwAskQuestion;
 import io.imking.reward.domain.RwComment;
+import io.imking.reward.domain.RwRewardConfirmDetail;
 import io.imking.reward.services.RewardService;
 import io.imking.reward.services.RwAskService;
 import io.imking.utils.Result;
@@ -163,6 +165,129 @@ public class RewardController {
 		}
 		return result;
 	}
+	
+	/**
+     * 提交申请获取抢红包的资格
+     * @param rwAsk 红包任务
+     * @param rwApplyDetail 申请内容
+     * @return  Result<String>
+     * @author 天道
+     */
+	@RequestMapping("/submitApply")
+	public Result<String> submitApply(RwAsk rwAsk, RwApplyDetail rwApplyDetail) {
+		Result<String> result = new Result<String>();
+		try {
+			result = rewardService.submitApply(rwAsk,rwApplyDetail);
+		} catch (Exception e) {
+			result.setStatus(ResultEnum.SERVER_ERROR.getCode());
+			result.setDesc("提交红包评论失败");
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+	/**
+	 * 金主打赏答题者（包括全部打赏和部分打赏）
+	 * @param rwAskId 任务id
+	 * @param rwAskIndex 任务序号
+	 * @return
+	 * @author zhanyingda
+	 */
+	@RequestMapping("/rewardToAnswerer")
+	public Result<String> rewardToAnswerer(Integer rwAskId, Integer rwAskIndex) {
+		/**
+		 * 1.根据rwAskId和rwAskIndex获取表rw_reward_confirm_detail最后一条记录
+		 * 得到接收的用户id和金额
+		 */
+
+		/**
+		 * 2.对比rw_ask表的金额，判断是否全部打赏
+		 */
+
+		/**
+		 * 3.插入rw_reward_detial表一条新记录，打赏成功
+		 */
+
+		/**
+		 * 4.更新rw_ask表status，status_change_time字段，修改状态为9,打赏成功
+		 */
+
+		/**
+		 * 5.插入rw_ask_progress表一条新记录，记录状态变更时间
+		 */
+
+		return null;
+	}
+
+
+	/**
+	 * 金主提议部分打赏给答题者
+	 * @param rwRewardConfirmDetail
+	 * @return
+	 * @author zhanyingda
+	 */
+	@RequestMapping("/confirmPartRewardToAnswerer")
+	public Result<String> confirmPartRewardToAnswerer(RwRewardConfirmDetail rwRewardConfirmDetail) {
+		/**
+		 * 1.插入rw_reward_confirm_detail表一条记录,fromUserId是金主，toUserId是答题者
+		 */
+
+		return null;
+	}
+
+
+	/**
+	 * 关闭红包任务
+	 * @param rwAskId 红包任务id
+	 * @return
+	 * @author zhanyingda
+	 */
+	@RequestMapping("/closeRwAsk")
+	public Result<String> closeRwAsk(Integer rwAskId) {
+		/**
+		 * 1.更新rw_ask表status，status_change_time字段，修改状态为10,关闭红包任务
+		 */
+
+		/**
+		 * 2.插入rw_ask_progress表一条新记录，记录状态变更时间
+		 */
+		return null;
+	}
+
+
+	/**
+	 * 继续发布红包任务
+	 * @param rwAskId
+	 * @return
+	 * @author zhanyingda
+	 */
+	@RequestMapping("/publishRwAskAgain")
+	public Result<String> publishRwAskContinue(Integer rwAskId) {
+		/**
+		 * 1.获取rw_ask表的任务金额和rwAskIndex
+		 */
+
+		/**
+		 * 2.获取rw_reward_detial表的打赏金额
+		 */
+
+		/**
+		 * 3.任务金额-已打算的金额，计算剩余的金额
+		 */
+
+		/**
+		 * 4.更新rw_ask表纪录，rwAskIndex+1，任务金额=剩余的金额，状态改为1
+		 */
+
+		/**
+		 * 5.插入rw_ask_progress表一条新记录，记录状态变更时间
+		 */
+
+		return null;
+	}
+
+
 }
 
 

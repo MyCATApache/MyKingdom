@@ -18,6 +18,17 @@ spring:
     data: classpath:demo-data.sql
     initialize: true
     continue-on-error: true
+  mail:
+    host: smtp.qq.com
+    username: 2358161305@qq.com
+    password: rbuwnoipjgfrebjd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 #  redis:
 #    host: 192.168.0.3
 #    port: 6379

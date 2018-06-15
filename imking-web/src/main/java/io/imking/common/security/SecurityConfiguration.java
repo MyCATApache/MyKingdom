@@ -27,6 +27,10 @@ import io.imking.common.services.MyUserDetailsService;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	static final String SELF_CSRF_COOKIE_NAME = "_token";
+
+	private static final String[] AUTH_WHITELIST = {
+			"/api/user/findPassward"
+	};
 	
 	@Autowired
 	protected DataSource dataSource;
@@ -50,13 +54,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.cors().and().csrf().disable()
 		 .authorizeRequests()
 		 .antMatchers("/").permitAll()
-         .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
-         .antMatchers("/common/**","/courses/**","/my/**","/office/**","/opensource/**","/reward/**","/biz/**").permitAll()
-         .anyRequest().authenticated()
-         
-         .and()  
-         .addFilter(new JWTLoginFilter(authenticationManager()))  
-         .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
+     .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
+     .antMatchers("/common/**","/courses/**","/my/**","/office/**","/opensource/**","/reward/**","/biz/**").permitAll()
+     .anyRequest().authenticated()
+     .and()  
+     .addFilter(new JWTLoginFilter(authenticationManager()))  
+     .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
 	}
 	
 }
