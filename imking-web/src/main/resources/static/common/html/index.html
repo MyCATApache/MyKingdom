@@ -4,11 +4,11 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="./assets/lib/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="./assets/styles/headerfooter.css"/>
-		<script src="./assets/lib/jquery/jquery-3.2.1.min.js"></script>
-		<script src="./assets/lib/bootstrap-4.0.0/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./assets/lib/bootstrap-4.0.0/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../common/lib/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../common/css/headerfooter.css"/>
+		<script src="../../common/lib/jquery/jquery-3.2.1.min.js"></script>
+		<script src="../../common/lib/bootstrap-4.0.0/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/lib/bootstrap-4.0.0/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			#home{padding: 0;}
 			#home .grade-box img{width: 32px;height: 32px;}
@@ -44,14 +44,14 @@
 		  	<div  class="header">
 		  		<div class="container-fluid hrederTop">
 		  			<div class="container topcontent">
-		  				<img src="./assets/images/index/icon-notice.png"/><span>Mycat全方面为您提供服务！</span>
+		  				<img src="../../common/images/icon-notice.png"/><span>Mycat全方面为您提供服务！</span>
 		  			</div>
 		  		</div>
 		  		<div class="container-fluid hrederContent">
 		  			<div class="container">
 		  				<div class="row">
 		  					<div class="col-sm-12 col-md-6">
-		  						<img src="./assets/images/index/footerimg.png"/>
+		  						<img src="../../common/images/footerimg.png"/>
 		  					</div>
 		  					<div class="col-sm-12 col-md-6">
 		  						<ul class="linkcollection">
@@ -65,7 +65,7 @@
 										<a href="#">精准招聘</a>
 									</li>
 									<li>
-										<a href="./biz/reward/grabred-index.html">红包悬赏</a>
+										<a href="./reward/html/grabred-index.html">红包悬赏</a>
 									</li>
 									<li>
 										<a href="#">黄浦教程</a>
@@ -80,14 +80,14 @@
 		  		</div>
 		  	</div>
 		  	<div class="container-fluid contentOne">
-				  <img src="./assets/images/index/headerbgone.png"/>
+				  <img src="../../common/images/headerbgone.png"/>
 				  <div class="contentTwo container">
 						<div class="row">
 							<div class="col-sm-8 ulBox">
 								<ul class="linkcollection">
 									<li class= "activetwo selectTwo">
 										<a href="#" class="onclick">我要创业</a>
-										<span><img src="./assets/images/index/activetwo.png"/></span>
+										<span><img src="../../common/images/activetwo.png"/></span>
 								  </li>
 								  <li class= "activetwo">
 									  <a href="#" class="onclick">赏金任务</a>
@@ -107,11 +107,11 @@
 					</div>
 		  	</div>
 		  	<div class="container-fluid contentthree">
-		  		<img src="./assets/images/index/headerthree.png"/>
+		  		<img src="../../common/images/headerthree.png"/>
 		  		<div class="container">
 	  				<div class="row">
 	  					<div class="col-sm-12 ulBox">
-	  						<img src="./assets/images/index/footerimg.png"/>
+	  						<img src="../../common/images/footerimg.png"/>
 	  						<div class="addJoinus">
 	  							<p>在这里</p>
 	  							<p>你会遇见更好的自己</p>
@@ -128,14 +128,14 @@
 	  			</div>
 		  	</div>
 		  	<div class="container-fluid contentfour">
-		  		<img src="./assets/images/index/headerFour.png"/>
+		  		<img src="../../common/images/headerFour.png"/>
 		  	</div>
 			<div  class="footer">
 		  		<div class="container-fluid hrederContent">
 		  			<div class="container">
 		  			<div class="row">
 							<div class="col-sm-12 col-md-6">
-								<img src="./assets/images/index/footerimg.png"/>
+								<img src="../../common/images/footerimg.png"/>
 								<div class="footerBox">
 									<p>如果要找一个词，包含对所有事物的美好期待，那就是【靠谱】</p>
 									<p>让我们开启红包之旅，一起来积攒我们的【靠谱度】</p>
@@ -190,7 +190,7 @@
 				 $len.each(function(){
 				 	var obj = $(this).html();
 				 	if(num==obj){
-				 		$(this).next().html('<img src="./assets/images/index/activetwo.png"/>');
+				 		$(this).next().html('<img src="../../common/images/activetwo.png"/>');
 				 	}else{
 				 		$(this).next().html('');
 				 	}

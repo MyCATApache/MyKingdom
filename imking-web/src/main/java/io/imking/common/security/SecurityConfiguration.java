@@ -38,10 +38,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      @Autowired
 	 private MyUserDetailsService userDetailsService;
 	 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/static/**");
-	}
+//	@Override
+//	public void configure(WebSecurity web) throws Exception {
+////		web.ignoring().antMatchers("/static/**");
+//	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -53,12 +53,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		 http.cors().and().csrf().disable()
 		 .authorizeRequests()
-		 .antMatchers(AUTH_WHITELIST).permitAll()  //方便测试用
-         .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
-         .anyRequest().authenticated()  
-         .and()  
-         .addFilter(new JWTLoginFilter(authenticationManager()))  
-         .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
+		 .antMatchers("/").permitAll()
+     .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
+     .antMatchers("/common/**","/courses/**","/my/**","/office/**","/opensource/**","/reward/**","/biz/**").permitAll()
+     .anyRequest().authenticated()
+     .and()  
+     .addFilter(new JWTLoginFilter(authenticationManager()))  
+     .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
 	}
 	
 }
