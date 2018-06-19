@@ -55,6 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
          .addFilter(new JWTAuthenticationFilter(authenticationManager()));  
 		 
 		 **/
+		 http.authorizeRequests().antMatchers("/").permitAll();
 //		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
 //		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
 //		.anyRequest().permitAll();
