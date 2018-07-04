@@ -100,6 +100,20 @@
             <artifactId>joda-time</artifactId>
         </dependency>
 
+        <!--修改代码不用重启 开始-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>springloaded</artifactId>
+            <version>1.2.8.RELEASE</version>
+        </dependency>
+        <!--修改代码不用重启 结束-->
+
     </dependencies>
 
 
