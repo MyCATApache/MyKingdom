@@ -1,11 +1,16 @@
 package io.imking.reward.services ;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import io.imking.common.domain.Attach;
+import io.imking.common.mapping.AttachMapper;
+import io.imking.reward.mapping.*;
+import io.imking.utils.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,15 +32,9 @@ import io.imking.reward.domain.RwAskQuestion;
 import io.imking.reward.domain.RwAskQuestionExample;
 import io.imking.reward.domain.RwComment;
 import io.imking.reward.domain.RwCommentExample;
-import io.imking.reward.mapping.RwAnswerMapper;
-import io.imking.reward.mapping.RwApplyDetailMapper;
-import io.imking.reward.mapping.RwAskEvaluateMapper;
-import io.imking.reward.mapping.RwAskMapper;
-import io.imking.reward.mapping.RwAskQuestionMapper;
-import io.imking.reward.mapping.RwAskQuestionReplyMapper;
-import io.imking.reward.mapping.RwCommentMapper;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @SuppressWarnings("all")
@@ -56,6 +55,12 @@ public class RewardService {
 	protected RwAnswerMapper rwAnswerMapper;
 	@Autowired
 	protected RwApplyDetailMapper rwApplyDetailMapper;
+	@Autowired
+	protected AttachMapper attachMapper;
+
+	@Value("${fileUpload.rootPath}")
+	private String rootPath;
+
 	/**
 	 * table切换红包任务列表
 	 * @return Result
@@ -84,14 +89,49 @@ public class RewardService {
 		return result;
 	}
 	
-	public Result<?> createRw(RwAsk rwAsk) {
+	public Result<?> addRwAsk(RwAsk rwAsk,MultipartFile file) throws IOException {
+
+		String filePath = "/upload/rwAsk/" + rwAsk.getCreateBy() + "/";
+		//上传文件
+		String fileName = saveFile(file, filePath);
+		//保存文件记录
+		if(!StringUtils.isEmpty(fileName)){
+			String originalFilename = file.getOriginalFilename();
+			Attach attach = new Attach();
+			attach.setAttachGroup(UUID.randomUUID().toString());
+			attach.setFileName(originalFilename);
+			attach.setExtension(originalFilename.substring(originalFilename.lastIndexOf('.')));
+			attach.setSaveName(fileName);
+			attach.setSavePath(filePath + fileName);
+			attach.setSize((int) file.getSize());
+			attach.setCreateBy(rwAsk.getCreateBy());
+			attach.setCreateTime(new Date());
+			attachMapper.insertSelective(attach);
+			//更新附件id到红包任务表
+			rwAsk.setAttachGroup(attach.getAttachGroup());
+		}
+
 		int count = rwAskMapper.insertSelective(rwAsk);
 		if (count < 1) {
 			return new Result<>(ResultEnum.SERVER_ERROR, "创建红包异常");
 		}
 		// 返回ID
-		int rwId = rwAsk.getId() ; 
-		return new Result<>(ResultEnum.SUCCESS, rwId);
+		return new Result<>(ResultEnum.SUCCESS, rwAsk.getId());
+	}
+
+	/**
+	 * 上传文件
+	 * @param file
+	 * @param filePath
+	 * @return 文件名
+	 * @throws IOException
+	 */
+	public String saveFile(MultipartFile file,String filePath) throws IOException {
+		if (file != null && file.getSize() > 0) {
+			//上传文件
+			return FileUtils.fileUpload(file, rootPath, filePath);
+		}
+		return "";
 	}
 	
 	public PageInfo<RwDetailDto> searchRWByTitle(String title,int pageNum,int pageSize){
