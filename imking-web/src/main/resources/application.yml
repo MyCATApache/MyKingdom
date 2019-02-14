@@ -70,6 +70,6 @@ mybatis:
 #  type-handlers-package:
 
 fileUpload:
-  rootPath: D:/imFiles
-  #rootPath: /usr/local/file
+  #rootPath: D:/imFiles
+  rootPath: /usr/local/imFiles
   maxUploadFileSzie: 200 #mb
