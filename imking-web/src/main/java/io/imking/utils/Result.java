@@ -23,19 +23,19 @@ public class Result<T> {
 		this.desc = resultEnum.getDesc();
 	}
 
-	public Result(ResultEnum resultEnum, T data) {
-		this.status = resultEnum.getCode();
-		this.desc = resultEnum.getDesc();
-		this.data = data;
-	}
-
 	public Result<T> ok(T data) {
 		this.data = data;
 		this.status = ResultEnum.SUCCESS.getCode();
 		this.desc = ResultEnum.SUCCESS.getDesc();
 		return this;
 	}
-	
+
+	public Result(ResultEnum resultEnum, T data) {
+		this.status = resultEnum.getCode();
+		this.desc = resultEnum.getDesc();
+		this.data = data;
+	}
+
 	public Result<T> error(T data) {
 		this.data = data;
 		this.status = ResultEnum.SERVER_ERROR.getCode();

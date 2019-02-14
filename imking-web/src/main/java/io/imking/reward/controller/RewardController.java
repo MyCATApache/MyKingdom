@@ -13,6 +13,7 @@ import io.imking.reward.services.RwAskService;
 import io.imking.utils.Result;
 import io.imking.utils.ResultEnum;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @RestController
@@ -79,18 +81,39 @@ public class RewardController {
 	}
 
 
-    @PostMapping("/add")
+    /**
+     * 新增红包
+     * @param type
+     * @param title
+     * @param content
+     * @param isTop
+     * @param topAmount
+     * @param topExpirationDate
+     * @param taskAmount
+     * @param file
+     * @return
+     * @throws IOException
+     * @author zhanyd
+     */
+    @PostMapping("/addRwAsk")
     @ResponseBody
-    public Result<?> newRw(@RequestParam(required=true) String title
-    		) {
+    public Result<?> addRwAsk(Byte type,String title,String content,Boolean isTop, Integer topAmount,
+							  Date topExpirationDate, Integer taskAmount,MultipartFile file) throws IOException {
     	//TODO: 用户注册方式待定 暂时为1
     	int create_by = 1;
     	RwAsk rwAsk = new RwAsk();
+		rwAsk.setType(type);
+		rwAsk.setRwAskIndex((byte)0);
     	rwAsk.setTitle(title);
+		rwAsk.setContent(content);
+		rwAsk.setIsTop(isTop);
+		rwAsk.setTopAmount(topAmount);
+		rwAsk.setTopExpirationDate(topExpirationDate);
+		rwAsk.setTaskAmount(taskAmount);
     	rwAsk.setStatus(RewardStatusEnum.OPEN.getCode());
     	rwAsk.setCreateBy(create_by);
     	rwAsk.setCreateTime(new Date());
-    	return rewardService.createRw(rwAsk);
+    	return rewardService.addRwAsk(rwAsk,file);
     }
     
     @GetMapping("/list")

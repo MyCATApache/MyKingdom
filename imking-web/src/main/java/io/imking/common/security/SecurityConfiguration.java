@@ -55,7 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 .authorizeRequests()
 		 .antMatchers("/").permitAll()
      .antMatchers(HttpMethod.POST, "/api/user/signup").permitAll()  
-     .antMatchers("/common/**","/courses/**","/my/**","/office/**","/opensource/**","/reward/**","/biz/**").permitAll()
+     .antMatchers("/common/**","/courses/**","/my/**","/office/**","/opensource/**","/api/reward/**","/biz/**").permitAll()
      .anyRequest().authenticated()
      .and()  
      .addFilter(new JWTLoginFilter(authenticationManager()))  
